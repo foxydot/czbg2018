@@ -39,6 +39,7 @@ system/assets/plugins/*
 !system/assets/plugins/msd*
 system/assets/plugins/msd-bootstrap-tools
 system/assets/plugins/msd-specialty-pages
+system/assets/plugins/msd_site_settings
 # !system/assets/plugins/my-directory-plugin/
 system/wp-content/plugins/*
 !system/wp-content/plugins/msd*
