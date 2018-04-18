@@ -8,6 +8,7 @@
             <p><input type="checkbox" id="bannerbool" name="<?php $mb->the_name(); ?>" value="true"<?php $mb->the_checkbox_state('true'); ?>/> Use page banner?</p>
         </td>
     </tr>
+    <?php /*
     <?php $mb->the_field('banneralign'); ?>
     <tr valign="top" class="switchable">
         <th scope="row"><label for="banneralign"></label>Banner alignment</th>
@@ -16,6 +17,7 @@
             <p><input type="radio" name="<?php $mb->the_name(); ?>" value="imageright"<?php $mb->the_radio_state('imageright'); ?>/> Image right/text left</p>
         </td>
     </tr>
+    */ ?>
     <?php $mb->the_field('bannerimage'); ?>
     <tr valign="top" class="switchable">
         <th scope="row"><label for="bannerimage">Banner Image</label></th>
@@ -35,6 +37,7 @@
             <?php echo $wpalchemy_media_access->getButton(array('label' => $img_btn_label)); ?>
         </td>
     </tr>
+    <?php /*
     <?php $mb->the_field('bannercontent'); ?>
     <tr valign="top" class="switchable">
         <th scope="row"><label for="bannercontent">Banner Content</label></th>
@@ -47,6 +50,7 @@
             ?>
         </td>
     </tr>
+    */ ?>
     <?php $mb->the_field('bannerclass'); ?>
     <tr valign="top" class="switchable">
         <th scope="row"><label for="bannerclass">Any custom class names for banner styling</label></th>

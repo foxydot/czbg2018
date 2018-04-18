@@ -19,30 +19,3 @@
 /* Neutrals */
 /* Default Colors */
 /* Social Colors */
-.site-inner {
-  display: none; }
-
-.sectioned-page-wrapper .section.section-pricing .section-body .section-content.column-1 {
-  background: #CCC;
-  color: #2A2B30;
-  font-weight: 800;
-  padding: 2em; }
-
-.sectioned-page-wrapper .section.section-pricing .section-body .section-content.column-2 svg {
-  transform: scaleY(1.07) translateY(13px); }
-  .sectioned-page-wrapper .section.section-pricing .section-body .section-content.column-2 svg .st1 {
-    fill: #2EA645; }
-
-.sectioned-page-wrapper .section.section-pricing .section-body .section-content.column-3, .sectioned-page-wrapper .section.section-pricing .section-body .section-content.column-4 {
-  text-align: left; }
-  .sectioned-page-wrapper .section.section-pricing .section-body .section-content.column-3 ul, .sectioned-page-wrapper .section.section-pricing .section-body .section-content.column-4 ul {
-    padding-left: 2em; }
-    .sectioned-page-wrapper .section.section-pricing .section-body .section-content.column-3 ul li, .sectioned-page-wrapper .section.section-pricing .section-body .section-content.column-4 ul li {
-      text-indent: -1.4em;
-      padding-left: 2em; }
-      .sectioned-page-wrapper .section.section-pricing .section-body .section-content.column-3 ul li:before, .sectioned-page-wrapper .section.section-pricing .section-body .section-content.column-4 ul li:before {
-        content: '\f111'; }
-
-@media only screen and (min-width: 768px) {
-  .sectioned-page-wrapper {
-    padding-top: 80px; } }

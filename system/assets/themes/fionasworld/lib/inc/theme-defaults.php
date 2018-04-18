@@ -53,3 +53,17 @@ function genesis_msdlab_child_setting_defaults() {
 	update_option( 'posts_per_page', 6 );
 
 }
+
+
+add_action('dynamic_sidebar_before','czbg2018_wrap_footer_widget_area',10,2);
+function czbg2018_wrap_footer_widget_area($index,$has_widgets){
+    if(strstr($index,'footer') && $has_widgets){
+        print '<div class="container">';
+    }
+}
+add_action('dynamic_sidebar_after','czbg2018_close_wrap_footer_widget_area',10,2);
+function czbg2018_close_wrap_footer_widget_area($index,$has_widgets){
+    if(strstr($index,'footer') && $has_widgets){
+        print '</div>';
+    }
+}

@@ -4,10 +4,11 @@
 ---------------------------------------------------------------------------------------------------- */
 
 .site-header {
-  background-color: $white;
-  padding: 20px 0;
+  padding: 0;
   transition: all 0.8s;
   border: 0;
+  margin: 0 !important;
+  background-color: rgba($dkgrey,0.8);
 }
 
 /* ## Title Area
@@ -15,14 +16,15 @@
 
 .title-area {
   float: none;
-  padding: 10px 0;
+  padding: 14px 0;
   margin: 0 auto;
   text-align: center;
 }
 
 .header-image .title-area {
+  background-color: $white;
   margin: 0 auto;
-  padding: 0;
+  padding: 30px 0 0;
 }
 
 .header-full-width .title-area {
@@ -40,8 +42,9 @@
 .site-title a:hover {
   color: #333;
   text-decoration: none;
-  min-height: 5em;
+  min-height: 4em;
   padding-top: 3em;
+  padding-bottom: 0.5em;
 }
 
 /* Logo, hide text */
@@ -90,6 +93,10 @@
 .site-header .widget-area {
   float: right;
   text-align: right;
+}
+
+.header-buffer{
+  min-height: 280px;
 }
 
 .page-title-area{

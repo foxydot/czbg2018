@@ -1,7 +1,6 @@
 @media only screen and (min-width: 768px) {
 
   .site-header{
-    max-height: 200px;
   }
   /* Accessible Menu
   --------------------------------------------- */
@@ -23,24 +22,26 @@
   }
 
   .footer-widgets {
-    .connected-social{
-      .social-media{
-        margin: 0.5em 0;
-        margin: 0 auto;
-        a.fa{
-          font-size: 1.4em;
-          height: 2em;
-          margin: 0.5em;
-          line-height: 2;
-          width: 2em;
-        }
-        a.fa.last-child{
-          margin-right: 0;
+    .footer-widget-area {
+      .connected-social {
+        .social-media {
+          margin: 0.5em 0;
+          margin: 0 auto;
+          a.fa {
+            font-size: 1.4em;
+            height: 2em;
+            margin: 0.5em;
+            line-height: 2;
+            width: 2em;
+          }
+          a.fa.last-child {
+            margin-right: 0;
+          }
         }
       }
-    }
-    .search-form input:focus {
-      border: 0 solid #ddd;
+      .search-form input:focus {
+        border: 0 solid #ddd;
+      }
     }
   }
 

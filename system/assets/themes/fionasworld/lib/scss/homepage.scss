@@ -1,50 +1,10 @@
 @import "bootstrap-overrides.scss";
 @import "mixins.scss";
 
-.site-inner{
-  display: none;
-}
 
-.sectioned-page-wrapper{
-  .section.section-pricing{
-    .section-body{
-      .section-content.column-1{
-        background: $ltgrey;
-        color: $dkgrey;
-        font-weight: 800;
-        padding: 2em;
-      }
-      .section-content.column-2{
-        svg{
-          transform: scaleY(1.07) translateY(13px);
-          .st1{
-            fill:$green;
-          }
-        }
-      }
-      .section-content{
-        &.column-3,&.column-4{
-          text-align: left;
-          ul{
-            padding-left: 2em;
-            li{
-              text-indent: -1.4em;
-              padding-left: 2em;
-              &:before{
-                content: '\f111';
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
 
 @media only screen and (min-width: 768px) {
-  .sectioned-page-wrapper{
-    padding-top: 80px;
-  }
+
 }
 
 @media only screen and (min-width: 1024px) {

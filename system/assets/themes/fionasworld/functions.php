@@ -28,8 +28,11 @@ function genesis_msdlab_child_localization_setup(){
 // Add the helper functions.
 include_once( get_stylesheet_directory() . '/lib/inc/helper-functions.php' );
 include_once( get_stylesheet_directory() . '/lib/inc/msd-functions.php' ); //should this go to plugin?
+include_once( get_stylesheet_directory() . '/lib/inc/fixed-header-support.php' );
 include_once( get_stylesheet_directory() . '/lib/inc/page-banner-support.php' );
+include_once( get_stylesheet_directory() . '/lib/inc/sidebar-content-support.php' );
 include_once( get_stylesheet_directory() . '/lib/inc/genesis_blog_grid.php' );
+new MSDLab_Sidebar_Content_Support(array());
 new MSDLab_Page_Banner_Support(array());
 
 // Child theme (do not remove).
@@ -55,7 +58,6 @@ add_theme_support( 'genesis-structural-wraps', array(
     'menu-primary',
     'menu-secondary',
     'footer',
-    'footer-widgets',
 ) );
 
 /***Tools Plugin**/
@@ -129,6 +131,7 @@ add_filter( 'genesis_post_info', 'msdlab_post_info_filter' );
 //remove_action('genesis_entry_header','genesis_do_post_title'); //move the title out of the content area
 //add_action('msdlab_title_area','msdlab_do_section_title');
 add_action('genesis_header', 'genesis_do_breadcrumbs', 11); //to outside of the loop area
+add_action('genesis_after_header',array('MSDLab_Fixed_Header_Support','do_header_buffer'));
 add_action('genesis_after_header','msdlab_do_title_area');
 
 remove_action('genesis_entry_content', 'genesis_do_post_image',8);
@@ -149,7 +152,7 @@ add_action( 'genesis_after_endwhile', 'msdlab_prev_next_post_nav' );
 
 
 /*** FOOTER ***/
-add_theme_support( 'genesis-footer-widgets', 1 ); //adds automatic footer widgets
+add_theme_support( 'genesis-footer-widgets', 2 ); //adds automatic footer widgets
 //add the menu
 //add_action('genesis_before_footer','msdlab_do_footer_menu', 20);
 
@@ -201,3 +204,5 @@ function genesis_msdlab_child_comments_gravatar( $args ) {
 
 
 include_once( get_stylesheet_directory() . '/lib/inc/sectioned-page-output.php' );
+
+remove_theme_support( 'genesis-inpost-layouts' );
