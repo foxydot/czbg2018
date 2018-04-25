@@ -50,6 +50,8 @@ class MSDLabClientCustom
         if(class_exists('MSDTeamCPT')){
             $this->team_class = new MSDTeamCPT();
         }
+        require_once(plugin_dir_path(__FILE__) . 'lib/inc/sectioned-pages.php');
+
 
         register_activation_hook( __FILE__, create_function('','flush_rewrite_rules();') );
         register_deactivation_hook( __FILE__, create_function('','flush_rewrite_rules();') );

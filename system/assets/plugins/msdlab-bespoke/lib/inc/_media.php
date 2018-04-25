@@ -9,3 +9,19 @@
 function msdlab_placeholder_image($output, $args, $id, $html, $url, $src){
     return $output;
 }
+
+
+if(!function_exists('get_attachment_id_from_src')){
+    function get_attachment_id_from_src ($src) {
+        global $wpdb;
+        $reg = "/-[0-9]+x[0-9]+?.(jpg|jpeg|png|gif)$/i";
+        $src1 = preg_replace($reg,'',$src);
+        if($src1 != $src){
+            $ext = pathinfo($src, PATHINFO_EXTENSION);
+            $src = $src1 . '.' .$ext;
+        }
+        $query = "SELECT ID FROM {$wpdb->posts} WHERE guid='$src'";
+        $id = $wpdb->get_var($query);
+        return $id;
+    }
+}
