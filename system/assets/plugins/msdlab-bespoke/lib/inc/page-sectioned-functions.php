@@ -22,7 +22,10 @@ class MSDSectionedPage{
         /**
          * Initializes the plugin by setting filters and administration functions.
          */
-   function __construct() {    
+   function __construct() {
+       add_action('wp_enqueue_scripts', array(&$this,'enqueue_scripts'));
+       add_action('genesis_after_content_sidebar_wrap',array(&$this,'sectioned_page_output'),30);
+       add_action('wp_print_footer_scripts',array(&$this,'sectioned_page_footer_js'));
         }
         
     function add_metaboxes(){
@@ -63,7 +66,7 @@ class MSDSectionedPage{
             }
         }
         $wrapped_title = trim($title) != ''?apply_filters('msdlab_sectioned_page_output_title','<div class="section-title">
-            <h3 class="wrap">
+            <h3 class="wrap container">
                 '.$title.'
             </h3>
         </div>'):'';
@@ -86,7 +89,7 @@ class MSDSectionedPage{
         
                 '.$wrapped_title.'
             <div class="section-body">
-                <div class="wrap">
+                <div class="wrap container">
                     '.$featured_image.'
                     '.$subtitle.'
                     '.$header.'
@@ -175,7 +178,7 @@ class MSDSectionedPage{
         
                 '.$wrapped_title.'
             <div class="section-body">
-                <div class="wrap">
+                <div class="wrap container">
                     '.$featured_image.'
                     '.$subtitle.'
                     '.$header.'
@@ -255,6 +258,17 @@ class MSDSectionedPage{
                 
                 </script><?php
             }
+        }
+
+        function enqueue_scripts(){
+            wp_deregister_script('greensock');
+            wp_enqueue_script('tweenlite',plugin_dir_url(__DIR__). 'js/greensock/TweenLite.min.js');
+            wp_enqueue_script('tweenmax',plugin_dir_url(__DIR__). 'js//greensock/TweenMax.min.js');
+            wp_enqueue_script('timelinelite',plugin_dir_url(__DIR__). 'js//greensock/TimelineLite.min.js');
+            wp_enqueue_script('greensock-easepack',plugin_dir_url(__DIR__). 'js/greensock/easing/EasePack.min.js');
+            wp_enqueue_script('greensock-css',plugin_dir_url(__DIR__). 'js/greensock/plugins/CSSPlugin.min.js');
+            wp_enqueue_script('tweenmax-jquery',plugin_dir_url(__DIR__). 'js/greensock/jquery.gsap.min.js',array('jquery','tweenmax'));
+            wp_enqueue_script('scroll-magic',plugin_dir_url(__DIR__). 'js/jquery.scrollmagic.min.js',array('jquery','tweenmax'));
         }
         
         function enqueue_admin(){

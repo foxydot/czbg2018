@@ -12,18 +12,16 @@
   font-size: $size*1em;
 }
 
-@mixin customheader($size:1){
-  font-family: 'Lato', sans-serif;
+@mixin serif($size:1) {
+  font-family: 'Roboto Slab', sans-serif;
   text-rendering: optimizeLegibility !important;
   -webkit-font-smoothing: antialiased !important;
   font-weight: 400;
   font-size: $size*1em;
 }
 
-@mixin serif($size:1) {
-  font-family: 'Roboto Slab', sans-serif;
-  font-weight: 400;
-  font-size: $size*1em;
+@mixin customheader($size:1){
+  @include serif($size);
 }
 
 @mixin fontawesome {
@@ -74,7 +72,7 @@ $link_hvr: $green;
 $border: $ltgrey;
 $input_bkg: $offwhite;
 $input_border: $ltgrey;
-$btn_bkg: $green;
+$btn_bkg: $orange;
 $btn_txt: $offwhite;
 $btn_hvr_bkg: $ltgreen;
 $btn_hvr_txt: $offwhite;

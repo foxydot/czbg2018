@@ -1,28 +1,10 @@
-.page-template-page-sectioned{
-  .site-container{
-    .site-inner{
-      display: none;
-      .content-sidebar-wrap{
-        main{
-          article{
-            .entry-header{
-              .entry-title{
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
 .sectioned-page-wrapper{
   position: relative;
   z-index: 10;
-  text-align: center;
+  text-align: left;
   .section{
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 8em 0;
     position: relative;
     .section-title{
       margin-bottom: 4em;
@@ -57,10 +39,20 @@
       }
     }
     p,li{
-      font-size: 1.6em;
     }
-    p.lead{
-      font-size: 2.4em;
+  }
+  .section.border-top .container{border-top: 1px solid $medgrey;padding-top: 1em; margin-top: 1em;}
+  .section.column-border .section-content:not(.last-child){border-right: 1px solid $medgrey;padding-right: 1em;}
+  .section.green-waves {
+    background-image: url(../images/greenwave.svg);
+    background-position: 50%;
+    background-size: auto 100%;
+    background-repeat: repeat;
+    .section-body{
+      font-size: 1.2em;
+      font-weight: 300;
+      line-height: 1.4;
+      text-align: center;
     }
   }
   .section.overlay{
@@ -97,117 +89,9 @@
       text-align: left;
     }
   }
-  .section{
-    .text-green{
-      color: $green;
-    }
-    p.price{
-      font-size: 6.5em;
-      color: $green;
-      span.price-desc{
-        font-size: 1.4rem;
-      }
-    }
-    i.icon {
-      font-size: 4em;
-      border: 4px solid $green;
-      width: 2.5em;
-      height: 2.5em;
-      padding: 0.5em 0.5em 0em;
-      border-radius: 50%;
-      transition: all 0.5s;
-      display: inline-block;
-      text-align: center;
-      &:hover{
-        background: $green;
-        color: $offwhite;
-      }
-    }
-    i.fa {
-      font-size: 4em;
-      transition: all 0.5s;
-      display: inline-block;
-    }
-  }
-  a.fa.fa-angle-down {
-    padding: 10px 15px;
-    color: #FCFCFC;
-    border: 2px solid $offwhite;
-    border-radius: 50%;
-    font-size: 24px;
-    margin-top: 100px;
-    transition: all 0.5s;
-    &:hover{
-      background: $green;
-      color: $offwhite;
-      border: 2px solid $green;
-    }
-  }
-  //specific sections
-  .section.first-child{
-    padding-top: 27em;
-    &.overlay{
-      padding-top: 0;
-    }
-    .overlay{
-      padding-top: 27em;
-      height: 750px;
-      .section-title h3{
-        font-size: 4em;
-        font-weight: 500;
-      }
-    }
-  }
-  .section.section-pricing{
-    .section-body{
-      .row {
-        margin-bottom: 4em;
-        .section-content {
-          ul {
-            li:before {
-              content: '\f005';
-            }
-          }
-        }
-      }
-    }
-  }
-  .section.section-team{
-    .social-btn{
-      display: inline-block;
-      border: 2px solid $green;
-      background: $green;
-      color: $offwhite;
-      border-radius: 50%;
-      margin: 0.5em;
-      padding: 0.5em;
-      width: 2.3em;
-      height: 2.3em;
-      transition: all 0.5s;
-      &:hover{
-        background: $offwhite;
-        color: $green;
-      }
-    }
-  }
 }
 
 @media only screen and (min-width: 768px) {
   .sectioned-page-wrapper {
-    .section{
-      i.fa.fa-plus{
-        margin-top: 0.8em;
-      }
-    }
-    .section.section-who{
-      .section-body{
-        ul{
-          li{
-            margin-left: 7em;
-            text-indent: -1.3em;
-          }
-        }
-      }
-    }
   }
 }

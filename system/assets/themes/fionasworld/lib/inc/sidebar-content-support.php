@@ -87,13 +87,13 @@ if (!class_exists('MSDLab_Sidebar_Content_Support')) {
                 $sidebarintro = apply_filters('the_content',$sidebar_content_metabox->get_the_value('sidebarintro'));
                 $sidebarcontent = apply_filters('the_content',$sidebar_content_metabox->get_the_value('sidebarcontent'));
                 global $post;
-                if(strlen($sidebarintro > 0)){
-                    $sidebarintro = sprintf('<div class="sidebarintro">%1</div>',$sidebarintro);
+                if(count($sidebarintro > 0)){
+                    $sidebarintro = sprintf('<div class="sidebarintro">%s</div>',$sidebarintro);
                 }
-                if(strlen($sidebarcontent > 0)){
-                    $sidebarcontent = sprintf('<div class="sidebarcontent">%1</div>',$sidebarcontent);
+                if(count($sidebarcontent > 0)){
+                    $sidebarcontent = sprintf('<div class="sidebarcontent">%s</div>',$sidebarcontent);
                 }
-                print '<div class="sidebarcontent '.$sidebarclass.'">'.$sidebarintro.$sidebarcontent.'</div>';
+                print '<div class="manual-sidebar '.$sidebarclass.'">'.$sidebarintro.$sidebarcontent.'</div>';
             }
         }
 

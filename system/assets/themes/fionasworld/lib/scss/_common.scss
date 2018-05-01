@@ -88,24 +88,26 @@
 }
 
 .entry-title {
-  color: $green;
+  color: $dkgrey;
   font-weight: 400;
 }
 
 .entry-title a,
 .sidebar .widget-title a {
-  color: $green;
+  color: $dkgrey;
   text-decoration: none;
 }
 
 .entry-title a:focus,
 .entry-title a:hover {
-  color: $ltgreen;
+  color: $medgrey;
 }
 
 .widget-title {
-  color: $green;
-  margin-bottom: 20px;
+  @include sansserif(2.4);
+  font-weight: 700;
+  color: $orange;
+  margin-bottom: 0;
 }
 
 /* ## WordPress
