@@ -259,13 +259,13 @@ class MSDSectionedPage{
         
         function enqueue_admin(){
                 //js
-                wp_enqueue_script('spectrum',plugin_dir_path(__DIR__). 'js/spectrum.js',array('jquery'));
+                wp_enqueue_script('spectrum',plugin_dir_url(__DIR__). 'js/spectrum.js',array('jquery'));
                 wp_enqueue_script('jquery-ui-core');
                 wp_enqueue_script('jquery-ui-sortable');
                 wp_enqueue_script('jquery-ui-accordion');
-                wp_enqueue_script('sectioned-admin',plugin_dir_path(__DIR__). 'js/sectioned-input.js',array('jquery','jquery-ui-sortable','jquery-ui-accordion'));
+                wp_enqueue_script('sectioned-admin',plugin_dir_url(__DIR__). 'js/sectioned-input.js',array('jquery','jquery-ui-sortable','jquery-ui-accordion'));
              //css
-                wp_enqueue_style('spectrum',plugin_dir_path(__DIR__). 'css/spectrum.css');
-                wp_enqueue_style('sectioned-admin',plugin_dir_path(__DIR__). 'css/sectioned.css');
+                wp_enqueue_style('spectrum',plugin_dir_url(__DIR__). 'css/spectrum.css');
+                wp_enqueue_style('sectioned-admin',plugin_dir_url(__DIR__). 'css/sectioned.css');
         }
 }
