@@ -994,21 +994,32 @@ img.alignright,
 .header-buffer {
   min-height: 280px; }
 
-.page-title-area .banner .wrap, .page-title-area .banner .container {
+.page-title-area .banner .wrap .gradient .bannertext .entry-title, .page-title-area .banner .container .gradient .bannertext .entry-title {
+  font-family: 'Roboto Slab', sans-serif;
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+  font-weight: 400;
+  font-size: 5em;
+  color: #2A2B30;
+  text-transform: none; }
+  .page-title-area .banner .wrap .gradient .bannertext .entry-title a, .page-title-area .banner .container .gradient .bannertext .entry-title a {
+    color: #2A2B30; }
+
+.page-title-area .banner.has-background .wrap, .page-title-area .banner.has-background .container {
   background-repeat: no-repeat;
   background-size: cover; }
-  .page-title-area .banner .wrap .gradient, .page-title-area .banner .container .gradient {
+  .page-title-area .banner.has-background .wrap .gradient, .page-title-area .banner.has-background .container .gradient {
     background-attachment: fixed;
     padding: 8em 0;
     min-height: 45vw;
     position: relative;
     text-align: center; }
-    .page-title-area .banner .wrap .gradient .bannertext, .page-title-area .banner .container .gradient .bannertext {
+    .page-title-area .banner.has-background .wrap .gradient .bannertext, .page-title-area .banner.has-background .container .gradient .bannertext {
       position: absolute;
       bottom: 0;
       left: 0;
       right: 0; }
-      .page-title-area .banner .wrap .gradient .bannertext .entry-title, .page-title-area .banner .container .gradient .bannertext .entry-title {
+      .page-title-area .banner.has-background .wrap .gradient .bannertext .entry-title, .page-title-area .banner.has-background .container .gradient .bannertext .entry-title {
         font-family: 'Roboto Slab', sans-serif;
         text-rendering: optimizeLegibility !important;
         -webkit-font-smoothing: antialiased !important;
@@ -1016,7 +1027,7 @@ img.alignright,
         font-size: 5em;
         color: #FCFCFC;
         text-transform: none; }
-        .page-title-area .banner .wrap .gradient .bannertext .entry-title a, .page-title-area .banner .container .gradient .bannertext .entry-title a {
+        .page-title-area .banner.has-background .wrap .gradient .bannertext .entry-title a, .page-title-area .banner.has-background .container .gradient .bannertext .entry-title a {
           color: #FCFCFC; }
 
 @media only screen and (max-width: 767px) {
@@ -1833,9 +1844,9 @@ p.entry-meta {
     text-align: right; }
   .page-title-area {
     background: #FFF; }
-    .page-title-area .banner .texturize .gradient {
+    .page-title-area .banner.has-background .texturize .gradient {
       min-height: 400px; }
-  .page-title-area .banner .wrap .gradient {
+  .page-title-area .banner.has-background .wrap .gradient {
     min-height: 450px; }
   /* # Nav
   ---------------------------------------------------------------------------------------------------- */
