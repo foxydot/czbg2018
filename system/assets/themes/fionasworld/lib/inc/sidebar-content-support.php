@@ -50,9 +50,21 @@ if (!class_exists('MSDLab_Sidebar_Content_Support')) {
 
         function footer_hook()
         {
-            ?><script type="text/javascript">
-            jQuery('#titlediv').after(jQuery('#_sidebar_content_metabox'));
+            $postid = is_admin()?$_GET['post']:$post->ID;
+            $template_file = get_post_meta($postid,'_wp_page_template',TRUE);
+            // check for a template type
+            if (is_admin()){
+                if($template_file == 'landing-page.php' ) {
+                    //js to remove
+                    ?><script type="text/javascript">
+                        jQuery('#_sidebar_content_metabox').remove();
+                    </script><?php
+                } else {
+                    ?><script type="text/javascript">
+                        jQuery('#titlediv').after(jQuery('#_sidebar_content_metabox'));
         </script><?php
+                }
+            }
         }
 
         function maybe_remove_sidebar_widgets(){
@@ -88,7 +100,7 @@ if (!class_exists('MSDLab_Sidebar_Content_Support')) {
                 $sidebarcontent = apply_filters('the_content',$sidebar_content_metabox->get_the_value('sidebarcontent'));
                 global $post;
                 if(count($sidebarintro > 0)){
-                    $sidebarintro = sprintf('<div class="sidebarintro">%s</div>',$sidebarintro);
+                    $sidebarintro = sprintf('<div class="sidebarintro intro-text">%s</div>',$sidebarintro);
                 }
                 if(count($sidebarcontent > 0)){
                     $sidebarcontent = sprintf('<div class="sidebarcontent">%s</div>',$sidebarcontent);

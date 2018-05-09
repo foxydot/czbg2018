@@ -180,7 +180,7 @@ body {
   -webkit-font-smoothing: antialiased !important;
   font-weight: 400;
   font-size: 1em;
-  color: #2A2B30;
+  color: #666;
   -webkit-font-smoothing: antialiased;
   line-height: 1.625;
   margin: 0; }
@@ -236,7 +236,7 @@ i {
 
 mark {
   background: #FFF;
-  color: #2A2B30; }
+  color: #666; }
 
 blockquote {
   margin: 40px; }
@@ -397,7 +397,7 @@ input[type="reset"],
 input[type="submit"],
 .button,
 a.btn {
-  background-color: #f90;
+  background-color: #FFCC66;
   border: 0;
   color: #FCFCFC;
   cursor: pointer;
@@ -548,9 +548,6 @@ th:first-child {
   float: none;
   order: 2; }
 
-.full-width-content .content {
-  width: 100%; }
-
 /* ### Primary Sidebar */
 .sidebar-primary {
   float: none; }
@@ -682,12 +679,12 @@ th:first-child {
   font-size: 2rem; }
 
 .entry-title {
-  color: #2A2B30;
+  color: #666;
   font-weight: 400; }
 
 .entry-title a,
 .sidebar .widget-title a {
-  color: #2A2B30;
+  color: #666;
   text-decoration: none; }
 
 .entry-title a:focus,
@@ -701,7 +698,7 @@ th:first-child {
   font-weight: 400;
   font-size: 2.4em;
   font-weight: 700;
-  color: #f90;
+  color: #FFCC66;
   margin-bottom: 0; }
 
 /* ## WordPress
@@ -918,7 +915,7 @@ img.alignright,
   transition: all 0.8s;
   border: 0;
   margin: 0 !important;
-  background-color: rgba(42, 43, 48, 0.8); }
+  background-color: rgba(102, 102, 102, 0.8); }
 
 /* ## Title Area
 --------------------------------------------- */
@@ -994,41 +991,42 @@ img.alignright,
 .header-buffer {
   min-height: 280px; }
 
-.page-title-area .banner .wrap .gradient .bannertext .entry-title, .page-title-area .banner .container .gradient .bannertext .entry-title {
-  font-family: 'Roboto Slab', sans-serif;
-  text-rendering: optimizeLegibility !important;
-  -webkit-font-smoothing: antialiased !important;
-  font-weight: 400;
-  font-size: 5em;
-  color: #2A2B30;
-  text-transform: none; }
-  .page-title-area .banner .wrap .gradient .bannertext .entry-title a, .page-title-area .banner .container .gradient .bannertext .entry-title a {
-    color: #2A2B30; }
-
-.page-title-area .banner.has-background .wrap, .page-title-area .banner.has-background .container {
-  background-repeat: no-repeat;
-  background-size: cover; }
-  .page-title-area .banner.has-background .wrap .gradient, .page-title-area .banner.has-background .container .gradient {
-    background-attachment: fixed;
-    padding: 8em 0;
-    min-height: 45vw;
-    position: relative;
-    text-align: center; }
-    .page-title-area .banner.has-background .wrap .gradient .bannertext, .page-title-area .banner.has-background .container .gradient .bannertext {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0; }
-      .page-title-area .banner.has-background .wrap .gradient .bannertext .entry-title, .page-title-area .banner.has-background .container .gradient .bannertext .entry-title {
-        font-family: 'Roboto Slab', sans-serif;
-        text-rendering: optimizeLegibility !important;
-        -webkit-font-smoothing: antialiased !important;
-        font-weight: 400;
-        font-size: 5em;
-        color: #FCFCFC;
-        text-transform: none; }
-        .page-title-area .banner.has-background .wrap .gradient .bannertext .entry-title a, .page-title-area .banner.has-background .container .gradient .bannertext .entry-title a {
-          color: #FCFCFC; }
+.page-title-area {
+  font-size: 1.4em; }
+  .page-title-area .banner .wrap .gradient .bannertext .entry-title, .page-title-area .banner .container .gradient .bannertext .entry-title {
+    font-family: 'Roboto Slab', sans-serif;
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+    font-weight: 400;
+    font-size: 4em;
+    color: #666;
+    text-transform: none; }
+    .page-title-area .banner .wrap .gradient .bannertext .entry-title a, .page-title-area .banner .container .gradient .bannertext .entry-title a {
+      color: #666; }
+  .page-title-area .banner.has-background .wrap, .page-title-area .banner.has-background .container {
+    background-repeat: no-repeat;
+    background-size: cover; }
+    .page-title-area .banner.has-background .wrap .gradient, .page-title-area .banner.has-background .container .gradient {
+      background-attachment: fixed;
+      padding: 8em 0;
+      min-height: 45vw;
+      position: relative;
+      text-align: center; }
+      .page-title-area .banner.has-background .wrap .gradient .bannertext, .page-title-area .banner.has-background .container .gradient .bannertext {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0; }
+        .page-title-area .banner.has-background .wrap .gradient .bannertext .entry-title, .page-title-area .banner.has-background .container .gradient .bannertext .entry-title {
+          font-family: 'Roboto Slab', sans-serif;
+          text-rendering: optimizeLegibility !important;
+          -webkit-font-smoothing: antialiased !important;
+          font-weight: 400;
+          font-size: 4em;
+          color: #FCFCFC;
+          text-transform: none; }
+          .page-title-area .banner.has-background .wrap .gradient .bannertext .entry-title a, .page-title-area .banner.has-background .container .gradient .bannertext .entry-title a {
+            color: #FCFCFC; }
 
 @media only screen and (max-width: 767px) {
   .genesis-responsive-menu {
@@ -1041,7 +1039,7 @@ img.alignright,
   .sub-menu-toggle {
     border-width: 0;
     background-color: #FFF;
-    color: #2A2B30;
+    color: #666;
     display: block;
     margin: 0 auto;
     overflow: hidden;
@@ -1474,11 +1472,11 @@ p.entry-meta {
   padding: 0.5vw 0;
   font-size: 1.4em; }
   .footer-widgets .footer-widget-area.footer-widgets-1 {
-    background-color: #2A2B30;
+    background-color: #666;
     color: #FCFCFC; }
   .footer-widgets .footer-widget-area.footer-widgets-2 {
     background-color: #FFF;
-    color: #2A2B30; }
+    color: #666; }
     .footer-widgets .footer-widget-area.footer-widgets-2 .widget img {
       max-height: 85px; }
   .footer-widgets .footer-widget-area .widget {
@@ -1556,7 +1554,7 @@ p.entry-meta {
 /* # Site Footer
 ---------------------------------------------------------------------------------------------------- */
 .site-footer {
-  background: #2A2B30;
+  background: #666;
   color: #FCFCFC;
   font-family: 'Lato', sans-serif;
   text-rendering: optimizeLegibility !important;
@@ -1643,7 +1641,7 @@ p.entry-meta {
           margin: 0; }
   .sectioned-page-wrapper .section.orange-bang .section-body .container p.first-child:before {
     border-radius: 50%;
-    background-color: #f90;
+    background-color: #FFCC66;
     color: #FFF;
     content: '!';
     min-width: 1.7em;
@@ -1669,7 +1667,7 @@ p.entry-meta {
       background-attachment: fixed;
       padding: 8em 0; }
   .sectioned-page-wrapper .section.bkg-dkgrey {
-    background-color: #2A2B30; }
+    background-color: #666; }
   .sectioned-page-wrapper .section.bkg-ltgrey {
     background-color: #CCC; }
   .sectioned-page-wrapper .section.bkg-green {
@@ -1677,7 +1675,7 @@ p.entry-meta {
   .sectioned-page-wrapper .section.bkg-white {
     background-color: #FCFCFC; }
   .sectioned-page-wrapper .section.text-dkgrey {
-    color: #2A2B30; }
+    color: #666; }
   .sectioned-page-wrapper .section.text-green {
     color: #2EA645; }
   .sectioned-page-wrapper .section.text-white {
@@ -1686,9 +1684,20 @@ p.entry-meta {
     text-align: left; }
 
 .entry-subtitle {
+  font-family: 'Lato', sans-serif;
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+  font-weight: 400;
   font-size: 1.8em;
-  color: #f90;
+  font-weight: 700;
+  color: #FFCC66;
   text-transform: uppercase; }
+
+.intro-text {
+  font-size: 1.2em;
+  font-weight: 300;
+  line-height: 1.4;
+  color: #666; }
 
 .symple-tabs .ui-tabs-nav li.ui-tabs-active a {
   background-color: #2EA645;
@@ -1707,13 +1716,9 @@ p.entry-meta {
   -webkit-font-smoothing: antialiased !important;
   font-weight: 400;
   font-size: 1.2em; }
-  .page-template-default .sidebar.sidebar-primary .manual-sidebar .sidebarintro, page-template-secondary .sidebar.sidebar-primary .manual-sidebar .sidebarintro {
-    font-size: 1.2em;
-    font-weight: 300;
-    line-height: 1.4; }
   .page-template-default .sidebar.sidebar-primary .manual-sidebar h4, page-template-secondary .sidebar.sidebar-primary .manual-sidebar h4 {
     font-size: 1.2em;
-    color: #f90;
+    color: #FFCC66;
     text-transform: uppercase; }
   .page-template-default .sidebar.sidebar-primary .manual-sidebar h5, page-template-secondary .sidebar.sidebar-primary .manual-sidebar h5 {
     font-family: 'Lato', sans-serif;
@@ -1722,6 +1727,9 @@ p.entry-meta {
     font-weight: 400;
     font-size: 1em;
     font-weight: 700; }
+
+.page-template-landing-page .intro-text {
+  padding: 2em 0 0; }
 
 @media only screen and (min-width: 768px) {
   /* Accessible Menu
@@ -1776,8 +1784,6 @@ p.entry-meta {
   .sidebar-content-sidebar .content {
     float: left;
     order: 1; }
-  .full-width-content .content {
-    width: 100%; }
   /* ### Primary Sidebar */
   .sidebar-primary {
     float: right; }
@@ -1853,7 +1859,7 @@ p.entry-meta {
   /* # Content
   ----------------------------------------------------------------------------------------------------- */
   .entry {
-    padding: 2em; }
+    padding: 0; }
   div.building-row div.building-item {
     width: 45%;
     display: inline-block;

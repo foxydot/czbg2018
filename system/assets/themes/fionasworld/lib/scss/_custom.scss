@@ -1,7 +1,14 @@
 .entry-subtitle{
-  font-size: 1.8em;
+  @include sansserif(1.8);
+  font-weight: 700;
   color: $orange;
   text-transform: uppercase;
+}
+.intro-text{
+  font-size: 1.2em;
+  font-weight: 300;
+  line-height: 1.4;
+  color: $dkgrey;
 }
 
 .symple-tabs{
@@ -29,11 +36,7 @@
       margin-top: 2em;
       @include sansserif(1.2);
       .sidebarcontent{}
-      .sidebarintro{
-        font-size: 1.2em;
-        font-weight: 300;
-        line-height: 1.4;
-      }
+      .sidebarintro{}
       h4{
         font-size: 1.2em;
         color: $orange;
@@ -44,5 +47,10 @@
         font-weight: 700;
       }
     }
+  }
+}
+.page-template-landing-page{
+  .intro-text{
+    padding: 2em 0 0;
   }
 }

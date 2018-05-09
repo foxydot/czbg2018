@@ -1,6 +1,6 @@
 <?php
 
-class rhinevestSections{
+class czbgSections extends MSDSectionedPage{
     
     function default_output($section,$i){
         //ts_data($section);
@@ -50,7 +50,7 @@ class rhinevestSections{
                 <div class="container">
                     '.$featured_image.'
                     '.$header.'
-                    '.$content.'
+                    <div class="row column-holder">'.$content.'</div>
                     '.$footer.'
                 </div>
             </div>
@@ -129,7 +129,7 @@ class rhinevestSections{
                 break;
         }
 
-        $central_content = '<div class="row">'.$central_content.'</div>';
+        $central_content = '<div class="row column-holder">'.$central_content.'</div>';
         //think about filtering the classes here
         $ret = '
         <div id="'.$slug.'" class="'.implode(' ', $classes).'"'.$background.'>
@@ -174,7 +174,7 @@ class rhinevestSections{
                 }
                 $i++;
             }//close while
-            print '<div class="sectioned-page-wrapper">';
+            print '<div class="sectioned-page-wrapper czbg">';
             print implode("\n",$sections);
             print '</div>';
         }//clsoe if

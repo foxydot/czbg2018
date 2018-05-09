@@ -91,22 +91,19 @@ if (!class_exists('MSDLab_Page_Banner_Support')) {
                     print '<div class="gradient">';
                     print '<div class="bannertext">';
                     print genesis_do_post_title();
+                    print '</div>';
+                    print '</div>';
+                    print '</div>';
+                    print '</div>';
                     if ($bannercontent != '') {
-                        print '<div class="bannercontent">' . $bannercontent . '</div>';
+                        print '<div class="bannercontent"><div class="wrap container"><div class="row intro-text">' . $bannercontent . '</div></div></div>';
                     }
-                    print '</div>';
-                    print '</div>';
-                    print '</div>';
-                    print '</div>';
                 } else {
                     print '<div class="banner clearfix container' . $banneralign . ' ' . $bannerclass . '">';
                     print '<div class="wrap col-xs-12"' . $background . '>';
                     print '<div class="gradient">';
                     print '<div class="bannertext">';
                     print genesis_do_post_title();
-                    if ($bannercontent != '') {
-                        print '<div class="bannercontent">' . $bannercontent . '</div>';
-                    }
                     print '</div>';
                     print '</div>';
                     print '</div>';

@@ -36,7 +36,7 @@ new MSDLab_Sidebar_Content_Support(array());
 new MSDLab_Page_Banner_Support(array());
 
 // Child theme (do not remove).
-define( 'CHILD_THEME_NAME', 'Deitrich' );
+define( 'CHILD_THEME_NAME', 'FionasWorld' );
 define( 'CHILD_THEME_URL', 'http://msdlab.com/' );
 define( 'CHILD_THEME_VERSION', '2.3.0' );
 
@@ -83,6 +83,9 @@ if(class_exists('MSDLab_Genesis_Bootstrap')){
     );
     $bootstrappin = new MSDLab_Genesis_Bootstrap($options);
 }
+
+
+
 if(class_exists('MSDLab_Genesis_Tweaks')){
     $options = array(
         'preheader' => 'genesis_header_right'
@@ -90,6 +93,7 @@ if(class_exists('MSDLab_Genesis_Tweaks')){
     $gtweaks = new MSDLab_Genesis_Tweaks($options);
 }
 if(class_exists('MSDLab_Subtitle_Support')){
+    global $subtitle_support;
     $options = array();
     $subtitle_support = new MSDLab_Subtitle_Support($options);
 }
@@ -201,7 +205,6 @@ function genesis_msdlab_child_comments_gravatar( $args ) {
 	return $args;
 
 }
-
 
 include_once( get_stylesheet_directory() . '/lib/inc/sectioned-page-output.php' );
 

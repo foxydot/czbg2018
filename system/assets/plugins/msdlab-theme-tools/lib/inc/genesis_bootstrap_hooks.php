@@ -30,6 +30,10 @@ class MSDLab_Genesis_Bootstrap
         add_action('admin_print_styles', array(&$this,'add_admin_styles'));
 
         add_filter('genesis_attr_breadcrumb', array(&$this,'msdlab_bootstrap_breadcrumb'), 10);
+
+
+        add_action('genesis_before_content_sidebar_wrap',array(&$this,'msdlab_bs_container'));
+        add_action('genesis_after_content_sidebar_wrap',array(&$this,'msdlab_bs_container'));
         add_filter('genesis_attr_content-sidebar-wrap', array(&$this,'msdlab_bootstrap_content_sidebar_wrap'), 10);
         add_filter('genesis_attr_content', array(&$this,'msdlab_bootstrap_content'), 10);
         add_filter('genesis_attr_sidebar-primary', array(&$this,'msdlab_bootstrap_sidebar'), 10);
@@ -65,13 +69,38 @@ class MSDLab_Genesis_Bootstrap
         return $attributes;
     }
 
+    function msdlab_bs_container(){
+        $layout = genesis_site_layout();
+        switch ($layout) {
+            case 'content-sidebar':
+            case 'sidebar-content':
+            case 'content-sidebar-sidebar':
+            case 'sidebar-sidebar-content':
+            case 'sidebar-content-sidebar':
+                switch( current_filter() )
+                {
+                    case 'genesis_before_content_sidebar_wrap':
+                        print '<div class="container">';
+                        break;
+                    case 'genesis_after_content_sidebar_wrap':
+                        print '</div>';
+                        break;
+                }
+                break;
+                break;
+            case 'full-width-content':
+                break;
+        }
+
+    }
+
     function msdlab_bootstrap_content_sidebar_wrap($attributes)
     {
         $layout = genesis_site_layout();
         switch ($layout) {
             case 'content-sidebar':
             case 'sidebar-content':
-                $attributes['class'] .= ' container row';
+                $attributes['class'] .= ' row';
                 break;
             case 'content-sidebar-sidebar':
             case 'sidebar-sidebar-content':

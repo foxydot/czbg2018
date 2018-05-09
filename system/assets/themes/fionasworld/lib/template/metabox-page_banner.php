@@ -1,4 +1,7 @@
-<?php global $wpalchemy_media_access; ?>
+<?php global $wpalchemy_media_access;
+$postid = is_admin()?$_GET['post']:$post->ID;
+$template_file = get_post_meta($postid,'_wp_page_template',TRUE);
+?>
 <table class="form-table page-banner-controls">
     <tbody>
     <?php $mb->the_field('bannerbool'); ?>
@@ -37,10 +40,10 @@
             <?php echo $wpalchemy_media_access->getButton(array('label' => $img_btn_label)); ?>
         </td>
     </tr>
-    <?php /*
+    <?php if($template_file == 'landing-page.php'){ ?>
     <?php $mb->the_field('bannercontent'); ?>
     <tr valign="top" class="switchable">
-        <th scope="row"><label for="bannercontent">Banner Content</label></th>
+        <th scope="row"><label for="bannercontent">Intro Text Content</label></th>
         <td>
             <?php
             $mb_content = html_entity_decode($mb->get_the_value(), ENT_QUOTES, 'UTF-8');
@@ -50,7 +53,7 @@
             ?>
         </td>
     </tr>
-    */ ?>
+    <?php } //endif ?>
     <?php $mb->the_field('bannerclass'); ?>
     <tr valign="top" class="switchable">
         <th scope="row"><label for="bannerclass">Any custom class names for banner styling</label></th>

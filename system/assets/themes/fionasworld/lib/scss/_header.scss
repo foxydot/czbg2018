@@ -100,12 +100,13 @@
 }
 
 .page-title-area{
+  font-size: 1.4em;
   .banner{
     .wrap, .container {
       .gradient {
         .bannertext {
           .entry-title {
-            @include serif(5);
+            @include serif(4);
             color: $dkgrey;
             text-transform: none;
             a {
@@ -132,7 +133,7 @@
             left: 0;
             right: 0;
             .entry-title {
-              @include serif(5);
+              @include serif(4);
               color: $offwhite;
               text-transform: none;
               a {
