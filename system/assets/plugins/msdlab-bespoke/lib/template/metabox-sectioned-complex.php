@@ -13,7 +13,7 @@
             <label>Section Name*</label>            
             <div class="input_container">
                 <input type="text" name="<?php $mb->the_name('section-name'); ?>" value="<?php $mb->the_value('section-name'); ?>"/><br />
-                <i>Please use a section name. This is used to produce identifying wrappers for the content!</i>
+                <i>This section name is for styling and identification only. It will not appear as readable text on the site</i>
             </div>
         </div>
         <div class="cell">  
@@ -30,7 +30,7 @@
             <?php $mb->the_field('layout'); ?>
             <label><?php print $section_name; ?> Layout</label>            
             <div class="input_container">
-                <select name="<?php $mb->the_name(); ?>" class="layout">
+                <select name="<?php $mb->the_name(); ?>" class="layout"> //switch to radio with images
                     <option value=""<?php $mb->the_select_state('default'); ?>>Default</option>
                     <option value="two-col"<?php $mb->the_select_state('two-col'); ?>>Two Columns</option>
                     <option value="three-col"<?php $mb->the_select_state('three-col'); ?>>Three Columns</option>
@@ -38,45 +38,19 @@
                 </select>
             </div>
         </div>
-        <div class="cell file">
-            <label>Background Image</label>
-            <div class="input_container">
-                <?php $mb->the_field('background-image'); ?>
-                <?php if($mb->get_the_value() != ''){
-                    $thumb_array = wp_get_attachment_image_src( get_attachment_id_from_src($mb->get_the_value()), 'thumbnail' );
-                    $thumb = $thumb_array[0];
-                } else {
-                    $thumb = WP_PLUGIN_URL.'/msd-specialty-pages/lib/img/spacer.gif';
-                } ?>
-                <img class="background-preview-img" src="<?php print $thumb; ?>">
-                <?php $group_name = 'background-img-'. $mb->get_the_index(); ?>
-                <?php $wpalchemy_media_access->setGroupName($group_name)->setInsertButtonLabel('Insert This')->setTab('gallery'); ?>
-                <?php echo $wpalchemy_media_access->getField(array('name' => $mb->get_the_name(), 'value' => $mb->get_the_value())); ?>
-                <?php echo $wpalchemy_media_access->getButton(array('label' => '+')); ?>
-        </div>
-        </div>
-        <div class="cell">  
-            <label>Parallax Background</label>
-            <div class="input_container">
-                <?php $mb->the_field('background-image-parallax'); ?>
-                <div class="ui-toggle-btn">
-                    <input type="checkbox" name="<?php $mb->the_name(); ?>" value="1"<?php $mb->the_checkbox_state('1'); ?>/> 
-                    <div class="handle" data-on="ON" data-off="OFF"></div>
-                </div>
-            </div>
-        </div>
         <div class="cell">
-            <label>Background Color</label>
-            <div class="input_container">
-                <?php $mb->the_field('background-color'); ?>
-                <input class="colorpicker" type="text" name="<?php $mb->the_name(); ?>" value="<?php $mb->the_value(); ?>"/>
-            </div>
-        </div>       
-        <div class="cell">
-            <?php $mb->the_field('css-classes'); ?>
-            <label>CSS Classes</label>            
-            <div class="input_container">
-                <input type="text" name="<?php $mb->the_name(); ?>" value="<?php $mb->the_value(); ?>"/><br />
+            <label>CSS Classes</label>
+            <div class="input_container" style="-moz-column-count: 3;
+-moz-column-gap: 1em;
+-webkit-column-count: 3;
+-webkit-column-gap: 1em;
+column-count: 3;
+column-gap: 1em;">
+                <?php $items = array('A' => 'a', 'B' => 'b', 'C' => 'c'); ?>
+                <?php foreach ($items as $i => $item): ?>
+                    <?php $mb->the_field('css-classes', WPALCHEMY_FIELD_HINT_CHECKBOX_MULTI); ?>
+                    <input type="checkbox" name="<?php $mb->the_name(); ?>" value="<?php echo $item; ?>"<?php $mb->the_checkbox_state($item); ?>/> <?php echo $i; ?><br/>
+                <?php endforeach; ?>
             </div>
         </div>
         </div>
@@ -120,7 +94,7 @@
                     <?php 
                     $mb->the_field('content-area-width');
                     ?>
-                    <input type="text" class="small" name="<?php $mb->the_name(); ?>" value="<?php $mb->the_value(); ?>" /> How many columns out of 12?
+                    <input type="text" class="small column-width" name="<?php $mb->the_name(); ?>" value="<?php $mb->the_value(); ?>" /> How many columns out of 12?
                 </div>
                 <label><span class="cols-2 cols-3 cols-4">Column 1 </span>Content</label>
                 <div class="input_container">
@@ -140,7 +114,7 @@
                     <?php 
                     $mb->the_field('column-'.$i.'-area-width');
                     ?>
-                    <input type="text" class="small" name="<?php $mb->the_name(); ?>" value="<?php $mb->the_value(); ?>" /> How many columns out of 12?
+                    <input type="text" class="small column-width" name="<?php $mb->the_name(); ?>" value="<?php $mb->the_value(); ?>" /> How many columns out of 12?
                 </div>
                 <label>Column <?php print $i; ?> Content</label>
                 <div class="input_container">
@@ -172,31 +146,6 @@
                         ?>
                    </div>
                </div>
-            </div>
-            <div class="cell file" style="display: none;">
-                <label>Feature Image</label>
-                <div class="input_container">
-                <?php $mb->the_field('content-area-image'); ?>
-                <?php if($mb->get_the_value() != ''){
-                    $thumb_array = wp_get_attachment_image_src( get_attachment_id_from_src($mb->get_the_value()), 'thumbnail' );
-                    $thumb = $thumb_array[0];
-                } else {
-                    $thumb = WP_PLUGIN_URL.'/msd-specialty-pages/lib/img/spacer.gif';
-                } ?>
-                <img class="content-area-preview-img" src="<?php print $thumb; ?>">
-                <?php $group_name = 'content-area-feature-img-'. $mb->get_the_index(); ?>
-                <?php $wpalchemy_media_access->setGroupName($group_name)->setInsertButtonLabel('Insert This')->setTab('gallery'); ?>
-                <?php echo $wpalchemy_media_access->getField(array('name' => $mb->get_the_name(), 'value' => $mb->get_the_value())); ?>
-                <?php echo $wpalchemy_media_access->getButton(array('label' => '+')); ?>
-                
-                <br />
-                <?php $mb->the_field('feature-image-float'); ?>
-                <strong>Feature image align:</strong> 
-                <input type="radio" name="<?php $mb->the_name(); ?>" value="none"<?php $mb->the_radio_state('none'); ?>/> None 
-                <input type="radio" name="<?php $mb->the_name(); ?>" value="left"<?php $mb->the_radio_state('left'); ?>/> Left 
-                <input type="radio" name="<?php $mb->the_name(); ?>" value="center"<?php $mb->the_radio_state('center'); ?>/> Center 
-                <input type="radio" name="<?php $mb->the_name(); ?>" value="right"<?php $mb->the_radio_state('right'); ?>/> Right 
-                </div>
             </div>
         </div>
         <div class="cell footer">

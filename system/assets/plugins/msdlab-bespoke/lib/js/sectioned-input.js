@@ -96,6 +96,23 @@ jQuery(function($){
             $(this).show();
         }
     });
+    $('.column-width').each(function(){
+        var layout = $(this).parents('.wpa_group-sections').find($('select.layout')).val();
+        if($(this).val() == ''){
+            if(layout === 'four-col'){
+                $(this).val('3');
+            }
+            else if(layout === 'three-col'){
+                $(this).val('4');
+            }
+            else if(layout === 'two-col'){
+                $(this).val('6');
+            }
+            else{
+                $(this).val('12');
+            }
+        }
+    });
     $('.range-value').html(function(){
         var section = $(this).parents('.cell');
         var range = section.find('.input-range').val();
