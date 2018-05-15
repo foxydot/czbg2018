@@ -40,7 +40,7 @@ $template_file = get_post_meta($postid,'_wp_page_template',TRUE);
             <?php echo $wpalchemy_media_access->getButton(array('label' => $img_btn_label)); ?>
         </td>
     </tr>
-    <?php if($template_file == 'landing-page.php'){ ?>
+    <?php if($template_file == 'menu-page.php'){ ?>
     <?php $mb->the_field('bannercontent'); ?>
     <tr valign="top" class="switchable">
         <th scope="row"><label for="bannercontent">Intro Text Content</label></th>

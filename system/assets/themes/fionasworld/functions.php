@@ -206,6 +206,4 @@ function genesis_msdlab_child_comments_gravatar( $args ) {
 
 }
 
-include_once( get_stylesheet_directory() . '/lib/inc/sectioned-page-output.php' );
-
 remove_theme_support( 'genesis-inpost-layouts' );

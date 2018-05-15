@@ -40,13 +40,18 @@
         </div>
         <div class="cell">
             <label>CSS Classes</label>
-            <div class="input_container" style="-moz-column-count: 3;
+            <div class="input_container" style="-moz-column-count: 2;
 -moz-column-gap: 1em;
--webkit-column-count: 3;
+-webkit-column-count: 2;
 -webkit-column-gap: 1em;
-column-count: 3;
+column-count: 2;
 column-gap: 1em;">
-                <?php $items = array('A' => 'a', 'B' => 'b', 'C' => 'c'); ?>
+                <?php $items = array('Callout with Green Waves' => 'green-waves','Callout with Green Background' => 'green-callout','Callout with Gray Waves' => 'gray-callout',
+                    'Add an orange exclamation point' => 'orange-bang','Add an black exclamation point' => 'black-bang',
+                    'Border above columns'=>'border-top','Border below columns'=>'border-bottom','Border between columns'=>'column-border',
+                    'Dark grey background' => 'bkg-dkgrey', 'Light grey background' => 'bkg-ltgrey','Green background' => 'bkg-green',
+                    'Dark grey text' => 'text-dkgrey','Green text' => 'text-green', 'White text' => 'text-white',
+                    'Center titles' => 'cntr-titles',); ?>
                 <?php foreach ($items as $i => $item): ?>
                     <?php $mb->the_field('css-classes', WPALCHEMY_FIELD_HINT_CHECKBOX_MULTI); ?>
                     <input type="checkbox" name="<?php $mb->the_name(); ?>" value="<?php echo $item; ?>"<?php $mb->the_checkbox_state($item); ?>/> <?php echo $i; ?><br/>

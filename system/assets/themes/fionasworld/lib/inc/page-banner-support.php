@@ -85,7 +85,7 @@ if (!class_exists('MSDLab_Page_Banner_Support')) {
                     $bannerclass .= ' has-background';
                 }
 
-                if($template_file == 'landing-page.php'){
+                if($template_file == 'menu-page.php'){
                     print '<div class="banner clearfix ' . $banneralign . ' ' . $bannerclass . '">';
                     print '<div class="wrap"' . $background . '>';
                     print '<div class="gradient">';
