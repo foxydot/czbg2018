@@ -1,7 +1,7 @@
 <?php
 /**
  *
-Template Name: Mneu/Primary Page
+Template Name: Menu/Primary Page
  * Genesis Framework.
  * Fiona's World Landing page (Primary)
  */

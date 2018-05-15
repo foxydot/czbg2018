@@ -206,4 +206,22 @@ function genesis_msdlab_child_comments_gravatar( $args ) {
 
 }
 
+/**
+ * Remove Genesis Page Templates
+ *
+ * @author Bill Erickson
+ * @link http://www.billerickson.net/remove-genesis-page-templates
+ *
+ * @param array $page_templates
+ * @return array
+ */
+function be_remove_genesis_page_templates( $page_templates ) {
+    unset( $page_templates['page_archive.php'] );
+    unset( $page_templates['page_blog.php'] );
+    return $page_templates;
+}
+add_filter( 'theme_page_templates', 'be_remove_genesis_page_templates' );
+add_filter('default_page_template_title', function() {
+    return __('Default/Secondary Page', 'genesis');
+});
 remove_theme_support( 'genesis-inpost-layouts' );
