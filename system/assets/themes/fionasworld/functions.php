@@ -28,7 +28,7 @@ function genesis_msdlab_child_localization_setup(){
 // Add the helper functions.
 include_once( get_stylesheet_directory() . '/lib/inc/helper-functions.php' );
 include_once( get_stylesheet_directory() . '/lib/inc/msd-functions.php' ); //should this go to plugin?
-include_once( get_stylesheet_directory() . '/lib/inc/fixed-header-support.php' );
+//include_once( get_stylesheet_directory() . '/lib/inc/fixed-header-support.php' );
 include_once( get_stylesheet_directory() . '/lib/inc/page-banner-support.php' );
 include_once( get_stylesheet_directory() . '/lib/inc/sidebar-content-support.php' );
 include_once( get_stylesheet_directory() . '/lib/inc/genesis_blog_grid.php' );

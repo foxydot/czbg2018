@@ -39,7 +39,7 @@ class MSDLab_Genesis_Bootstrap
         add_filter('genesis_attr_sidebar-primary', array(&$this,'msdlab_bootstrap_sidebar'), 10);
         add_filter('genesis_attr_sidebar-secondary', array(&$this,'msdlab_bootstrap_sidebar_alt'), 10);
 
-        add_filter('genesis_attr_site-header', array(&$this,'msdlab_bootstrap_site_header'), 10);
+        //add_filter('genesis_attr_site-header', array(&$this,'msdlab_bootstrap_site_header'), 10);
         $wraps = array(
             'menu-primary',
             'menu-secondary',
