@@ -220,9 +220,9 @@ li {
 hr {
   border: 0;
   border-collapse: collapse;
-  border-top: 1px solid #CCC;
+  border-top: 0px solid #CCC;
   clear: both;
-  margin: 1em 0; }
+  margin: 0; }
 
 b,
 strong {

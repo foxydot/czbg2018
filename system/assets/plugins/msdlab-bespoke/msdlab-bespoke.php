@@ -54,6 +54,10 @@ class MSDLabClientCustom
         if(class_exists('MSDSectionedPage')){
             $this->section_class = new MSDSectionedPage();
         }
+        require_once(plugin_dir_path(__FILE__) . 'lib/inc/daisho-legacy.php');
+        if(class_exists('Daisho_Legacy_Support')){
+            $this->daisho_class = new Daisho_Legacy_Support();
+        }
 
 
         register_activation_hook( __FILE__, create_function('','flush_rewrite_rules();') );
