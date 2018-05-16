@@ -30,8 +30,8 @@
             <?php $mb->the_field('layout'); ?>
             <label><?php print $section_name; ?> Layout</label>            
             <div class="input_container">
-                <select name="<?php $mb->the_name(); ?>" class="layout"> //switch to radio with images
-                    <option value=""<?php $mb->the_select_state('default'); ?>>Default</option>
+                <select name="<?php $mb->the_name(); ?>" class="layout"> //switch to radio with images?
+                    <option value=""<?php $mb->the_select_state('default'); ?>>Default (One Column)</option>
                     <option value="two-col"<?php $mb->the_select_state('two-col'); ?>>Two Columns</option>
                     <option value="three-col"<?php $mb->the_select_state('three-col'); ?>>Three Columns</option>
                     <option value="four-col"<?php $mb->the_select_state('four-col'); ?>>Four Columns</option>

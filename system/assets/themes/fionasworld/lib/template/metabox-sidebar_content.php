@@ -1,4 +1,10 @@
-<?php global $wpalchemy_media_access; ?>
+<?php global $wpalchemy_media_access;
+$postid = is_admin()?$_GET['post']:$post->ID;
+$template_file = get_post_meta($postid,'_wp_page_template',TRUE);
+?>
+<?php if($template_file == 'menu-page.php'){ ?>
+    <div>No sidebars on Primary/Menu pages!</div>
+<?php } else { ?>
 <table class="form-table sidebar-content-controls">
     <tbody>
     <?php $mb->the_field('sidebarbool'); ?>
@@ -57,3 +63,4 @@
         }
     });
 </script>
+<?php } ?>
