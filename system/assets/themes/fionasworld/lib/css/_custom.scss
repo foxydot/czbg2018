@@ -35,8 +35,15 @@
     .manual-sidebar{
       margin-top: 2em;
       @include sansserif(1.2);
-      .sidebarcontent{}
-      .sidebarintro{}
+      .sidebarcontent,
+      .sidebarintro{
+        ul{
+          margin-left: 2em;
+          li{
+            list-style: disc;
+          }
+        }
+      }
       h4{
         font-size: 1.2em;
         color: $orange;

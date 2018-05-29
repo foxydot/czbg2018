@@ -1715,6 +1715,14 @@ p.entry-meta {
   -webkit-font-smoothing: antialiased !important;
   font-weight: 400;
   font-size: 1.2em; }
+  .page-template-default .sidebar.sidebar-primary .manual-sidebar .sidebarcontent ul,
+  .page-template-default .sidebar.sidebar-primary .manual-sidebar .sidebarintro ul, page-template-secondary .sidebar.sidebar-primary .manual-sidebar .sidebarcontent ul,
+  page-template-secondary .sidebar.sidebar-primary .manual-sidebar .sidebarintro ul {
+    margin-left: 2em; }
+    .page-template-default .sidebar.sidebar-primary .manual-sidebar .sidebarcontent ul li,
+    .page-template-default .sidebar.sidebar-primary .manual-sidebar .sidebarintro ul li, page-template-secondary .sidebar.sidebar-primary .manual-sidebar .sidebarcontent ul li,
+    page-template-secondary .sidebar.sidebar-primary .manual-sidebar .sidebarintro ul li {
+      list-style: disc; }
   .page-template-default .sidebar.sidebar-primary .manual-sidebar h4, page-template-secondary .sidebar.sidebar-primary .manual-sidebar h4 {
     font-size: 1.2em;
     color: #FFCC66;
