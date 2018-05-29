@@ -25,20 +25,12 @@
       }
     }
     ul{
-      margin: 0 auto;
-      display: inline-block;
+      margin-left: 3em;
       li{
         text-align: left;
         margin-bottom: 0.5em;
-        &:before{
-          @include fontawesome;
-          content: '\f058';
-          color: $green;
-          margin-right: 0.5em;
-        }
+        list-style-type: disc;
       }
-    }
-    p,li{
     }
   }
 
