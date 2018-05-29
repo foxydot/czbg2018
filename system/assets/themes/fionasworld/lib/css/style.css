@@ -1608,7 +1608,9 @@ p.entry-meta {
     background-image: url(../images/greenwave.svg);
     background-position: 50%;
     background-size: auto 100px;
-    background-repeat: repeat; }
+    background-repeat: repeat;
+    padding: 2em 0;
+    margin: 2em 0; }
     .sectioned-page-wrapper .section.green-waves .section-body {
       font-size: 1.2em;
       font-weight: 300;
