@@ -88,24 +88,27 @@ if (!class_exists('MSDLab_Sidebar_Content_Support')) {
         }
 
         function msdlab_do_sidebar_content(){
-            if(is_page()){
-                global $post, $sidebar_content_metabox;
+            if(is_page() || is_cpt('animals')) {
+                global $post, $sidebar_content_metabox, $sidebar_content;
                 $sidebar_content_metabox->the_meta();
                 $sidebarbool = $sidebar_content_metabox->get_the_value('sidebarbool');
-                if($sidebarbool != 'true'){
+                if ($sidebarbool != 'true' && !is_cpt('animals')) {
                     return;
                 }
                 $sidebarclass = $sidebar_content_metabox->get_the_value('sidebarclass');
-                $sidebarintro = apply_filters('the_content',$sidebar_content_metabox->get_the_value('sidebarintro'));
-                $sidebarcontent = apply_filters('the_content',$sidebar_content_metabox->get_the_value('sidebarcontent'));
+                $sidebarintro = apply_filters('the_content', $sidebar_content_metabox->get_the_value('sidebarintro'));
+                $sidebarcontent = apply_filters('the_content', $sidebar_content_metabox->get_the_value('sidebarcontent'));
+                if ($sidebar_content) {
+                    $sidebarcontent .= $sidebar_content;
+                }
                 global $post;
-                if(count($sidebarintro > 0)){
-                    $sidebarintro = sprintf('<div class="sidebarintro intro-text">%s</div>',$sidebarintro);
+                if (count($sidebarintro > 0)) {
+                    $sidebarintro = sprintf('<div class="sidebarintro intro-text">%s</div>', $sidebarintro);
                 }
-                if(count($sidebarcontent > 0)){
-                    $sidebarcontent = sprintf('<div class="sidebarcontent">%s</div>',$sidebarcontent);
+                if (count($sidebarcontent > 0)) {
+                    $sidebarcontent = sprintf('<div class="sidebarcontent">%s</div>', $sidebarcontent);
                 }
-                print '<div class="manual-sidebar '.$sidebarclass.'">'.$sidebarintro.$sidebarcontent.'</div>';
+                print '<div class="manual-sidebar ' . $sidebarclass . '">' . $sidebarintro . $sidebarcontent . '</div>';
             }
         }
 

@@ -28,6 +28,7 @@ if (!class_exists('AnimalCPT')) {
             //Filters
 
             //Shortcodes
+            add_shortcode('animals',array(&$this,'animals_shortcode_handler'));
 
             //add cols to manage panel
             add_filter( 'manage_edit-'.$this->cpt.'_columns', array(&$this,'my_edit_columns' ));
@@ -293,6 +294,47 @@ if (!class_exists('AnimalCPT')) {
             );
         }
 
+        function animals_shortcode_handler($atts){
+            extract( shortcode_atts( array(
+                'class' => 'all',
+                'display' => 'single',
+            ), $atts ) );
+            $args = array();
+            if($class != 'all'){
+
+            }
+            switch($display){
+                case 'class':
+                    $terms = get_terms( array(
+                        'taxonomy' => 'class',
+                        'hide_empty' => false,
+                    ) );
+                    foreach ($terms AS $t){
+                        $out[] = array(
+                            'title' => $t->name,
+                            'link' => get_term_link( $t ),
+                            'image' => $this->get_random_term_image($t),
+                        );
+                    }
+                    break;
+                case 'single':
+                default:
+                    break;
+            }
+            foreach($out AS $o){
+                $ret[] = '<div class="col-md-4 col-sm-6 col-xs-12 animal-link">
+<a href="'.$o['link'].'">
+<img src="'.$o['image'].'" />
+<h4>'.$o['title'].'</h4>
+</a>
+</div>';
+            }
+            return implode("\n",$ret);
+        }
+
+        function get_random_term_image($term){
+            return '/system/assets/uploads/2018/04/hippo-secondary1-1.png';
+        }
 
         function cpt_display(){
             global $post;
