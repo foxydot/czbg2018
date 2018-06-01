@@ -1704,13 +1704,19 @@ p.entry-meta {
   background-color: #2EA645;
   color: #FFF !important; }
 
-.page-template-default main.content, page-template-secondary main.content {
+.page-template-default main.content,
+.page-template-secondary main.content,
+.animals-template-default main.content {
   margin-top: 2em;
   border-left: 1px solid #999; }
-  .page-template-default main.content article, page-template-secondary main.content article {
+  .page-template-default main.content article,
+  .page-template-secondary main.content article,
+  .animals-template-default main.content article {
     padding-top: 0; }
 
-.page-template-default .sidebar.sidebar-primary .manual-sidebar, page-template-secondary .sidebar.sidebar-primary .manual-sidebar {
+.page-template-default .sidebar.sidebar-primary .manual-sidebar,
+.page-template-secondary .sidebar.sidebar-primary .manual-sidebar,
+.animals-template-default .sidebar.sidebar-primary .manual-sidebar {
   margin-top: 2em;
   font-family: 'Lato', sans-serif;
   text-rendering: optimizeLegibility !important;
@@ -1718,18 +1724,28 @@ p.entry-meta {
   font-weight: 400;
   font-size: 1.2em; }
   .page-template-default .sidebar.sidebar-primary .manual-sidebar .sidebarcontent ul,
-  .page-template-default .sidebar.sidebar-primary .manual-sidebar .sidebarintro ul, page-template-secondary .sidebar.sidebar-primary .manual-sidebar .sidebarcontent ul,
-  page-template-secondary .sidebar.sidebar-primary .manual-sidebar .sidebarintro ul {
+  .page-template-default .sidebar.sidebar-primary .manual-sidebar .sidebarintro ul,
+  .page-template-secondary .sidebar.sidebar-primary .manual-sidebar .sidebarcontent ul,
+  .page-template-secondary .sidebar.sidebar-primary .manual-sidebar .sidebarintro ul,
+  .animals-template-default .sidebar.sidebar-primary .manual-sidebar .sidebarcontent ul,
+  .animals-template-default .sidebar.sidebar-primary .manual-sidebar .sidebarintro ul {
     margin-left: 2em; }
     .page-template-default .sidebar.sidebar-primary .manual-sidebar .sidebarcontent ul li,
-    .page-template-default .sidebar.sidebar-primary .manual-sidebar .sidebarintro ul li, page-template-secondary .sidebar.sidebar-primary .manual-sidebar .sidebarcontent ul li,
-    page-template-secondary .sidebar.sidebar-primary .manual-sidebar .sidebarintro ul li {
+    .page-template-default .sidebar.sidebar-primary .manual-sidebar .sidebarintro ul li,
+    .page-template-secondary .sidebar.sidebar-primary .manual-sidebar .sidebarcontent ul li,
+    .page-template-secondary .sidebar.sidebar-primary .manual-sidebar .sidebarintro ul li,
+    .animals-template-default .sidebar.sidebar-primary .manual-sidebar .sidebarcontent ul li,
+    .animals-template-default .sidebar.sidebar-primary .manual-sidebar .sidebarintro ul li {
       list-style: disc; }
-  .page-template-default .sidebar.sidebar-primary .manual-sidebar h4, page-template-secondary .sidebar.sidebar-primary .manual-sidebar h4 {
+  .page-template-default .sidebar.sidebar-primary .manual-sidebar h4,
+  .page-template-secondary .sidebar.sidebar-primary .manual-sidebar h4,
+  .animals-template-default .sidebar.sidebar-primary .manual-sidebar h4 {
     font-size: 1.2em;
     color: #FFCC66;
     text-transform: uppercase; }
-  .page-template-default .sidebar.sidebar-primary .manual-sidebar h5, page-template-secondary .sidebar.sidebar-primary .manual-sidebar h5 {
+  .page-template-default .sidebar.sidebar-primary .manual-sidebar h5,
+  .page-template-secondary .sidebar.sidebar-primary .manual-sidebar h5,
+  .animals-template-default .sidebar.sidebar-primary .manual-sidebar h5 {
     font-family: 'Lato', sans-serif;
     text-rendering: optimizeLegibility !important;
     -webkit-font-smoothing: antialiased !important;

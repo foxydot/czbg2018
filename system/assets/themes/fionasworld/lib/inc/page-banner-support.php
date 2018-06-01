@@ -41,7 +41,7 @@ if (!class_exists('MSDLab_Page_Banner_Support')) {
             (
                 'id' => '_page_banner',
                 'title' => 'Page Banner Area',
-                'types' => array('post','page'),
+                'types' => array('post','page','animals'),
                 'context' => 'normal', // same as above, defaults to "normal"
                 'priority' => 'high', // same as above, defaults to "high"
                 'template' => get_stylesheet_directory().'/lib/template/metabox-page_banner.php',
@@ -67,7 +67,7 @@ if (!class_exists('MSDLab_Page_Banner_Support')) {
             $template_file = get_post_meta($post->ID,'_wp_page_template',TRUE);
 
             $blog_id = get_option('page_for_posts');
-            if(is_page() && !is_home()) {
+            if((is_page() && !is_home()) || (is_cpt('animals') && is_single())) {
                 global $page_banner_metabox;
                 $page_banner_metabox->the_meta();
                 $bannerbool = $page_banner_metabox->get_the_value('bannerbool');

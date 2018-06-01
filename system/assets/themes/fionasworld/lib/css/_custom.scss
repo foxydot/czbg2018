@@ -22,8 +22,9 @@
 
 ///TEMPLATES///
 
-.site-inner{}
-.page-template-default, page-template-secondary{
+.page-template-default,
+.page-template-secondary,
+.animals-template-default{
   main.content{
     margin-top: 2em;
     border-left: 1px solid $medgrey;

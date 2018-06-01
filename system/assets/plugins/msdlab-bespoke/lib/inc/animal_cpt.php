@@ -155,7 +155,19 @@ if (!class_exists('AnimalCPT')) {
 
 
         function register_metaboxes(){
-
+            global $animal_info;
+            $animal_info = new WPAlchemy_MetaBox(array
+            (
+                'id' => '_animal_information',
+                'title' => 'Animal Info',
+                'types' => array($this->cpt),
+                'context' => 'normal',
+                'priority' => 'high',
+                'template' => plugin_dir_path(dirname(__FILE__)).'/template/metabox-animals.php',
+                'autosave' => TRUE,
+                'mode' => WPALCHEMY_MODE_EXTRACT, // defaults to WPALCHEMY_MODE_ARRAY
+                'prefix' => '_animal_' // defaults to NULL
+            ));
         }
 
 

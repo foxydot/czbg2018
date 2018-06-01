@@ -34,7 +34,7 @@ if (!class_exists('MSDLab_Sidebar_Content_Support')) {
             (
                 'id' => '_sidebar_content',
                 'title' => 'Sidebar Content Area',
-                'types' => array('page'),
+                'types' => array('page','animals'),
                 'context' => 'normal', // same as above, defaults to "normal"
                 'priority' => 'high', // same as above, defaults to "high"
                 'template' => get_stylesheet_directory().'/lib/template/metabox-sidebar_content.php',
