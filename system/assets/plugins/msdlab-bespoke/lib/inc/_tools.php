@@ -91,6 +91,72 @@ if(!class_exists('MSDLab_Conversion_Tools')){
             wp_reset_postdata();
         }
 
+        function move_foursquare_meta(){
+            global $wpdb,$post;
+            //get all animal posts
+            $args = array(
+                'post_type' => 'page',
+                'posts_per_page' => -1,
+                'meta_query' => array(
+                    array(
+                        'key'     => '_wp_page_template',
+                        'value'   => 'template-fourway.php',
+                    ),
+                ),
+            );
+            $pages = new WP_Query($args);
+            $meta_map = array(
+            );
+            //iterate through, get meta
+            if ( $pages->have_posts() ) {
+                while($pages->have_posts()){
+                    $pages->the_post();
+                    //get meta
+                    $meta = get_post_meta($post->ID);
+                    //here
+                    $animal_information_fields = unserialize($meta['_animal_information_fields']);
+                    $sidebar_content_fields = unserialize($meta['_sidebar_content_fields']);
+                    //remap meta
+                    if(isset($meta['Logos'])){
+                        $animal_information_fields[] = '_animal_logos';
+                        $oldlogos = $meta['Logos'];
+                        $newlogos = array();
+                        if(in_array('Species @ Risk Image',$oldlogos)){
+                            $newlogos[] = 'species-at-risk';
+                        }
+                        if(in_array('Species Survival Plan Image',$oldlogos)){
+                            $newlogos[] = 'species-survival-plan';
+                        }
+                        $olddata = get_post_meta($post->ID,'_animal_logos',true);
+                        update_post_meta($post->ID,'_animal_logos',$newlogos,$olddata);
+                    }
+                    foreach ($meta_map AS $k => $v){
+                        if(isset($meta[$k]) && count($meta[$k]) == 1){
+                            $animal_information_fields[] = '_animal_'.$v;
+                            $olddata = get_post_meta($post->ID,'_animal_'.$v,true);
+                            update_post_meta($post->ID,'_animal_'.$v,$meta[$k][0],$olddata);
+                        }
+                    }
+                    update_post_meta($post->ID,'_animal_information_fields',$animal_information_fields,unserialize($meta['_animal_information_fields']));
+
+                    foreach ($meta_map2 AS $k => $v){
+                        if(isset($meta[$k]) && count($meta[$k]) == 1){
+                            $sidebar_content_fields[] = '_msdlab_sidebarbool';
+                            $olddata = get_post_meta($post->ID,'_msdlab_sidebarbool',true);
+                            update_post_meta($post->ID,'_msdlab_sidebarbool',true,$olddata);
+                            $sidebar_content_fields[] = '_msdlab_'.$v;
+                            $olddata = get_post_meta($post->ID,'_msdlab_'.$v,true);
+                            update_post_meta($post->ID,'_msdlab_'.$v,$meta[$k][0],$olddata);
+                        }
+                    }
+                    update_post_meta($post->ID,'_sidebar_content_fields',$sidebar_content_fields,$meta['_sidebar_content_fields']);
+                    //report
+                    print get_the_title() .' updated<br>';
+                }
+            }
+            wp_reset_postdata();
+        }
+
         //utility
         function settings_page()
         {
