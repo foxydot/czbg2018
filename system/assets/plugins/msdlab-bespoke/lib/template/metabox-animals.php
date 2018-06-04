@@ -27,18 +27,6 @@ $textfields2 = array('caption','range');
         </td>
     </tr>
     <tr valign="top">
-        <th scope="row"><label for="action_images">Action Images</label></th>
-        <td>
-            <?php
-            $mb->the_field('action_images');
-            $mb_content = html_entity_decode($mb->get_the_value(), ENT_QUOTES, 'UTF-8');
-            $mb_editor_id = sanitize_key($mb->get_the_name());
-            $mb_settings = array('textarea_name'=>$mb->get_the_name(),'textarea_rows' => '5',);
-            wp_editor( $mb_content, $mb_editor_id, $mb_settings );
-            ?>
-        </td>
-    </tr>
-    <tr valign="top">
         <th scope="row"><label for="video_embed">Video Embed Code</label></th>
         <td>
             <?php
