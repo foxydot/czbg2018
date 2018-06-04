@@ -10,6 +10,7 @@ if(!class_exists('MSDLab_Conversion_Tools')){
         function __construct(){
             add_action('admin_menu', array(&$this,'settings_page'));
             add_action( 'wp_ajax_move_animal_meta', array(&$this,'move_animal_meta') );
+            add_action( 'wp_ajax_move_foursquare_meta', array(&$this,'move_foursquare_meta') );
         }
         //methods
         function move_animal_meta(){
@@ -105,53 +106,31 @@ if(!class_exists('MSDLab_Conversion_Tools')){
                 ),
             );
             $pages = new WP_Query($args);
-            $meta_map = array(
-            );
             //iterate through, get meta
             if ( $pages->have_posts() ) {
                 while($pages->have_posts()){
                     $pages->the_post();
                     //get meta
                     $meta = get_post_meta($post->ID);
-                    //here
-                    $animal_information_fields = unserialize($meta['_animal_information_fields']);
-                    $sidebar_content_fields = unserialize($meta['_sidebar_content_fields']);
+                    if(isset($meta['_msdlab_tabs'])){
+                        $tabs = unserialize($meta['_msdlab_tabs'][0]);
+                    }
+                    //get old data
+                    if(!isset($meta['_sectioned_page_fields'])) {
+                        update_post_meta($post->ID,'_sectioned_page_fields',array('_msdlab_sections'));
+                    }
                     //remap meta
-                    if(isset($meta['Logos'])){
-                        $animal_information_fields[] = '_animal_logos';
-                        $oldlogos = $meta['Logos'];
-                        $newlogos = array();
-                        if(in_array('Species @ Risk Image',$oldlogos)){
-                            $newlogos[] = 'species-at-risk';
-                        }
-                        if(in_array('Species Survival Plan Image',$oldlogos)){
-                            $newlogos[] = 'species-survival-plan';
-                        }
-                        $olddata = get_post_meta($post->ID,'_animal_logos',true);
-                        update_post_meta($post->ID,'_animal_logos',$newlogos,$olddata);
+                    foreach ($tabs AS $i => $tab){
+                        $msdlab_sections[$i] = array(
+                            'content-area-title' => $tab['title'],
+                            'content-area-content' => $tab['content'],
+                        );
                     }
-                    foreach ($meta_map AS $k => $v){
-                        if(isset($meta[$k]) && count($meta[$k]) == 1){
-                            $animal_information_fields[] = '_animal_'.$v;
-                            $olddata = get_post_meta($post->ID,'_animal_'.$v,true);
-                            update_post_meta($post->ID,'_animal_'.$v,$meta[$k][0],$olddata);
-                        }
-                    }
-                    update_post_meta($post->ID,'_animal_information_fields',$animal_information_fields,unserialize($meta['_animal_information_fields']));
+                    update_post_meta($post->ID,'_msdlab_sections',$msdlab_sections,unserialize($meta['_msdlab_sections']));
 
-                    foreach ($meta_map2 AS $k => $v){
-                        if(isset($meta[$k]) && count($meta[$k]) == 1){
-                            $sidebar_content_fields[] = '_msdlab_sidebarbool';
-                            $olddata = get_post_meta($post->ID,'_msdlab_sidebarbool',true);
-                            update_post_meta($post->ID,'_msdlab_sidebarbool',true,$olddata);
-                            $sidebar_content_fields[] = '_msdlab_'.$v;
-                            $olddata = get_post_meta($post->ID,'_msdlab_'.$v,true);
-                            update_post_meta($post->ID,'_msdlab_'.$v,$meta[$k][0],$olddata);
-                        }
-                    }
-                    update_post_meta($post->ID,'_sidebar_content_fields',$sidebar_content_fields,$meta['_sidebar_content_fields']);
                     //report
-                    print get_the_title() .' updated<br>';
+                    print '<a href="'.get_the_permalink().'">'.get_the_title() .'</a> updated<br>';
+
                 }
             }
             wp_reset_postdata();
@@ -204,6 +183,15 @@ if(!class_exists('MSDLab_Conversion_Tools')){
                             console.log(response);
                         });
                     });
+                    $('.move_foursquare_meta').click(function(){
+                        var data = {
+                            action: 'move_foursquare_meta',
+                        }
+                        jQuery.post(ajaxurl, data, function(response) {
+                            $('.response1').html(response);
+                            console.log(response);
+                        });
+                    });
                 });
             </script>
             <div class="wrap">
@@ -211,6 +199,10 @@ if(!class_exists('MSDLab_Conversion_Tools')){
                 <dl>
                     <dt>Move animal meta:</dt>
                     <dd><button class="move_animal_meta">Go</button></dd>
+                </dl>
+                <dl>
+                    <dt>Move foursquare meta:</dt>
+                    <dd><button class="move_foursquare_meta">Go</button></dd>
                 </dl>
                 <div class="response1"></div>
             </div>
