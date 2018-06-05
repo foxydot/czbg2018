@@ -21,9 +21,24 @@ function msdlab_do_class_archive_banner(){
     print '</div>';
     print '</div>';
     print '</div>';
-    print '</div>';
+    print '</div><hr class="clear padded">';
 }
+remove_all_actions('genesis_before_loop');
 //mess with the loop
+remove_all_actions('genesis_entry_content');
+add_filter('genesis_post_title_output','msdlab_do_class_archive_block',10,3);
+function msdlab_do_class_archive_block($output, $wrap, $title){
+    global $post;
+    $output = preg_replace('/class="entry-title-link"/','class="entry-title-link" style="background-image:url('.get_the_post_thumbnail_url().')"',$output);
+    return $output;
+}
+add_filter('genesis_attr_entry','msdlab_block_entry_attr');
+
+function msdlab_block_entry_attr($attr){
+    global $post;
+        $attr['class'] .= ' col-xs-12 col-sm-6 col-md-4';
+    return $attr;
+}
 
 // Initialize Genesis.
 genesis();
