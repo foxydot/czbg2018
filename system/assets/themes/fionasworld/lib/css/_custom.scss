@@ -19,6 +19,9 @@
     }
   }
 }
+hr.padded{
+  padding: 1em 0;
+}
 
 ///TEMPLATES///
 
@@ -60,10 +63,29 @@
 .page-template-menu-page{
   .page-title-area{
     .banner-content{
-      padding-top: 1em;
+      padding-top: 1.5em;
     }
   }
   .intro-text{
     padding: 2em 0 0;
+  }
+}
+
+
+.animal-link{
+  margin-bottom: 1em;
+  a.link-block{
+    color: $white;
+    text-shadow: 0 0 8px rgba($dkgrey,0.8);
+    display: block;
+    text-align: center;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 20em;
+    h4{
+      font-weight: 500;
+      text-transform: none;
+    }
   }
 }

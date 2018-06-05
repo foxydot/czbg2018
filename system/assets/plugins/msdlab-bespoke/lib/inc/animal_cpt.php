@@ -322,7 +322,7 @@ if (!class_exists('AnimalCPT')) {
         function animals_shortcode_handler($atts){
             extract( shortcode_atts( array(
                 'class' => 'all',
-                'display' => 'single',
+                'display' => 'class',
             ), $atts ) );
             $args = array();
             if($class != 'all'){
@@ -330,6 +330,7 @@ if (!class_exists('AnimalCPT')) {
             }
             switch($display){
                 case 'class':
+                default:
                     $terms = get_terms( array(
                         'taxonomy' => 'class',
                         'hide_empty' => false,
@@ -339,18 +340,14 @@ if (!class_exists('AnimalCPT')) {
                         $out[] = array(
                             'title' => $t->name,
                             'link' => get_term_link( $t ),
-                            'image' => $this->get_random_term_image($t),
+                            'image' => $this->get_term_image($t,'class'),
                         );
                     }
-                    break;
-                case 'single':
-                default:
                     break;
             }
             foreach($out AS $o){
                 $ret[] = '<div class="col-md-4 col-sm-6 col-xs-12 animal-link">
-<a href="'.$o['link'].'">
-<img src="'.$o['image'].'" />
+<a href="'.$o['link'].'" style="background-image:url('.$o['image'].');" class="link-block">
 <h4>'.$o['title'].'</h4>
 </a>
 </div>';
@@ -358,8 +355,10 @@ if (!class_exists('AnimalCPT')) {
             return implode("\n",$ret);
         }
 
-        function get_random_term_image($term){
-            return '/system/assets/uploads/2018/04/hippo-secondary1-1.png';
+        function get_term_image($term,$taxonomy){
+            $source = term_description($term->term_id, $taxonomy);
+            preg_match('/<img.*? src="(.*?)".*?\/>/',$source,$matches);
+            return $matches[1];
         }
 
         function cpt_display(){

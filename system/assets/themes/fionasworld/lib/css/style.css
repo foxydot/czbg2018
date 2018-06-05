@@ -1705,6 +1705,9 @@ p.entry-meta {
   background-color: #2EA645;
   color: #FFF !important; }
 
+hr.padded {
+  padding: 1em 0; }
+
 .page-template-default main.content,
 .page-template-secondary main.content,
 .animals-template-default main.content {
@@ -1755,10 +1758,25 @@ p.entry-meta {
     font-weight: 700; }
 
 .page-template-menu-page .page-title-area .banner-content {
-  padding-top: 1em; }
+  padding-top: 1.5em; }
 
 .page-template-menu-page .intro-text {
   padding: 2em 0 0; }
+
+.animal-link {
+  margin-bottom: 1em; }
+  .animal-link a.link-block {
+    color: #FFF;
+    text-shadow: 0 0 8px rgba(102, 102, 102, 0.8);
+    display: block;
+    text-align: center;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 20em; }
+    .animal-link a.link-block h4 {
+      font-weight: 500;
+      text-transform: none; }
 
 @media only screen and (min-width: 768px) {
   /* Accessible Menu
@@ -1812,6 +1830,9 @@ p.entry-meta {
   .content-sidebar-sidebar .content,
   .sidebar-content-sidebar .content {
     float: left;
+    order: 1; }
+  .full-width-content .content {
+    float: none;
     order: 1; }
   /* ### Primary Sidebar */
   .sidebar-primary {

@@ -101,6 +101,8 @@ if (!class_exists('MSDLab_Page_Banner_Support')) {
                         print '</div>';
                         if ($bannercontent != '') {
                             print '<div class="bannercontent"><div class="wrap container"><div class="row intro-text">' . $bannercontent . '</div></div></div>';
+                        } else {
+                            print '<hr class="clear padded">';
                         }
                     } else {
                         print '<div class="banner clearfix container' . $banneralign . ' ' . $bannerclass . '">';
