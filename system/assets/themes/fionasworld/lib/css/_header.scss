@@ -105,7 +105,7 @@
     .wrap, .container {
       .gradient {
         .bannertext {
-          .entry-title {
+          .entry-title,.archive-title {
             @include serif(4);
             color: $dkgrey;
             text-transform: none;
@@ -133,7 +133,7 @@
             bottom: 0;
             left: 0;
             right: 0;
-            .entry-title {
+            .entry-title,.archive-title {
               @include serif(4);
               color: $offwhite;
               text-transform: none;

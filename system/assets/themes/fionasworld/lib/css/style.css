@@ -993,7 +993,7 @@ img.alignright,
 
 .page-title-area {
   font-size: 1.4em; }
-  .page-title-area .banner .wrap .gradient .bannertext .entry-title, .page-title-area .banner .container .gradient .bannertext .entry-title {
+  .page-title-area .banner .wrap .gradient .bannertext .entry-title, .page-title-area .banner .wrap .gradient .bannertext .archive-title, .page-title-area .banner .container .gradient .bannertext .entry-title, .page-title-area .banner .container .gradient .bannertext .archive-title {
     font-family: 'Roboto Slab', sans-serif;
     text-rendering: optimizeLegibility !important;
     -webkit-font-smoothing: antialiased !important;
@@ -1001,7 +1001,7 @@ img.alignright,
     font-size: 4em;
     color: #666;
     text-transform: none; }
-    .page-title-area .banner .wrap .gradient .bannertext .entry-title a, .page-title-area .banner .container .gradient .bannertext .entry-title a {
+    .page-title-area .banner .wrap .gradient .bannertext .entry-title a, .page-title-area .banner .wrap .gradient .bannertext .archive-title a, .page-title-area .banner .container .gradient .bannertext .entry-title a, .page-title-area .banner .container .gradient .bannertext .archive-title a {
       color: #666; }
   .page-title-area .banner.has-background .wrap, .page-title-area .banner.has-background .container {
     background-repeat: no-repeat;
@@ -1018,7 +1018,7 @@ img.alignright,
         bottom: 0;
         left: 0;
         right: 0; }
-        .page-title-area .banner.has-background .wrap .gradient .bannertext .entry-title, .page-title-area .banner.has-background .container .gradient .bannertext .entry-title {
+        .page-title-area .banner.has-background .wrap .gradient .bannertext .entry-title, .page-title-area .banner.has-background .wrap .gradient .bannertext .archive-title, .page-title-area .banner.has-background .container .gradient .bannertext .entry-title, .page-title-area .banner.has-background .container .gradient .bannertext .archive-title {
           font-family: 'Roboto Slab', sans-serif;
           text-rendering: optimizeLegibility !important;
           -webkit-font-smoothing: antialiased !important;
@@ -1026,7 +1026,7 @@ img.alignright,
           font-size: 4em;
           color: #FCFCFC;
           text-transform: none; }
-          .page-title-area .banner.has-background .wrap .gradient .bannertext .entry-title a, .page-title-area .banner.has-background .container .gradient .bannertext .entry-title a {
+          .page-title-area .banner.has-background .wrap .gradient .bannertext .entry-title a, .page-title-area .banner.has-background .wrap .gradient .bannertext .archive-title a, .page-title-area .banner.has-background .container .gradient .bannertext .entry-title a, .page-title-area .banner.has-background .container .gradient .bannertext .archive-title a {
             color: #FCFCFC; }
 
 @media only screen and (max-width: 767px) {
