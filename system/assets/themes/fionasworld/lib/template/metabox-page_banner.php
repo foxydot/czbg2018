@@ -74,9 +74,32 @@ $template_file = get_post_meta($postid,'_wp_page_template',TRUE);
         </td>
     </tr>
     <?php } //endif ?>
+    <tr valign="top" class="switchable">
+        <th scope="row"><label for="bannerpositioning">Positioning</label></th>
+        <td>
+            <ul style = "column-count: 3;text-align: center;">
+            <?php $items = array(
+                'top-left' => 'top left',
+                'center-left' => 'center-y left',
+                'bottom-left' => 'bottom left',
+                'top-center' => 'top center-x',
+                'center-center' => 'center-y center-x',
+                'bottom-center' => 'bottom center-x',
+                'top-right' => 'top right',
+                'center-right' => 'center-y right',
+                'bottom-left' => 'bottom left',
+                'bottom-right' => 'bottom right',
+            ); ?>
+            <?php foreach ($items as $i => $item): ?>
+                <?php $mb->the_field('bannerpositioning'); ?>
+            <li style="border: 1px solid #ddd; padding: 5px; margin: 5px;"><input type="radio" name="<?php $mb->the_name(); ?>" value="<?php echo $item; ?>"<?php $mb->the_radio_state($item); ?>/><br><img src="<?php print get_stylesheet_directory_uri(); ?>/lib/images/alignment_<?php print $i; ?>.svg" style="width: 50px;"><br><?php echo ucwords($item); ?></li>
+            <?php endforeach; ?>
+            </ul>
+        </td>
+    </tr>
     <?php $mb->the_field('bannerclass'); ?>
     <tr valign="top" class="switchable">
-        <th scope="row"><label for="bannerclass">Any custom class names for banner styling</label></th>
+        <th scope="row"><label for="bannerclass">Custom Classes</label></th>
         <td>
             <input type="text" name="<?php $mb->the_name(); ?>" value="<?php $mb->the_value(); ?>" />
         </td>

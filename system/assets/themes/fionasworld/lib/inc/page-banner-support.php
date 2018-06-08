@@ -74,6 +74,7 @@ if (!class_exists('MSDLab_Page_Banner_Support')) {
                 if ($bannerbool != 'true') {
                     return;
                 }
+                $bannerpositioning = $page_banner_metabox->get_the_value('bannerpositioning');
                 $bannerclass = $page_banner_metabox->get_the_value('bannerclass');
                 $bannerslider = $page_banner_metabox->get_the_value('bannerslider');
                 $bannerimage = $page_banner_metabox->get_the_value('bannerimage');
@@ -87,6 +88,9 @@ if (!class_exists('MSDLab_Page_Banner_Support')) {
                     if (strlen($bannerimage) > 0) {
                         $background = ' style="background-image:url(' . $bannerimage . ')"';
                         $bannerclass .= ' has-background';
+                        if(strlen($bannerpositioning) > 0){
+                            $bannerclass .= ' '.$bannerpositioning;
+                        }
                     }
 
                     if ($template_file == 'menu-page.php' || (is_single() && is_cpt('animals'))) {

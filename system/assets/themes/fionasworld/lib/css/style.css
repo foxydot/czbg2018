@@ -1028,6 +1028,18 @@ img.alignright,
           text-transform: none; }
           .page-title-area .banner.has-background .wrap .gradient .bannertext .entry-title a, .page-title-area .banner.has-background .wrap .gradient .bannertext .archive-title a, .page-title-area .banner.has-background .container .gradient .bannertext .entry-title a, .page-title-area .banner.has-background .container .gradient .bannertext .archive-title a {
             color: #FCFCFC; }
+  .page-title-area .banner.has-background.left .wrap, .page-title-area .banner.has-background.left .container {
+    background-position-x: left; }
+  .page-title-area .banner.has-background.center-x .wrap, .page-title-area .banner.has-background.center-x .container {
+    background-position-x: center; }
+  .page-title-area .banner.has-background.right .wrap, .page-title-area .banner.has-background.right .container {
+    background-position-x: right; }
+  .page-title-area .banner.has-background.top .wrap, .page-title-area .banner.has-background.top .container {
+    background-position-y: top; }
+  .page-title-area .banner.has-background.center-y .wrap, .page-title-area .banner.has-background.center-y .container {
+    background-position-y: center; }
+  .page-title-area .banner.has-background.bottom .wrap, .page-title-area .banner.has-background.bottom .container {
+    background-position-y: bottom; }
 
 @media only screen and (max-width: 767px) {
   .genesis-responsive-menu {

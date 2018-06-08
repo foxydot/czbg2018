@@ -144,6 +144,36 @@
           }
         }
       }
+      &.left{
+        .wrap, .container {
+          background-position-x: left;
+        }
+      }
+      &.center-x{
+        .wrap, .container {
+          background-position-x: center;
+        }
+      }
+      &.right{
+        .wrap, .container {
+          background-position-x: right;
+        }
+      }
+      &.top{
+        .wrap, .container {
+          background-position-y: top;
+        }
+      }
+      &.center-y{
+        .wrap, .container {
+          background-position-y: center;
+        }
+      }
+      &.bottom{
+        .wrap, .container {
+          background-position-y: bottom;
+        }
+      }
     }
   }
 }
