@@ -42,8 +42,8 @@ function animal_quick_facts(){
         'Habitat' => 'habitat',
         'Diet' => 'diet',
         'Risk Status' => 'risk_status',
-        'Range' => 'range',
         '1' => 'range_map',
+        'Range' => 'range',
     );
     foreach($meta_map AS $k => $v){
         if($animal_info->get_the_value($v) != ''){
@@ -54,7 +54,7 @@ function animal_quick_facts(){
     if(count($quickfacts)>0){
         $qf_sb = '<h4>Quick Facts</h4>
 <ul>'.implode("\n",$quickfacts).'</ul>';
-        print $qf_sb;
+        print '<div class="quick-facts">'.$qf_sb."</div>";
     }
 }
 
@@ -62,8 +62,8 @@ function animal_media(){
     global $post,$animal_info;
     $animal_info->the_meta();
     $meta_map = array(
+        'Video' => array('Embed Code' => 'video_embed','Caption' => 'caption'),
         'Risk Status' => array('Risk Status' => 'risk_status','Logos' => 'logos'),
-        'Video' => array('Embed Code' => 'video_embed_code','Caption' => 'caption'),
     );
     if ( class_exists( 'SympleShortcodes' ) ) {
         foreach ($meta_map AS $k => $v) {

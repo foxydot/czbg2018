@@ -48,6 +48,8 @@ hr.padded{
           }
         }
       }
+      h2{font-size: 1.6em;color: $green;}
+      h3{}
       h4{
         font-size: 1.2em;
         color: $orange;
@@ -82,10 +84,66 @@ hr.padded{
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    padding-top: 20em;
+    padding-bottom: 0.5em;
+    min-height: 25em;
+    position: relative;
     h4{
       font-weight: 500;
       text-transform: none;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
+
+.archive.tax-class{
+  article {
+    padding: 1em;
+    margin-bottom: 0;
+    h2.entry-title {
+      font-size: 2em;
+      font-weight: 500;
+      text-transform: none;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      a.entry-title-link {
+        min-height: 11em;
+        padding-bottom:0.5em;
+        position: relative;
+        color: $white;
+        text-shadow: 0 0 8px rgba($dkgrey, 0.8);
+        display: block;
+        position: relative;
+        span{
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+.single-animals{
+  .content{}
+  .sidebar{
+    .quick-facts{
+      margin-top: 2em;
+      h4{
+        font-size: 1.6em;color: $green;
+      }
+      ul{
+        li{
+          margin-bottom: 0.5em;
+        }
+      }
+      .range_map{
+        margin-top: 2em;
+      }
     }
   }
 }

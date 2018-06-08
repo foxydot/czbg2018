@@ -334,9 +334,9 @@ if (!class_exists('AnimalCPT')) {
                     $terms = get_terms( array(
                         'taxonomy' => 'class',
                         'hide_empty' => false,
+                        'parent'   => 0,
                     ) );
                     foreach ($terms AS $t){
-                        if(count(get_ancestors($t->term_id,'class')) > 0){ continue; }
                         $out[] = array(
                             'title' => $t->name,
                             'link' => get_term_link( $t ),
