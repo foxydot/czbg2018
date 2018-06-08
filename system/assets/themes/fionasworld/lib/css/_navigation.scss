@@ -176,10 +176,6 @@
       width: 200px;
       word-wrap: break-word;
     }
-    a::before {
-      content: ">";
-      margin-right: 10px;
-    }
     .sub-menu {
       margin: -56px 0 0 199px;
     }
@@ -293,6 +289,14 @@
         color: $white;
         font-size: 1.6em;
         padding: 0.5em 1em;
+      }
+    }
+    .sub-menu{
+      background-color: rgba($medgrey,0.9);
+      li.menu-item{
+        &:hover{
+          background-color: rgba($medgrey,1);
+        }
       }
     }
   }

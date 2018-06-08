@@ -1185,9 +1185,6 @@ img.alignright,
       position: relative;
       width: 200px;
       word-wrap: break-word; }
-    .widget_nav_menu .menu .sub-menu a::before, .genesis-nav-menu .sub-menu a::before {
-      content: ">";
-      margin-right: 10px; }
     .widget_nav_menu .menu .sub-menu .sub-menu, .genesis-nav-menu .sub-menu .sub-menu {
       margin: -56px 0 0 199px; }
   .widget_nav_menu .menu .menu-item:hover, .genesis-nav-menu .menu-item:hover {
@@ -1276,6 +1273,10 @@ img.alignright,
       color: #FFF;
       font-size: 1.6em;
       padding: 0.5em 1em; }
+    .nav-primary .menu .sub-menu {
+      background-color: rgba(153, 153, 153, 0.9); }
+      .nav-primary .menu .sub-menu li.menu-item:hover {
+        background-color: #999999; }
 
 /* ## Footer Navigation
 --------------------------------------------- */
