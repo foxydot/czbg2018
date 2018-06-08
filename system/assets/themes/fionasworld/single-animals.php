@@ -82,7 +82,7 @@ function animal_media(){
             }
         }
         if (count($media) > 0) {
-            $qf_sb = apply_filters('the_content','[symple_tabgroup]'.implode("\n", $media).'[/symple_tabgroup]');
+            $qf_sb = apply_filters('the_content','<br />[symple_tabgroup]'.implode("\n", $media).'[/symple_tabgroup]');
             print $qf_sb;
         }
     }

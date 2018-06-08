@@ -294,6 +294,9 @@
     .sub-menu{
       background-color: rgba($medgrey,0.9);
       li.menu-item{
+        a{
+          line-height: 1.5;
+        }
         &:hover{
           background-color: rgba($medgrey,1);
         }

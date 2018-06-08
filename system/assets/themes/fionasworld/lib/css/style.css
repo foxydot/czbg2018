@@ -1275,6 +1275,8 @@ img.alignright,
       padding: 0.5em 1em; }
     .nav-primary .menu .sub-menu {
       background-color: rgba(153, 153, 153, 0.9); }
+      .nav-primary .menu .sub-menu li.menu-item a {
+        line-height: 1.5; }
       .nav-primary .menu .sub-menu li.menu-item:hover {
         background-color: #999999; }
 
