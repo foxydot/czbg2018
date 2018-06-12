@@ -31,9 +31,9 @@
 /* Colors */
 $red: #f00;
 $linkred: #b1536f;
-$orange: #FFCC66;
+$orange: rgb(236, 176, 83);
 $yellow: #ff0;
-$green: #2EA645;
+$green: rgb(85, 120, 51);
 $blue: rgb(63, 130, 156);
 $purple: #90f;
 $beige: #c96;
@@ -45,8 +45,8 @@ $ltorange: lighten($orange,20%);
 $dkorange: darken($orange, 20%);
 $ltyellow: lighten($yellow,20%);
 $dkyellow: darken($yellow, 20%);
-$ltgreen: #6FC87B;
-$dkgreen: darken($green, 20%);
+$ltgreen: rgb(117, 183, 57);
+$dkgreen: rgb(38, 72, 46);
 $ltblue: lighten($blue,20%);
 $dkblue: darken($blue, 20%);
 $ltpurple: lighten($purple,20%);
@@ -58,7 +58,7 @@ $dkbrown: darken($brown, 20%);
 
 /* Neutrals */
 $white: #FFF;
-$offwhite: #FCFCFC;
+$offwhite: rgb(249, 242, 220);
 $ltgrey: #CCC;
 $medgrey: #999;
 $dkgrey: #666;

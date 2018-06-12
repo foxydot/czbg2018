@@ -37,7 +37,7 @@ if(!class_exists('MSDLab_Conversion_Tools')){
                 'Diet' => 'diet',
                 'Risk Status' => 'risk_status',
                 'Action Images' => 'action_images',
-                'Video Embed Code' => 'video_embed_code',
+                'Video Embed Code' => 'video_embed',
                 'Caption' => 'caption',
                 'Range' => 'range',
                 'Range Map' => 'range_map',

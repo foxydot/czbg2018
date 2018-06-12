@@ -25,15 +25,6 @@ function msdlab_excerpt_length( $length ) {
     return 20;
 }
 
-// cleanup tinymce for SEO
-function fb_change_mce_buttons( $initArray ) {
-	$initArray['theme_advanced_blockformats'] = 'p,address,pre,code,h3,h4,h5,h6';
-	$initArray['theme_advanced_disable'] = 'forecolor';
-
-	return $initArray;
-}
-add_filter('tiny_mce_before_init', 'fb_change_mce_buttons');
-	
 // add classes for various browsers
 add_filter('body_class','browser_body_class');
 function browser_body_class($classes) {
@@ -124,32 +115,62 @@ function get_topmost_parent($post_id){
 	}
 	return $parent_id;
 }
+
 add_action('init','msd_allow_all_embeds');
 function msd_allow_all_embeds(){
-	global $allowedposttags;
-	$allowedposttags["iframe"] = array(
-			"src" => array(),
-			"height" => array(),
-			"width" => array()
-	);
-	$allowedposttags["object"] = array(
-			"height" => array(),
-			"width" => array()
-	);
+    global $allowedposttags;
+    $allowedposttags["div"] = array(
+        "class" => true,
+        "name" => true,
+        "id" => true,
+    );
+    $allowedposttags["input"] = array(
+        "type" => true,
+        "value" => true,
+        "placeholder" => true,
+        "name" => true,
+        "id" => true,
+    );
+    $allowedposttags["iframe"] = array(
+        'align'       => true,
+        'frameborder' => true,
+        'height'      => true,
+        'width'       => true,
+        'sandbox'     => true,
+        'seamless'    => true,
+        'scrolling'   => true,
+        'srcdoc'      => true,
+        'src'         => true,
+        'class'       => true,
+        'id'          => true,
+        'style'       => true,
+        'border'      => true,
+    );
+    $allowedposttags["object"] = array(
+        'height'      => true,
+        'width'       => true,
+    );
 
-	$allowedposttags["param"] = array(
-			"name" => array(),
-			"value" => array()
-	);
+    $allowedposttags["param"] = array(
+        "name" => true,
+        "value" => true,
+    );
 
-	$allowedposttags["embed"] = array(
-			"src" => array(),
-			"type" => array(),
-			"allowfullscreen" => array(),
-			"allowscriptaccess" => array(),
-			"height" => array(),
-			"width" => array()
-	);
+    $allowedposttags["embed"] = array(
+        'align'       => true,
+        'frameborder' => true,
+        'height'      => true,
+        'width'       => true,
+        'sandbox'     => true,
+        'seamless'    => true,
+        'scrolling'   => true,
+        'srcdoc'      => true,
+        'src'         => true,
+        'class'       => true,
+        'id'          => true,
+        'style'       => true,
+        'border'      => true,
+    );
 }
 
 /* ---------------------------------------------------------------------- */
@@ -159,19 +180,19 @@ function msd_allow_all_embeds(){
 if ( !function_exists('msdlab_has_shortcode') ) {
 
     function msdlab_has_shortcode($shortcode = '') {
-    
+
         global $post;
         $post_obj = get_post( $post->ID );
         $found = false;
-        
+
         if ( !$shortcode )
             return $found;
         if ( stripos( $post_obj->post_content, '[' . $shortcode ) !== false )
             $found = true;
-        
+
         // return our results
         return $found;
-    
+
     }
 }
 

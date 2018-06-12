@@ -4,6 +4,28 @@ if(!class_exists('MSDLab_Animal_Support')){
         function __construct()
         {
             add_action('pre_get_posts', array($this,'change_count'));
+            add_action('pre_get_posts', array($this,'alphabetize'));
+        }
+        function msdlab_do_animal_archive_banner(){
+            global $msd_custom,$page_banner_metabox;
+            $animal_page = get_page_by_path('animals-exhibits');
+            $animal_id = $animal_page->ID;
+            $page_banner_metabox->the_meta($animal_id);
+            $queried_object = get_queried_object();
+            $bannerimage = $page_banner_metabox->get_the_value('bannerimage');
+            if (strlen($bannerimage) > 0) {
+                $background = ' style="background-image:url(' . $bannerimage . ')"';
+                $bannerclass .= ' has-background';
+            }
+            print '<div class="banner clearfix ' . $banneralign . ' ' . $bannerclass . '">';
+            print '<div class="wrap"' . $background . '>';
+            print '<div class="gradient">';
+            print '<div class="bannertext">';
+            print '<h1 class="archive-title">'.$queried_object->name.'</h1>';
+            print '</div>';
+            print '</div>';
+            print '</div>';
+            print '</div><hr class="clear padded">';
         }
         function msdlab_do_class_archive_banner(){
             global $msd_custom;
@@ -38,8 +60,16 @@ if(!class_exists('MSDLab_Animal_Support')){
         function change_count($query)
         {
             if (is_admin()) return $query;
-            if ($query->is_main_query() && $query->is_archive() && isset($query->query_vars['class'])) {
+            if ($query->is_main_query() && $query->is_archive()) {
                 $query->set('posts_per_page',15);
+            }
+        }
+        function alphabetize($query)
+        {
+            if (is_admin()) return $query;
+            if ($query->is_main_query() && $query->is_archive() && $query->query_vars['post_type'] == 'animals') {
+                $query->set('orderby','post_title');
+                $query->set('order','ASC');
             }
         }
         function switch_taxonomies()

@@ -71,7 +71,7 @@ function animal_media(){
             foreach ($v AS $w => $x) {
                 if ($animal_info->get_the_value($x) != '') {
                     if($w == 'Logos'){
-                        get_animal_logos($x);
+                        $tab[$w] = get_animal_logos($x);
                     } else {
                         $tab[$w] = $animal_info->get_the_value($x);
                     }
