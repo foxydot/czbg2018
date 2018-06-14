@@ -27,7 +27,7 @@ if(!class_exists('MSDLab_Animal_Support')){
             print '</div>';
             print '</div><hr class="clear padded">';
         }
-        function msdlab_do_class_archive_banner(){
+        function msdlab_do_taxonomy_archive_banner(){
             global $msd_custom;
             $queried_object = get_queried_object();
             $bannerimage = $msd_custom->animal_class->get_term_image($queried_object->term_id,$queried_object->taxonomy);
@@ -45,7 +45,7 @@ if(!class_exists('MSDLab_Animal_Support')){
             print '</div>';
             print '</div><hr class="clear padded">';
         }
-        function msdlab_do_class_archive_block($output, $wrap, $title){
+        function msdlab_do_taxonomy_archive_block($output, $wrap, $title){
             global $post;
             $output = preg_replace('/class="entry-title"/','class="entry-title" style="background-image:url('.get_the_post_thumbnail_url().')"',$output);
             $output = preg_replace('/<a(.*?)>/','<a $1><span>',$output);

@@ -329,6 +329,21 @@ if (!class_exists('AnimalCPT')) {
 
             }
             switch($display){
+                case 'exhibit':
+                case 'habitat':
+                $terms = get_terms( array(
+                    'taxonomy' => 'exhibit',
+                    'hide_empty' => false,
+                    'parent'   => 0,
+                ) );
+                foreach ($terms AS $t){
+                    $out[] = array(
+                        'title' => $t->name,
+                        'link' => get_term_link( $t ),
+                        'image' => $this->get_term_image($t,'exhibit'),
+                    );
+                }
+                    break;
                 case 'class':
                 default:
                     $terms = get_terms( array(

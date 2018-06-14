@@ -21,6 +21,7 @@ function animal_header(){
 }
 
 function reregister_quickfacts(){
+    add_action('genesis_sidebar','animal_adopt', 6);
     add_action('genesis_sidebar','animal_quick_facts', 6);
 }
 
@@ -104,5 +105,11 @@ function get_animal_logos($logos){
     }
 }
 
+function animal_adopt(){
+    $adopt_page = get_page_by_path('/support/adopt/');
+    $link = get_post_permalink($adopt_page->ID,true);
+    $img = get_stylesheet_directory_uri().'/lib/images/adopt_logo.png';
+    printf('<a href="%s" class="adopt"><img src="%s"></a>',$link,$img);
+}
 // Initialize Genesis.
 genesis();
