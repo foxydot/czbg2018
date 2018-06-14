@@ -130,3 +130,11 @@
   white-space: initial;
   line-height: 1.2;
 }
+.symple-box{
+  &:after{
+    content: " ";
+    display: table;
+    clear:both;
+    zoom: 1;
+  }
+}
