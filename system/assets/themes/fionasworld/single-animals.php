@@ -21,7 +21,7 @@ function animal_header(){
 }
 
 function reregister_quickfacts(){
-    add_action('genesis_sidebar','animal_adopt', 6);
+    add_action('genesis_sidebar','animal_adopt_and_featured_image', 6);
     add_action('genesis_sidebar','animal_quick_facts', 6);
 }
 
@@ -63,7 +63,7 @@ function animal_media(){
     global $post,$animal_info;
     $animal_info->the_meta();
     $meta_map = array(
-        'Video' => array('Embed Code' => 'video_embed','Caption' => 'caption'),
+        'Video' => array('Embed Code' => 'video_embed'),
         'Risk Status' => array('Risk Status' => 'risk_status','Logos' => 'logos'),
     );
     if ( class_exists( 'SympleShortcodes' ) ) {
@@ -105,11 +105,19 @@ function get_animal_logos($logos){
     }
 }
 
-function animal_adopt(){
+function animal_adopt_and_featured_image(){
     $adopt_page = get_page_by_path('/support/adopt/');
     $link = get_post_permalink($adopt_page->ID,true);
     $img = get_stylesheet_directory_uri().'/lib/images/adopt_logo.png';
     printf('<a href="%s" class="adopt"><img src="%s"></a>',$link,$img);
+    if(has_post_thumbnail()){
+        global $animal_info;
+        $animal_info->the_meta();
+        print '<div class="featured-image">';
+        print get_the_post_thumbnail();
+        print '<div class="caption">'.$animal_info->get_the_value('caption').'</div>';
+        print '</div>';
+    }
 }
 // Initialize Genesis.
 genesis();

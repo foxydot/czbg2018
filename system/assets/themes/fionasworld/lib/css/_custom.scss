@@ -131,6 +131,17 @@ hr.padded{
 .single-animals{
   .content{}
   .sidebar{
+    .adopt{
+      display: block;
+      margin:0 auto 1em;
+    }
+    .featured-image{
+      background-color: $offwhite;
+      padding: 1em;
+      img{
+        margin-bottom: 1em;
+      }
+    }
     .quick-facts{
       margin-top: 2em;
       h4{

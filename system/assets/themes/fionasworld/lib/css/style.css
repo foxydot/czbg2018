@@ -908,6 +908,10 @@ img.alignright,
   .site-inner .sidebar .gform_wrapper .gform_body li.gfield.white {
     background: none; }
 
+.symple-button {
+  white-space: initial;
+  line-height: 1.2; }
+
 /* # Site Header
 ---------------------------------------------------------------------------------------------------- */
 .site-header {
@@ -1830,6 +1834,16 @@ hr.padded {
         width: 100%;
         text-align: center; }
 
+.single-animals .sidebar .adopt {
+  display: block;
+  margin: 0 auto 1em; }
+
+.single-animals .sidebar .featured-image {
+  background-color: #f9f2dc;
+  padding: 1em; }
+  .single-animals .sidebar .featured-image img {
+    margin-bottom: 1em; }
+
 .single-animals .sidebar .quick-facts {
   margin-top: 2em; }
   .single-animals .sidebar .quick-facts h4 {
@@ -1901,6 +1915,7 @@ hr.padded {
     float: right; }
   .sidebar-content .sidebar-primary,
   .sidebar-sidebar-content .sidebar-primary {
+    padding-top: 2em;
     float: left;
     order: 1;
     width: 30%; }
