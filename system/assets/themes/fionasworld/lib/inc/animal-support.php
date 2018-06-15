@@ -5,6 +5,12 @@ if(!class_exists('MSDLab_Animal_Support')){
         {
             add_action('pre_get_posts', array($this,'change_count'));
             add_action('pre_get_posts', array($this,'alphabetize'));
+            add_action('wp_enqueue_scripts',array($this,'msdlab_add_scripts'),12);
+            add_action('genesis_before_while',array($this,'maybe_remove_pages'));
+
+            add_action( 'wp_ajax_be_ajax_load_more', array($this,'be_ajax_load_more') );
+            add_action( 'wp_ajax_nopriv_be_ajax_load_more', array($this,'be_ajax_load_more') );
+
         }
         function msdlab_do_animal_archive_banner(){
             global $msd_custom,$page_banner_metabox;
@@ -67,10 +73,11 @@ if(!class_exists('MSDLab_Animal_Support')){
         function alphabetize($query)
         {
             if (is_admin()) return $query;
-            if ($query->is_main_query() && $query->is_archive() && $query->query_vars['post_type'] == 'animals') {
-                $query->set('orderby','post_title');
-                $query->set('order','ASC');
-            }
+            if(!$query->is_main_query() && !$query->is_archive()) return $query;
+
+            $query->set('orderby','post_title');
+            $query->set('order','ASC');
+
         }
         function switch_taxonomies()
         {
@@ -106,6 +113,54 @@ if(!class_exists('MSDLab_Animal_Support')){
 </div>';
             }
             print implode("\n",$ret);
+        }
+        function msdlab_add_scripts()
+        {
+            if($this->msdlab_is_animal_page()) {
+                global $wp_query;
+                $args = array(
+                    'url' => admin_url('admin-ajax.php'),
+                    'query' => $wp_query->query,
+                );
+
+                wp_enqueue_script('be-load-more', get_stylesheet_directory_uri() . '/lib/js/animal-jquery-min.js', array('jquery'), '1.0', true);
+                wp_localize_script('be-load-more', 'beloadmore', $args);
+            }
+        }
+
+        function msdlab_is_animal_page(){
+            $qo = get_queried_object();
+            $animal_keys = array('animals', 'class', 'exhibit', 'conservation');
+            if(in_array($qo->name,$animal_keys) || in_array($qo->taxonomy,$animal_keys)){return true;}
+            return false;
+        }
+
+        function maybe_remove_pages(){
+            if(!$this->msdlab_is_animal_page())
+                return;
+            remove_all_actions('genesis_after_endwhile');
+        }
+
+        function be_ajax_load_more() {
+            global $wp_query;
+            $args = isset( $_POST['query'] ) ? array_map( 'esc_attr', $_POST['query'] ) : array();
+            $args['paged'] = esc_attr( $_POST['page'] );
+            $args['orderby'] = 'post_title';
+            $args['order'] = 'ASC';
+            $args['posts_per_page'] = 15;
+            $args['ajax'] = true;
+            ob_start();
+            $loop = new WP_Query( $args );
+            if( $loop->have_posts() ): while( $loop->have_posts() ): $loop->the_post();
+            print '<div class="col-md-4 col-sm-6 col-xs-12 animal-link">
+<a href="'.get_the_permalink().'" style="background-image:url('.get_the_post_thumbnail_url().');" class="link-block">
+<h4>'.get_the_title().'</h4>
+</a>
+</div>';
+            endwhile; endif; wp_reset_postdata();
+            $data = ob_get_clean();
+            wp_send_json_success( $data );
+            wp_die();
         }
     }
 }
