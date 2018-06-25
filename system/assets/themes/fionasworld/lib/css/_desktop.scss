@@ -169,6 +169,39 @@
     }
   }
 
+  .single-animals{
+    .site-container,.site-header{
+      position: relative;
+    }
+    .page-title-area{
+      position: relative;
+      .banner.has-background{
+        .wrap{
+          .gradient {
+            min-height: 700px;
+          }
+        }
+      }
+    }
+    &.fixed-header{
+      .page-title-area{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 20;
+      }
+      .site-inner{
+        margin-top: 700px;
+        background: $white;
+      }
+      .site-inner,.footer-widgets,.site-footer{
+        position: relative;
+        z-index:100;
+      }
+    }
+  }
+
 
 
   /* # Nav

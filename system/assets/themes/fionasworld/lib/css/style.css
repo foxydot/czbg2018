@@ -1987,6 +1987,24 @@ hr.padded {
       min-height: 400px; }
   .page-title-area .banner.has-background .wrap .gradient {
     min-height: 450px; }
+  .single-animals .site-container, .single-animals .site-header {
+    position: relative; }
+  .single-animals .page-title-area {
+    position: relative; }
+    .single-animals .page-title-area .banner.has-background .wrap .gradient {
+      min-height: 700px; }
+  .single-animals.fixed-header .page-title-area {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 20; }
+  .single-animals.fixed-header .site-inner {
+    margin-top: 700px;
+    background: #FFF; }
+  .single-animals.fixed-header .site-inner, .single-animals.fixed-header .footer-widgets, .single-animals.fixed-header .site-footer {
+    position: relative;
+    z-index: 100; }
   /* # Nav
   ---------------------------------------------------------------------------------------------------- */
   /* # Content

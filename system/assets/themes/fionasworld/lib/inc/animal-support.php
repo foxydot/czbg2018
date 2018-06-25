@@ -27,7 +27,7 @@ if(!class_exists('MSDLab_Animal_Support')){
             print '<div class="wrap"' . $background . '>';
             print '<div class="gradient">';
             print '<div class="bannertext">';
-            print '<h1 class="archive-title">'.$queried_object->name.'</h1>';
+            print '<h1 class="archive-title">'.ucwords($queried_object->name).'</h1>';
             print '</div>';
             print '</div>';
             print '</div>';
@@ -123,8 +123,11 @@ if(!class_exists('MSDLab_Animal_Support')){
                     'query' => $wp_query->query,
                 );
 
-                wp_enqueue_script('be-load-more', get_stylesheet_directory_uri() . '/lib/js/animal-jquery-min.js', array('jquery'), '1.0', true);
+                wp_enqueue_script('be-load-more', get_stylesheet_directory_uri() . '/lib/js/animals-jquery-min.js', array('jquery'), '1.0', true);
                 wp_localize_script('be-load-more', 'beloadmore', $args);
+            }
+            if(is_cpt('animals') && is_single()){
+                wp_enqueue_script('animal', get_stylesheet_directory_uri() . '/lib/js/animal-jquery-min.js', array('jquery'), '1.0', true);
             }
         }
 
