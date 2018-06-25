@@ -1992,7 +1992,8 @@ hr.padded {
   .single-animals .page-title-area {
     position: relative; }
     .single-animals .page-title-area .banner.has-background .wrap .gradient {
-      min-height: 700px; }
+      min-height: 700px;
+      min-height: 100vh; }
   .single-animals.fixed-header .page-title-area {
     position: fixed;
     top: 0;
