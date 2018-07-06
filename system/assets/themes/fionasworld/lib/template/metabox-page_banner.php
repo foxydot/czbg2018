@@ -14,6 +14,10 @@ $template_file = get_post_meta($postid,'_wp_page_template',TRUE);
     <?php if(class_exists('LS_Sliders')){ ?>
         <?php $mb->the_field('bannerslider');
         //get all sliders for options
+        $filters = array(
+            'orderby' => 'name',
+            'limit' => 100,
+        );
         $sliders = LS_Sliders::find($filters);
         foreach($sliders AS $slider){
             $option[] = '<option value="'.$slider['id'].'"'.selected( $mb->get_the_value(), $slider['id'], 0).'>'.$slider['name'].'</option>';
