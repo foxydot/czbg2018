@@ -324,13 +324,59 @@ if (!class_exists('AnimalCPT')) {
         function animals_shortcode_handler($atts){
             extract( shortcode_atts( array(
                 'class' => 'all',
+                'habitat' => 'all',
                 'display' => 'class',
+                'columns' => 3,
             ), $atts ) );
-            $args = array();
-            if($class != 'all'){
-
+            switch($columns){
+                case 1:
+                    $css = 'col-xs-12';
+                    break;
+                case 2:
+                    $css = 'col-sm-6 col-xs-12';
+                    break;
+                case 4:
+                    $css = 'col-md-3 col-sm-6 col-xs-12';
+                    break;
+                case 3:
+                default:
+                    $css = 'col-md-4 col-sm-6 col-xs-12';
+                    break;
             }
             switch($display){
+                case 'all':
+                    global $page_banner_metabox;
+                    $args = array(
+                        'post_type' => 'animals',
+                        'orderby' => 'title',
+                        'order' => 'ASC',
+                    );
+                    if($class != 'all'){
+                        //tax query
+                        $args['tax_query'][] = array(
+                                'taxonomy' => 'class',
+                                'field'    => 'slug',
+                                'terms'    => $class,
+                        );
+                    }
+                    if($habitat != 'all'){
+                        //tax query
+                        $args['tax_query'][] = array(
+                            'taxonomy' => 'habitat',
+                            'field'    => 'slug',
+                            'terms'    => $habitat,
+                        );
+                    }
+                    ts_data($args);
+                    $posts = get_posts($args);
+                    foreach ($posts AS $p){
+                        $out[] = array(
+                            'title' => $p->post_title,
+                            'link' => get_the_permalink( $p->ID ),
+                            'image' => get_the_post_thumbnail_url( $p->ID),
+                        );
+                    }
+                    break;
                 case 'exhibit':
                 case 'habitat':
                 $terms = get_terms( array(
@@ -363,7 +409,7 @@ if (!class_exists('AnimalCPT')) {
                     break;
             }
             foreach($out AS $o){
-                $ret[] = '<div class="col-md-4 col-sm-6 col-xs-12 animal-link">
+                $ret[] = '<div class="'.$css.' animal-link">
 <a href="'.$o['link'].'" style="background-image:url('.$o['image'].');" class="link-block">
 <h4>'.$o['title'].'</h4>
 </a>
