@@ -367,7 +367,6 @@ if (!class_exists('AnimalCPT')) {
                             'terms'    => $habitat,
                         );
                     }
-                    ts_data($args);
                     $posts = get_posts($args);
                     foreach ($posts AS $p){
                         $out[] = array(
