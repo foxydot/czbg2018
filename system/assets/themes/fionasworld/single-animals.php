@@ -15,7 +15,7 @@ function animal_header(){
     global $post,$animal_info;
     $animal_info->the_meta();
     if($animal_info->get_the_value('latin_name') != ''){
-        print '<h2><i class="latin_name">'.$animal_info->get_the_value('latin_name').'</i></h2>';
+        print '<h2>'.get_the_title().' <i class="latin_name">('.$animal_info->get_the_value('latin_name').')</i></h2>';
     }
     print '<p class="classes">'.get_the_term_list( $post->ID, 'class', '', ', ', '' ).'</p>';
 }
