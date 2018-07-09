@@ -190,3 +190,37 @@ function _msd_shortcode_rss_output( $rss, $args = array() ) {
     return $ret;
 }
 add_shortcode( 'rsshotnews', '_msd_get_rss_from_blog' );
+
+function _msdlab_menu_shortcode_handler($atts){
+    global $post;
+    extract( shortcode_atts( array(
+        'type' => 'child-pages',
+        'post_id' => $post->ID,
+    ), $atts ) );
+    switch($type){
+        case 'child-pages':
+        default:
+        $args = array(
+            'post_type' => 'page',
+            'post_parent' => $post_id,
+            'posts_per_page' => -1,
+            'orderby' => 'title',
+            'order' => 'ASC',
+        );
+            break;
+    }
+    $cpquery = new WP_Query($args);
+    if($cpquery->have_posts()){
+        $ret = array();
+        $ret[] = '<div class="menu-gallery">';
+        while($cpquery->have_posts()){
+        $cpquery->the_post();
+        $ret[] = '<article class="entry col-xs-12 col-sm-6 col-md-4" itemscope="" itemtype="https://schema.org/CreativeWork"><header class="entry-header"><h2 class="entry-title" style="background-image:url('.get_the_post_thumbnail_url().')" itemprop="headline"><a class="entry-title-link" rel="bookmark" href="'.get_the_permalink().'"><span>'.get_the_title().'</span></a></h2>
+</header><div class="entry-content" itemprop="text"></div><footer class="entry-footer"></footer></article>';
+        }
+        $ret[] = '</div>';
+    }
+    wp_reset_postdata();
+    return implode("\n",$ret);
+}
+add_shortcode( 'menu', '_msdlab_menu_shortcode_handler' );
