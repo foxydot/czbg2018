@@ -251,8 +251,9 @@ if (!class_exists('AnimalCPT')) {
             $columns = array(
                 'cb' => '<input type="checkbox" />',
                 'title' => __( 'Title' ),
-                $this->cpt.'_category' => __( 'Categories' ),
-                $this->cpt.'_tag' => __( 'Tags' ),
+                'class' => __( 'Class' ),
+                'exhibit' => __( 'Exhibit' ),
+                'conservation' => __( 'Conservation' ),
                 'author' => __( 'Author' ),
                 'date' => __( 'Date' )
             );
@@ -265,8 +266,9 @@ if (!class_exists('AnimalCPT')) {
 
             switch( $column ) {
                 /* If displaying the 'logo' column. */
-                case $this->cpt.'_category' :
-                case $this->cpt.'_tag' :
+                case 'class' :
+                case 'exhibit':
+                case 'conservation':
                     $taxonomy = $column;
                     if ( $taxonomy ) {
                         $taxonomy_object = get_taxonomy( $taxonomy );
