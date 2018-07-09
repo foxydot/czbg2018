@@ -202,7 +202,6 @@ a {
 
 a:focus,
 a:hover {
-  color: #557833;
   text-decoration: none; }
 
 p {
@@ -357,8 +356,7 @@ figure {
 
 .gallery img:focus,
 .gallery img:hover {
-  border: 0px solid #CCC;
-  background: rgba(117, 183, 57, 0.4); }
+  border: 0px solid #CCC; }
 
 /* ## Forms
 --------------------------------------------- */
@@ -1859,6 +1857,17 @@ hr.padded {
     margin-bottom: 0.5em; }
   .single-animals .sidebar .quick-facts .range_map {
     margin-top: 2em; }
+
+.gallery .gallery-item {
+  vertical-align: bottom;
+  padding: 3%; }
+  .gallery .gallery-item .gallery-icon a {
+    display: block;
+    max-height: 100%; }
+    .gallery .gallery-item .gallery-icon a svg {
+      max-width: 100%; }
+    .gallery .gallery-item .gallery-icon a:hover svg .st0, .gallery .gallery-item .gallery-icon a:hover svg .st1, .gallery .gallery-item .gallery-icon a:hover svg .st2 {
+      stroke: #557833 !important; }
 
 @media only screen and (min-width: 768px) {
   /* Accessible Menu

@@ -39,7 +39,7 @@ a {
 
 a:focus,
 a:hover {
-  color: $link_hvr;
+  //color: $link_hvr;
   text-decoration: none;
 }
 
@@ -228,7 +228,7 @@ figure {
 .gallery img:focus,
 .gallery img:hover {
   border: 0px solid $border;
-  background: rgba($ltgreen,0.4);
+  //background: rgba($ltgreen,0.4);
 }
 
 /* ## Forms

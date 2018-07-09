@@ -41,4 +41,21 @@ jQuery(document).ready(function($) {
 
 	$('.genesis-teaser').matchHeight();
 
+    $('.gallery .gallery-item .gallery-icon a img').each(function() {
+            var img = $(this);
+            var image_uri = img.attr('src');
+            var svgheight = $(this).parents('.gallery-icon').width();
+
+            $.get(image_uri, function (data) {
+                var svg = $(data).find('svg');
+                svg.removeAttr('xmlns:a');
+                svg.height(svgheight);
+                img.replaceWith(svg);
+            }, 'xml');
+        });
+
+
+    $('.gallery .gallery-item .gallery-icon a svg').height(function () {
+        return $(this).parents('.gallery-icon').width();
+    });
 });
