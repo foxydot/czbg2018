@@ -346,35 +346,39 @@ if (!class_exists('AnimalCPT')) {
             switch($display){
                 case 'all':
                     global $page_banner_metabox;
-                    $args = array(
-                        'post_type' => 'animals',
-                        'orderby' => 'title',
-                        'order' => 'ASC',
-                    );
                     if($class != 'all'){
                         //tax query
-                        $args['tax_query'][] = array(
-                                'taxonomy' => 'class',
-                                'field'    => 'slug',
-                                'terms'    => $class,
+                        $taxquery[] = array(
+                            'taxonomy' => 'class',
+                            'field'    => 'slug',
+                            'terms'    => $class,
                         );
                     }
                     if($habitat != 'all'){
                         //tax query
-                        $args['tax_query'][] = array(
-                            'taxonomy' => 'habitat',
+                        $taxquery[] = array(
+                            'taxonomy' => 'exhibit',
                             'field'    => 'slug',
                             'terms'    => $habitat,
                         );
                     }
-                    ts_data($args);
-                    $posts = get_posts($args);
-                    foreach ($posts AS $p){
-                        $out[] = array(
-                            'title' => $p->post_title,
-                            'link' => get_the_permalink( $p->ID ),
-                            'image' => get_the_post_thumbnail_url( $p->ID),
-                        );
+                    $args = array(
+                        'post_type' => 'animals',
+                        'orderby' => 'title',
+                        'order' => 'ASC',
+                        'tax_query' => $taxquery,
+                    );
+                    $posts = new WP_Query($args);
+                    if($posts->have_posts()){
+                        while($posts->have_posts()){
+                            $posts->the_post();
+                            $out[] = array(
+                                'title' => get_the_title(),
+                                'link' => get_the_permalink(),
+                                'image' => get_the_post_thumbnail_url(),
+                            );
+                        }
+                        wp_reset_postdata();
                     }
                     break;
                 case 'exhibit':
