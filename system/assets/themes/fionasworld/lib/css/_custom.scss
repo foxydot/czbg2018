@@ -94,6 +94,18 @@ hr.padded{
       bottom: 0;
       width: 100%;
       text-align: center;
+      color: $white !important;
+    }
+  }
+}
+
+.manual-sidebar{
+  .animal-link{
+    p{
+      display: none;
+    }
+    a.link-block{
+      min-height: 14em;
     }
   }
 }

@@ -1812,7 +1812,14 @@ hr.padded {
       position: absolute;
       bottom: 0;
       width: 100%;
-      text-align: center; }
+      text-align: center;
+      color: #FFF !important; }
+
+.manual-sidebar .animal-link p {
+  display: none; }
+
+.manual-sidebar .animal-link a.link-block {
+  min-height: 14em; }
 
 .archive.post-type-archive-animals article, .archive.tax-class article, .archive.tax-exhibit article, .menu-gallery article {
   padding: 1em;
