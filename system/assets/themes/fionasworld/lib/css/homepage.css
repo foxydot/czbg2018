@@ -19,3 +19,42 @@
 /* Neutrals */
 /* Default Colors */
 /* Social Colors */
+.page-title-area {
+  background: #000; }
+
+.site-inner .content-sidebar-wrap {
+  display: none; }
+
+.sectioned-page-wrapper .section.section-tickets-and-notices .section-body .column-holder .column-2 {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #FFF;
+  padding-top: 1em;
+  padding-bottom: 1em; }
+  .sectioned-page-wrapper .section.section-tickets-and-notices .section-body .column-holder .column-2 p.first-child:before {
+    border-radius: 50%;
+    background-color: #ecb053;
+    color: #FFF;
+    content: '!';
+    min-width: 1.7em;
+    width: 1.7em;
+    margin: 0 auto 1em;
+    display: block;
+    font-weight: 800;
+    font-size: 1.5em;
+    text-align: center; }
+
+.sectioned-page-wrapper .section.section-zoo-news {
+  background-color: #75b739; }
+  .sectioned-page-wrapper .section.section-zoo-news .section-title h3 {
+    font-family: 'Lato', sans-serif;
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+    font-weight: 400;
+    font-size: 1.6em;
+    background: #000;
+    color: #FFF;
+    max-width: 4em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    font-weight: bold;
+    margin-left: 30%; }

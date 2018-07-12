@@ -181,7 +181,7 @@ hr.padded{
         display: block;
         max-height: 100%;
         svg{
-          max-width: 100%;
+          max-width: 80%;
         }
         &:hover{
           svg{
@@ -191,6 +191,9 @@ hr.padded{
           }
         }
       }
+    }
+    .wp-caption-text,.gallery-caption{
+      text-transform: uppercase;
     }
   }
 }

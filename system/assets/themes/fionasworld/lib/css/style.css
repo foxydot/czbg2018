@@ -1872,9 +1872,11 @@ hr.padded {
     display: block;
     max-height: 100%; }
     .gallery .gallery-item .gallery-icon a svg {
-      max-width: 100%; }
+      max-width: 80%; }
     .gallery .gallery-item .gallery-icon a:hover svg .st0, .gallery .gallery-item .gallery-icon a:hover svg .st1, .gallery .gallery-item .gallery-icon a:hover svg .st2 {
       stroke: #557833 !important; }
+  .gallery .gallery-item .wp-caption-text, .gallery .gallery-item .gallery-caption {
+    text-transform: uppercase; }
 
 @media only screen and (min-width: 768px) {
   /* Accessible Menu
