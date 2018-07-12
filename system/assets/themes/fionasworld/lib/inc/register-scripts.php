@@ -18,6 +18,8 @@ function msdlab_add_styles() {
         $queue[] = 'font-awesome-style';
         wp_enqueue_style('msd-style',get_stylesheet_directory_uri().'/lib/css/style.css',$queue);
         $queue[] = 'msd-style';
+        wp_enqueue_style('czbg',get_stylesheet_directory_uri().'/lib/css/czbg_mod.css',$queue);
+        $queue[] = 'czbg';
         if(is_front_page()){
             wp_enqueue_style('msd-homepage-style',get_stylesheet_directory_uri().'/lib/css/homepage.css',$queue);
             $queue[] = 'msd-homepage-style';
