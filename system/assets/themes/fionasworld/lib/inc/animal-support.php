@@ -74,6 +74,7 @@ if(!class_exists('MSDLab_Animal_Support')){
         {
             if (is_admin()) return $query;
             if(!$query->is_main_query() && !$query->is_archive()) return $query;
+            if($query->query['post_type'] != 'animals') return $query;
 
             $query->set('orderby','post_title');
             $query->set('order','ASC');

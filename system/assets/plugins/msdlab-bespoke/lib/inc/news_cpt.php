@@ -38,6 +38,7 @@ if (!class_exists('MSDNewsCPT')) {
 			//add cols to manage panel
             add_filter( 'manage_edit-'.$this->cpt.'_columns', array(&$this,'my_edit_columns' ));
             add_action( 'manage_'.$this->cpt.'_posts_custom_column', array(&$this,'my_manage_columns'), 10, 2 );
+            add_image_size('front-news',400,400,true);
         }
 
 
@@ -413,61 +414,54 @@ if (!class_exists('MSDNewsCPT')) {
         function news_shortcode_handler($atts, $content){
             extract(shortcode_atts( array(
                 'title' => 'News',
-                'count' => 5,
-                $this->cpt.'_category' => false,
-                $this->cpt.'_tag' => false,
+                'columns' => 4,
+                'category' => false,
+                'tag' => false,
             ), $atts ));
-            $allowed_terms = array('articles-of-interest','members-in-the-news','quote-of-the-day','state-single-payer-news');
                 $args = array(
                     'post_type' => 'news',
-                    'showposts' => $count,
+                    'showposts' => $columns,
+                    'orderby' => 'date',
+                    'order' => 'DESC',
 
                 );
-                if(${$this->cpt.'_category'}) {
-                    $class = $this->cpt.'_category'.${$this->cpt.'_category'};
+                if($category) {
+                    $class = $this->cpt.'_category'.$category;
                     $args['tax_query'] = array(
                         array(
                             'taxonomy' => $this->cpt.'_category',
                             'field'    => 'slug',
-                            'terms'    => ${$this->cpt.'_category'},
+                            'terms'    => $category,
                         ),
                     );
-                } elseif (${$this->cpt.'_tag'}) {
-                    $class = $this->cpt.'_tag'.${$this->cpt.'_tag'};
+                } elseif ($tag) {
+                    $class = $this->cpt.'_tag'.$tag;
                     $args['tax_query'] = array(
                         array(
                             'taxonomy' => $this->cpt.'_tag',
                             'field'    => 'slug',
-                            'terms'    => ${$this->cpt.'_tag'},
+                            'terms'    => $tag,
                         ),
                     );
                 } else {
                     $class = $this->cpt.'_all';
-                    $args['tax_query'] = array(
-                        array(
-                            'taxonomy' => 'news_category',
-                            'field'    => 'slug',
-                            'terms'    => $allowed_terms,
-                        ),
-                    );
                 }
 
                 $recents = new WP_Query($args);
                 if($recents->have_posts()) {
                     global $post;
                     $ret[] = '<section class="widget news-widget clearfix '.$class.'">
-<h3 class="widgettitle widget-title">' . $title . ' </h3>
 <div class="wrap">
-<dl class="news-widget-list">';
+<ul class="news-widget-list row">';
 //start loop
                     ob_start();
                     while($recents->have_posts()) {
                         $recents->the_post();
-                        print '<dt><span class="news-category">'.get_the_term_list($post->ID,$this->cpt.'_category').'</span> <span class="date">'.get_the_date().'</span></dt><dd><a href="'.get_the_permalink().'">'.get_the_title().'</a></dd>';
+                        print '<li class="news-item col-md-3 col-sm-6 col-xs-12"><a href="'.get_the_permalink().'"><span class="image">'.genesis_get_image(array('size' => 'front-news',)).'</span><span class="title">'.get_the_title().'</span><span class="date">'.get_the_date().'</span></a></li>';
                     } //end loop
                     $ret[] = ob_get_contents();
                     ob_end_clean();
-                    $ret[] = '</dl></div></section>';
+                    $ret[] = '</ul></div></section>';
                 } //end loop check
 
             wp_reset_postdata();
