@@ -1821,17 +1821,17 @@ hr.padded {
 .manual-sidebar .animal-link a.link-block {
   min-height: 14em; }
 
-.archive.post-type-archive-animals article, .archive.tax-class article, .archive.tax-exhibit article, .menu-gallery article {
+.archive.post-type-archive-animals article, .archive.tax-class article, .archive.tax-exhibit article, .menu-gallery article, .archive.post-type-archive-news article {
   padding: 1em;
   margin-bottom: 0; }
-  .archive.post-type-archive-animals article h2.entry-title, .archive.tax-class article h2.entry-title, .archive.tax-exhibit article h2.entry-title, .menu-gallery article h2.entry-title {
+  .archive.post-type-archive-animals article h2.entry-title, .archive.tax-class article h2.entry-title, .archive.tax-exhibit article h2.entry-title, .menu-gallery article h2.entry-title, .archive.post-type-archive-news article h2.entry-title {
     font-size: 2em;
     font-weight: 500;
     text-transform: none;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover; }
-    .archive.post-type-archive-animals article h2.entry-title a.entry-title-link, .archive.tax-class article h2.entry-title a.entry-title-link, .archive.tax-exhibit article h2.entry-title a.entry-title-link, .menu-gallery article h2.entry-title a.entry-title-link {
+    .archive.post-type-archive-animals article h2.entry-title a.entry-title-link, .archive.tax-class article h2.entry-title a.entry-title-link, .archive.tax-exhibit article h2.entry-title a.entry-title-link, .menu-gallery article h2.entry-title a.entry-title-link, .archive.post-type-archive-news article h2.entry-title a.entry-title-link {
       min-height: 11em;
       padding-bottom: 0.5em;
       position: relative;
@@ -1839,11 +1839,15 @@ hr.padded {
       text-shadow: 0 0 8px rgba(102, 102, 102, 0.8);
       display: block;
       position: relative; }
-      .archive.post-type-archive-animals article h2.entry-title a.entry-title-link span, .archive.tax-class article h2.entry-title a.entry-title-link span, .archive.tax-exhibit article h2.entry-title a.entry-title-link span, .menu-gallery article h2.entry-title a.entry-title-link span {
+      .archive.post-type-archive-animals article h2.entry-title a.entry-title-link span, .archive.tax-class article h2.entry-title a.entry-title-link span, .archive.tax-exhibit article h2.entry-title a.entry-title-link span, .menu-gallery article h2.entry-title a.entry-title-link span, .archive.post-type-archive-news article h2.entry-title a.entry-title-link span {
         position: absolute;
         bottom: 0;
         width: 100%;
         text-align: center; }
+  .archive.post-type-archive-animals article.odd h2.entry-title.no-background, .archive.tax-class article.odd h2.entry-title.no-background, .archive.tax-exhibit article.odd h2.entry-title.no-background, .menu-gallery article.odd h2.entry-title.no-background, .archive.post-type-archive-news article.odd h2.entry-title.no-background {
+    background: #75b739; }
+  .archive.post-type-archive-animals article.even h2.entry-title.no-background, .archive.tax-class article.even h2.entry-title.no-background, .archive.tax-exhibit article.even h2.entry-title.no-background, .menu-gallery article.even h2.entry-title.no-background, .archive.post-type-archive-news article.even h2.entry-title.no-background {
+    background: #CCC; }
 
 .single-animals .sidebar .adopt {
   display: block;

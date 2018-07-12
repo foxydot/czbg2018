@@ -110,7 +110,7 @@ hr.padded{
   }
 }
 
-.archive.post-type-archive-animals,.archive.tax-class,.archive.tax-exhibit,.menu-gallery{
+.archive.post-type-archive-animals,.archive.tax-class,.archive.tax-exhibit,.menu-gallery,.archive.post-type-archive-news{
   article {
     padding: 1em;
     margin-bottom: 0;
@@ -135,6 +135,16 @@ hr.padded{
           width: 100%;
           text-align: center;
         }
+      }
+    }
+    &.odd{
+      h2.entry-title.no-background{
+        background: $ltgreen;
+      }
+    }
+    &.even{
+      h2.entry-title.no-background{
+        background: $ltgrey;
       }
     }
   }

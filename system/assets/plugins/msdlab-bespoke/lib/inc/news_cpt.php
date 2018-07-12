@@ -143,7 +143,7 @@ if (!class_exists('MSDNewsCPT')) {
 		        'has_archive' => true,
 		        'query_var' => true,
 		        'can_export' => true,
-		        'rewrite' => array('slug'=>'news','with_front'=>false),
+		        'rewrite' => array('slug'=>'news-releases','with_front'=>false),
 		        'capability_type' => 'post',
                 'menu_icon' => 'dashicons-megaphone',
 		    );
@@ -484,6 +484,47 @@ if (!class_exists('MSDNewsCPT')) {
                     //display for aggregate here
                 }
             }
+        }
+
+        function msdlab_do_archive_banner(){
+            global $msd_custom,$page_banner_metabox;
+            $page = get_page_by_path('news-releases');
+            $page_id = $page->ID;
+            $page_banner_metabox->the_meta($page_id);
+            $queried_object = get_queried_object();
+            $bannerimage = $page_banner_metabox->get_the_value('bannerimage');
+            if (strlen($bannerimage) > 0) {
+                $background = ' style="background-image:url(' . $bannerimage . ')"';
+                $bannerclass .= ' has-background';
+            }
+            print '<div class="banner clearfix ' . $banneralign . ' ' . $bannerclass . '">';
+            print '<div class="wrap"' . $background . '>';
+            print '<div class="gradient">';
+            print '<div class="bannertext">';
+            print '<h1 class="archive-title">'.ucwords($queried_object->name).'</h1>';
+            print '</div>';
+            print '</div>';
+            print '</div>';
+            print '</div><hr class="clear padded">';
+        }
+
+
+        function msdlab_do_taxonomy_archive_block($output, $wrap, $title){
+            global $post;
+            if(get_the_post_thumbnail_url()) {
+                $output = preg_replace('/class="entry-title"/', 'class="entry-title" style="background-image:url(' . get_the_post_thumbnail_url() . ')"', $output);
+            } else {
+                $output = preg_replace('/class="entry-title"/', 'class="entry-title no-background"', $output);
+            }
+            $output = preg_replace('/<a(.*?)>/','<a $1><span>',$output);
+            $output = preg_replace('/<\/a>/','</span></a>',$output);
+            return $output;
+        }
+
+        function msdlab_block_entry_attr($attr){
+            global $post;
+            $attr['class'] .= ' col-xs-12 col-sm-6 col-md-4';
+            return $attr;
         }
   } //End Class
 } //End if class exists statement
