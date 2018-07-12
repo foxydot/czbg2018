@@ -40,18 +40,29 @@
        position: relative;
      }
      .section-title{
+       margin: 0;
        h3{
           @include sansserif(1.6);
          background: $black;
          color: $white;
-         max-width: 4em;
+         max-width: 5em;
          padding-top: 0.5em;
          padding-bottom: 0.5em;
          font-weight: bold;
-         margin-left: 30%;
+         margin-left: 36%;
+         margin-bottom: 0;
+         text-align: center;
+         letter-spacing: 0.1em;
+         span.lg{
+           font-size: 1.4em;
+           display: block;
+         }
        }
      }
      .news-widget{
+       .wrap{
+         padding: 0;
+       }
        .news-widget-list{
          margin: 0;
          a{

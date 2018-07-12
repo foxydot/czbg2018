@@ -915,6 +915,10 @@ img.alignright,
 .symple-button {
   white-space: initial;
   line-height: 1.2; }
+  .symple-button.green {
+    background-color: #a8c74a; }
+  .symple-button.orange {
+    background-color: #f0cc6e; }
 
 .symple-box:after {
   content: " ";
@@ -2023,8 +2027,10 @@ hr.padded {
     background: #FFF; }
     .page-title-area .banner.has-background .texturize .gradient {
       min-height: 400px; }
-  .page-title-area .banner.has-background .wrap .gradient {
-    min-height: 450px; }
+  .page-title-area {
+    min-height: 1em; }
+    .page-title-area .banner.has-background .wrap .gradient {
+      min-height: 450px; }
   .single-animals .site-container, .single-animals .site-header {
     position: relative; }
   .single-animals .page-title-area {

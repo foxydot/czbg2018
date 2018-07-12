@@ -47,19 +47,29 @@
   background-color: #75b739; }
   .sectioned-page-wrapper .section.section-zoo-news .container {
     position: relative; }
-  .sectioned-page-wrapper .section.section-zoo-news .section-title h3 {
-    font-family: 'Lato', sans-serif;
-    text-rendering: optimizeLegibility !important;
-    -webkit-font-smoothing: antialiased !important;
-    font-weight: 400;
-    font-size: 1.6em;
-    background: #000;
-    color: #FFF;
-    max-width: 4em;
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
-    font-weight: bold;
-    margin-left: 30%; }
+  .sectioned-page-wrapper .section.section-zoo-news .section-title {
+    margin: 0; }
+    .sectioned-page-wrapper .section.section-zoo-news .section-title h3 {
+      font-family: 'Lato', sans-serif;
+      text-rendering: optimizeLegibility !important;
+      -webkit-font-smoothing: antialiased !important;
+      font-weight: 400;
+      font-size: 1.6em;
+      background: #000;
+      color: #FFF;
+      max-width: 5em;
+      padding-top: 0.5em;
+      padding-bottom: 0.5em;
+      font-weight: bold;
+      margin-left: 36%;
+      margin-bottom: 0;
+      text-align: center;
+      letter-spacing: 0.1em; }
+      .sectioned-page-wrapper .section.section-zoo-news .section-title h3 span.lg {
+        font-size: 1.4em;
+        display: block; }
+  .sectioned-page-wrapper .section.section-zoo-news .news-widget .wrap {
+    padding: 0; }
   .sectioned-page-wrapper .section.section-zoo-news .news-widget .news-widget-list {
     margin: 0; }
     .sectioned-page-wrapper .section.section-zoo-news .news-widget .news-widget-list a {
