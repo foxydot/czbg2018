@@ -108,4 +108,4 @@ config.codekit
 .sass-cache/*
 
 //ignore michele's css
-czbg_mod.css
+*/czbg_mod.css
