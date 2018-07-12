@@ -296,6 +296,8 @@
       li.menu-item{
         a{
           line-height: 1.5;
+          text-transform: none;
+          font-size: 1.2em;
         }
         &:hover{
           background-color: rgba($medgrey,1);

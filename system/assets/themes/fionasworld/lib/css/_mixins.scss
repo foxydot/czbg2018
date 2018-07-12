@@ -31,9 +31,9 @@
 /* Colors */
 $red: #f00;
 $linkred: #b1536f;
-$orange: rgb(236, 176, 83);
+$orange: rgb(223, 152, 50);
 $yellow: #ff0;
-$green: rgb(85, 120, 51);
+$green: rgb(153, 204, 0);
 $blue: rgb(63, 130, 156);
 $purple: #90f;
 $beige: #c96;
@@ -41,7 +41,7 @@ $brown: #630;
 
 $ltred: lighten($red,20%);
 $dkred: darken($red, 20%);
-$ltorange: lighten($orange,20%);
+$ltorange: rgb(240, 204, 110);
 $dkorange: darken($orange, 20%);
 $ltyellow: lighten($yellow,20%);
 $dkyellow: darken($yellow, 20%);
@@ -72,12 +72,13 @@ $link_hvr: $green;
 $border: $ltgrey;
 $input_bkg: $offwhite;
 $input_border: $ltgrey;
-$btn_bkg: $orange;
+$btn_bkg: $ltorange;
 $btn_txt: $offwhite;
-$btn_hvr_bkg: $ltgreen;
+$btn_hvr_bkg: $orange;
 $btn_hvr_txt: $offwhite;
 $btn_dis_bkg: $ltgrey;
 $btn_dis_txt: $medgrey;
+$btn_green: rgb(168, 199, 74);
 
 @mixin clearfix{
   content: " ";

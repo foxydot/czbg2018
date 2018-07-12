@@ -23,6 +23,8 @@ hr.padded{
   padding: 1em 0;
 }
 
+.symple-toggle-container {margin-bottom: .5em;}
+
 ///TEMPLATES///
 
 .page-template-default,
@@ -48,7 +50,7 @@ hr.padded{
           }
         }
       }
-      h2{font-size: 1.6em;color: $green;}
+      h2{font-size: 1.6em;color: $ltorange;}
       h3{}
       h4{
         font-size: 1.2em;

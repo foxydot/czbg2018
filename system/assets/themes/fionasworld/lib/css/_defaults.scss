@@ -103,7 +103,6 @@ blockquote::before {
 --------------------------------------------- */
 
 h1,
-h2,
 h3,
 h4,
 h5,
@@ -119,7 +118,10 @@ h1 {
 }
 
 h2 {
-  font-size: 2.2em;
+  @include sansserif(2.2);
+  font-weight: 300;
+  line-height: 1.2;
+  margin: 0 0 10px;
 }
 
 h3 {
