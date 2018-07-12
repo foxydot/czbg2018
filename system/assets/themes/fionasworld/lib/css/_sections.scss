@@ -35,9 +35,9 @@
     }
   }
 
-  .section.border-top .container{border-top: 1px solid $medgrey;padding-top: 1em; margin-top: 1em;}
-  .section.border-bottom .container{border-bottom: 1px solid $medgrey;padding-bottom: 1em; margin-bottom: 1em;}
-  .section.column-border .section-content:not(.last-child){border-right: 1px solid $medgrey;padding-right: 1em;}
+  .section.border-top .container{border-top: 1px solid $vltgrey;padding-top: 1em; margin-top: 1em;}
+  .section.border-bottom .container{border-bottom: 1px solid $vltgrey;padding-bottom: 1em; margin-bottom: 1em;}
+  .section.column-border .section-content:not(.last-child){border-right: 1px solid $vltgrey;padding-right: 1em;}
   .section.green-waves {
     background-image: url(../images/greenwave.svg);
     background-position: 50%;
