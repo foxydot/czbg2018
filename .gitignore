@@ -107,5 +107,5 @@ config.codekit
 .sass-cache
 .sass-cache/*
 
-//ignore michele's css
-*/czbg_mod.css
+#ignore michele's css
+czbg_mod.css
