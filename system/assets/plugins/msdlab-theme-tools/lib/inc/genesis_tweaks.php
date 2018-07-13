@@ -32,7 +32,7 @@ class MSDLab_Genesis_Tweaks
      */
     function msdlab_pre_header(){
         print '<div class="pre-header">
-        <div class="wrap">';
+        <div class="wrap container">';
         do_action('msdlab_pre_header');
         print '
         </div>

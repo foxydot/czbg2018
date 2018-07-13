@@ -111,11 +111,11 @@ add_filter('genesis_search_button_text', 'msdlab_search_button'); //customize th
  */
 remove_action( 'genesis_after_header', 'genesis_do_subnav' );
 add_action( 'genesis_header', 'genesis_do_subnav' );
+add_action('genesis_header','genesis_header_right' );
 
 remove_action('genesis_header','genesis_do_header' );
 add_action('genesis_header','msdlab_do_header' );
 
-//add_action('genesis_header','msdlab_header_right' );
 
 /*** NAV ***/
 /**
