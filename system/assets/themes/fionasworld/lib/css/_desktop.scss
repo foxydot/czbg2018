@@ -116,8 +116,8 @@
         right: 0;
         top: 0em;
         font-size: 1.4rem;
-        width: 2.5em;
-        background: rgba($blue,0.5);
+        width: 15em;
+        background: transparent;
         padding: 0.5em 1.25em;
         border: 1px solid $ltgrey;
         border-radius: 3rem;
@@ -134,11 +134,6 @@
         -webkit-transition-timing-function: cubic-bezier(0.6, 0, 0.2, 1);
         -moz-transition-timing-function: cubic-bezier(0.6, 0, 0.2, 1);
         -o-transition-timing-function: cubic-bezier(0.6, 0, 0.2, 1);
-        transition-timing-function: cubic-bezier(0.6, 0, 0.2, 1);
-        &:focus,&.hover{
-          width: 25em;
-          z-index: -10;
-        }
       }
       input[type="submit"] {
         @include fontawesome;

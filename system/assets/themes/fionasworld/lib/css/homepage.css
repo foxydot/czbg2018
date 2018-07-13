@@ -26,7 +26,10 @@
   display: none; }
 
 .sectioned-page-wrapper .section.section-tickets-and-notices .section-body .column-holder .column-2 {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-image: url(../images/graywave.svg);
+  background-position: 50%;
+  background-size: auto 100px;
+  background-repeat: repeat;
   color: #FFF;
   padding-top: 1em;
   padding-bottom: 1em; }

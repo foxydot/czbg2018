@@ -412,6 +412,7 @@ if (!class_exists('MSDNewsCPT')) {
         }
 
         function news_shortcode_handler($atts, $content){
+		    global $news_info;
             extract(shortcode_atts( array(
                 'title' => 'News',
                 'columns' => 4,
@@ -457,7 +458,9 @@ if (!class_exists('MSDNewsCPT')) {
                     ob_start();
                     while($recents->have_posts()) {
                         $recents->the_post();
-                        print '<li class="news-item col-md-3 col-sm-6 col-xs-12"><a href="'.get_the_permalink().'"><span class="image">'.genesis_get_image(array('size' => 'front-news',)).'</span><span class="title">'.get_the_title().'</span><span class="date">'.get_the_date().'</span></a></li>';
+                        $news_info->the_meta();
+                        $title = $news_info->get_the_value('alttitle') != ''?$news_info->get_the_value('alttitle'):get_the_title();
+                        print '<li class="news-item col-md-3 col-sm-6 col-xs-12"><a href="'.get_the_permalink().'"><span class="image">'.genesis_get_image(array('size' => 'front-news',)).'</span><span class="title">'.$title.'</span><span class="date">'.get_the_date().'</span></a></li>';
                     } //end loop
                     $ret[] = ob_get_contents();
                     ob_end_clean();

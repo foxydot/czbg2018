@@ -1,7 +1,7 @@
 <table class="form-table">
     <tbody>
     <tr valign="top">
-        <?php $mb->the_field('newsurl'); ?>
+        <?php $mb->the_field('alttitle'); ?>
         <th scope="row"><label for="<?php $mb->the_name(); ?>">Alt Title for Front</label>
         </th>
         <td>
