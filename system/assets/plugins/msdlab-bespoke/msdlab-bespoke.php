@@ -66,6 +66,10 @@ class MSDLabClientCustom
         if(class_exists('Daisho_Legacy_Support')){
             $this->daisho_class = new Daisho_Legacy_Support();
         }
+        require_once(plugin_dir_path(__FILE__) . 'lib/inc/event-support.php');
+        if(class_exists('MSDEventSupport')){
+            $this->event_class = new MSDEventSupport();
+        }
 
 
         register_activation_hook( __FILE__, create_function('','flush_rewrite_rules();') );
