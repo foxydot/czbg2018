@@ -198,6 +198,7 @@ function _msdlab_menu_shortcode_handler($atts){
         'orderby' => 'title',
         'type' => 'child-pages',
         'post_id' => $post->ID,
+        'include' => false,
     ), $atts ) );
     switch($type){
         case 'child-pages':
@@ -229,6 +230,15 @@ function _msdlab_menu_shortcode_handler($atts){
             $args['orderby'] = 'title';
             $args['order'] = 'ASC';
         break;
+    }
+    if($include){
+        $args['fields'] = 'ids';
+        $q1 = get_posts($args);
+        $inc = array_merge($q1,explode(',',$include));
+        unset($args['fields']);
+        unset($args['post_parent']);
+        $args['post_type'] = 'any';
+        $args['post__in'] = array_unique($inc);
     }
     $cpquery = new WP_Query($args);
     if($cpquery->have_posts()){
