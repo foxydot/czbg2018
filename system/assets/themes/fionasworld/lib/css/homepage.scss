@@ -106,10 +106,18 @@
 }
 
 @media only screen and (min-width: 1024px) {
-
   .sectioned-page-wrapper{
     .section{
+      &.section-tickets-and-notices {
+        margin: 0;
+        .section-body {
+          .column-holder {
+            display: flex;
+          }
+        }
+      }
       &.section-zoo-news{
+        margin: 0;
         .news-widget{
           .news-widget-list{
             li{

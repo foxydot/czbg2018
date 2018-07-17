@@ -98,11 +98,11 @@
   --------------------------------------------- */
 
   .site-header .widget-area, .pre-header .widget-area {
-    float: left;
-    text-align: left;
-    clear: left;
+    float: right;
+    text-align: right;
+    clear: right;
     line-height: 1;
-    display: inline-block;
+    display: inline;
     .widget {
     }
     .search-form {
