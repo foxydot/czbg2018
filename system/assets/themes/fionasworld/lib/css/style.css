@@ -1923,9 +1923,9 @@ hr.padded {
   /* Widget Area
   --------------------------------------------- */
   .site-header .widget-area, .pre-header .widget-area {
-    float: right;
-    text-align: right;
-    clear: right;
+    float: left;
+    text-align: left;
+    clear: left;
     line-height: 1;
     display: inline; }
     .site-header .widget-area .search-form, .pre-header .widget-area .search-form {
@@ -1936,7 +1936,7 @@ hr.padded {
       whitespace: nowrap; }
       .site-header .widget-area .search-form input[type="search"], .pre-header .widget-area .search-form input[type="search"] {
         position: relative;
-        right: 0;
+        left: 0;
         top: 0em;
         font-size: 1.4rem;
         width: 15em;
