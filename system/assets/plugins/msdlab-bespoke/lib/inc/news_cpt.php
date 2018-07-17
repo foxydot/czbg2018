@@ -34,6 +34,7 @@ if (!class_exists('MSDNewsCPT')) {
 
 			//Shortcodes
             add_shortcode('news', array(&$this,'news_shortcode_handler'));
+            add_shortcode('msdlab_recent_posts', array(&$this,'recent_posts_shortcode_handler'));
 
 			//add cols to manage panel
             add_filter( 'manage_edit-'.$this->cpt.'_columns', array(&$this,'my_edit_columns' ));
@@ -470,6 +471,66 @@ if (!class_exists('MSDNewsCPT')) {
             wp_reset_postdata();
 
             return implode("\n",$ret);
+        }
+
+
+        /**
+         * A shortcode that displays recent posts can be filtered by category.
+         *
+         * @param array Shortcode attributes.
+         * @param string Inner content of the shortcode.
+         * @return string HTML output with recent posts.
+         */
+        function recent_posts_shortcode_handler( $atts, $content = null ) {
+            $atts = shortcode_atts( array(
+                'header' => '',
+                'orderby' => 'date',
+                'order' => 'DESC',
+                'post_type' => array( 'news' ),
+                'posts_per_page' => 5,
+                'ignore_sticky_posts' => 1, // 0 to show stickies
+                'category' => '',
+            ), $atts );
+
+            $args = array(
+                'orderby' => $atts['orderby'],
+                'order' => $atts['order'],
+                'post_type' => $atts['post_type'],
+                'posts_per_page' => $atts['posts_per_page'],
+                'ignore_sticky_posts' => $atts['ignore_sticky_posts'], // 0 to show stickies
+                'tax_query' => array(
+                    array(
+                        'taxonomy' => 'news_category',
+                        'field'    => 'slug',
+                        'terms'    => $atts['category'],
+                    ),
+                ),
+            );
+            $recent_posts_query = new WP_Query( $args );
+            if ( $recent_posts_query->have_posts() ) {
+                $output = '<div class="rbp-container clearfix">';
+                $output .= '<div class="rbp-content clearfix">';
+                while ( $recent_posts_query->have_posts() ) {
+                    $recent_posts_query->the_post();
+
+                    $date = sprintf( '<span class="rbp-date"><time datetime="%3$s">%4$s</time></span>',
+                        esc_url( get_permalink() ),
+                        esc_attr( sprintf( __( 'Permalink to %s', 'flowthemes' ), the_title_attribute( 'echo=0' ) ) ),
+                        esc_attr( get_the_date( 'c' ) ),
+                        esc_html( get_the_date() )
+                    );
+
+                    $output .= '<div class="rbp-entry">';
+                    $output .= $date;
+                    $output .= '<a class="rbp-title" href="' . get_permalink() . '" rel="bookmark">' . get_the_title() . '</a>';
+                    $output .= '</div>';
+                }
+                $output .= '</div>';
+                $output .= '</div>';
+            }
+
+            wp_reset_postdata();
+            return $output;
         }
 
         function cpt_display(){

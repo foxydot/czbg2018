@@ -224,3 +224,15 @@ hr.padded{
     }
   }
 }
+
+.rbp-container{
+  .rbp-content{
+    .rbp-entry{
+      margin-bottom: 1em;
+      .rbp-date{
+        display: block;
+        font-size: 0.8em;
+      }
+    }
+  }
+}

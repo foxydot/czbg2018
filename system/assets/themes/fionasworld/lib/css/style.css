@@ -1834,6 +1834,12 @@ hr.padded {
   .gallery .gallery-item .wp-caption-text, .gallery .gallery-item .gallery-caption {
     text-transform: uppercase; }
 
+.rbp-container .rbp-content .rbp-entry {
+  margin-bottom: 1em; }
+  .rbp-container .rbp-content .rbp-entry .rbp-date {
+    display: block;
+    font-size: 0.8em; }
+
 @media only screen and (min-width: 768px) {
   /* Accessible Menu
   --------------------------------------------- */
@@ -1917,11 +1923,11 @@ hr.padded {
   /* Widget Area
   --------------------------------------------- */
   .site-header .widget-area, .pre-header .widget-area {
-    float: left;
-    text-align: left;
-    clear: left;
+    float: right;
+    text-align: right;
+    clear: right;
     line-height: 1;
-    display: inline-block; }
+    display: inline; }
     .site-header .widget-area .search-form, .pre-header .widget-area .search-form {
       display: inline-block;
       padding: 0;
