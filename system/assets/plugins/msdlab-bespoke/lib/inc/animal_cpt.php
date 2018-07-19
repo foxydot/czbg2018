@@ -327,6 +327,8 @@ if (!class_exists('AnimalCPT')) {
                 'habitat' => 'all',
                 'display' => 'class',
                 'columns' => 3,
+                'count' => -1,
+                'link' => false,
             ), $atts ) );
             switch($columns){
                 case 1:
@@ -367,6 +369,7 @@ if (!class_exists('AnimalCPT')) {
                         'orderby' => 'title',
                         'order' => 'ASC',
                         'tax_query' => $taxquery,
+                        'posts_per_page' => $count,
                     );
                     $posts = new WP_Query($args);
                     if($posts->have_posts()){
@@ -418,6 +421,14 @@ if (!class_exists('AnimalCPT')) {
 <h4>'.$o['title'].'</h4>
 </a>
 </div>';
+            }
+            if($link){
+                if($taxquery){
+                    $link = get_term_link($taxquery[0]['terms'],$taxquery[0]['taxonomy']);
+                    if($link){
+                        $ret[] = '<div><a class="btn button" href="'.$link.'">View More</a></div>';
+                    }
+                }
             }
             return implode("\n",$ret);
         }
