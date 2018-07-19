@@ -244,31 +244,14 @@ function remove_empty_p( $content ){
     return preg_replace('#<p>(\s|&nbsp;)*+(<br\s*/*>)*(\s|&nbsp;)*</p>#i', '', $content);
 }
 
-add_filter( 'gform_pre_render', 'msdlab_filter_description' );
-function msdlab_filter_description($form){
-    $form['description'] = do_shortcode($form['description']);
-        return $form;
-}
+add_filter( 'wp_nav_menu_items', 'msdlab_add_search_to_subnav', 10, 2 );
 
-
-add_shortcode('svg-art','msdlab_svg_art_shortcode_handler');
-function msdlab_svg_art_shortcode_handler($atts){
-    extract(shortcode_atts( array(
-        'art' => 'bracket', //default to primary application
-    ), $atts ));
-    switch($art){
-        case 'bracket':
-            return '<?xml version="1.0" encoding="utf-8"?>
-<svg version="1.1" id="bracket_art" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 47.4 214.2" style="enable-background:new 0 0 47.4 214.2;" xml:space="preserve">
-<g>
-	
-	<path class="st1" d="M0,214.2v-4c13.9,0,19.3-4.8,19.3-17.1v-61.2c0-15,4.7-21.1,13.6-24.7c-8.7-3.6-13.6-9.8-13.6-24.7V21.1
-		C19.3,8.8,13.9,4,0,4V0c16.1,0,23.3,6.5,23.3,21.1v61.5c0,15.7,5.4,19.8,16.6,22.7l7.4,1.9l-7.4,1.9c-11.5,3-16.6,7-16.6,22.7v61.2
-		C23.3,207.7,16.1,214.2,0,214.2z"/>
-</g>
-</svg>
-';
-            break;
+function msdlab_add_search_to_subnav($menu, stdClass $args){
+    if ( 'secondary' !== $args->theme_location ) {
+        return $menu;
     }
+
+    $menu .= '<li class="right search">' . get_search_form( false ) . '</li>';
+
+    return $menu;
 }

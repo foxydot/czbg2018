@@ -105,54 +105,6 @@
     display: inline;
     .widget {
     }
-    .search-form {
-      display: inline-block;
-      padding: 0;
-      margin-left: 1rem;
-      position: relative;
-      whitespace: nowrap;
-      input[type="search"] {
-        position: relative;
-        left: 0;
-        top: 0em;
-        font-size: 1.4rem;
-        width: 15em;
-        background: transparent;
-        padding: 0.5em 1.25em;
-        border: 1px solid $ltgrey;
-        border-radius: 3rem;
-        line-height: 1;
-        z-index: 10;
-        -webkit-transition-duration: 400ms;
-        -moz-transition-duration: 400ms;
-        -o-transition-duration: 400ms;
-        transition-duration: 400ms;
-        -webkit-transition-property: width;
-        -moz-transition-property: width;
-        -o-transition-property: width;
-        transition-property: width;
-        -webkit-transition-timing-function: cubic-bezier(0.6, 0, 0.2, 1);
-        -moz-transition-timing-function: cubic-bezier(0.6, 0, 0.2, 1);
-        -o-transition-timing-function: cubic-bezier(0.6, 0, 0.2, 1);
-      }
-      input[type="submit"] {
-        @include fontawesome;
-        position: absolute;
-        background: transparent;
-        border: 0 none;
-        clip: auto;
-        color: $ltgrey;
-        display: inline-block;
-        font-size: 1.2rem;
-        height: 18px;
-        line-height: 1;
-        text-align: center;
-        width: 18px;
-        right: 0;
-        top: -0.5em;
-        z-index: 0;
-      }
-    }
   }
 
   .page-title-area {
@@ -215,6 +167,7 @@
 
   /* # Nav
   ---------------------------------------------------------------------------------------------------- */
+
 
   /* # Content
   ----------------------------------------------------------------------------------------------------- */
