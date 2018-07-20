@@ -50,6 +50,8 @@ column-gap: 1em;">
                     'Add an orange exclamation point' => 'orange-bang','Add an black exclamation point' => 'black-bang',
                     'Border above columns'=>'border-top','Border below columns'=>'border-bottom','Border between columns'=>'column-border',
                     'Dark grey background' => 'bkg-dkgrey', 'Light grey background' => 'bkg-ltgrey','Green background' => 'bkg-green','Green 2 background' => 'bkg-green2', 'Offwhite background' => 'bkg-offwhite',
+                    'White box body' => 'white-box-body', 'White box column 1' => 'white-box-col1','White box column 2' => 'white-box-col2','White box column 3' => 'white-box-col3','White box column 4' => 'white-box-col4',
+                    'Gray box body' => 'gray-box-body', 'Gray box column 1' => 'gray-box-col1','Gray box column 2' => 'gray-box-col2','Gray box column 3' => 'gray-box-col3','Gray box column 4' => 'gray-box-col4',
                     'Dark grey text' => 'text-dkgrey','Green text' => 'text-green', 'White text' => 'text-white',
                     'Center titles' => 'cntr-titles',); ?>
                 <?php foreach ($items as $i => $item): ?>

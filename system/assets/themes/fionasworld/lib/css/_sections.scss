@@ -124,6 +124,118 @@
       padding: 8em 0;
     }
   }
+  .section.white-box-body{
+    .section-body{
+      box-shadow: 0 2px 2px rgba($black,0.25);
+      background-color: $white;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 2em;
+      padding: 20px;
+      margin-top: 1em;
+    }
+  }
+  .section.gray-box-body{
+    .section-body{
+      box-shadow: 0 2px 2px rgba($black,0.25);
+      background-color: $ltgrey;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 2em;
+      padding: 20px;
+      margin-top: 1em;
+    }
+  }
+  .section.white-box-col1{
+    .section-body{
+      .column-holder{
+        .column-1{
+          box-shadow: 0 2px 2px rgba($black,0.25);
+          background-color: $white;
+          padding: 20px;
+        }
+      }
+    }
+  }
+  .section.white-box-col2{
+    .section-body{
+      .column-holder{
+        .column-2{
+          box-shadow: 0 2px 2px rgba($black,0.25);
+          background-color: $white;
+          padding: 20px;
+        }
+      }
+    }
+  }
+  .section.white-box-col3{
+    .section-body{
+      .column-holder{
+        .column-3{
+          box-shadow: 0 2px 2px rgba($black,0.25);
+          background-color: $white;
+          padding: 20px;
+        }
+      }
+    }
+  }
+  .section.white-box-col4{
+    .section-body{
+      .column-holder{
+        .column-4{
+          box-shadow: 0 2px 2px rgba($black,0.25);
+          background-color: $white;
+          padding: 20px;
+        }
+      }
+    }
+  }
+  .section.gray-box-col1{
+    .section-body{
+      .column-holder{
+        .column-1{
+          box-shadow: 0 2px 2px rgba($black,0.25);
+          background-color: $ltgrey;
+          padding: 20px;
+        }
+      }
+    }
+  }
+  .section.gray-box-col2{
+    .section-body{
+      .column-holder{
+        .column-2{
+          box-shadow: 0 2px 2px rgba($black,0.25);
+          background-color: $ltgrey;
+          padding: 20px;
+        }
+      }
+    }
+  }
+  .section.gray-box-col3{
+    .section-body{
+      .column-holder{
+        .column-3{
+          box-shadow: 0 2px 2px rgba($black,0.25);
+          background-color: $ltgrey;
+          padding: 20px;
+        }
+      }
+    }
+  }
+  .section.gray-box-col4{
+    .section-body{
+      .column-holder{
+        .column-4{
+          box-shadow: 0 2px 2px rgba($black,0.25);
+          background-color: $ltgrey;
+          padding: 20px;
+        }
+      }
+    }
+  }
   .section.bkg-dkgrey{
     background-color: $dkgrey;
   }

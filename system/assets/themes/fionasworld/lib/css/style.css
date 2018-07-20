@@ -1610,6 +1610,56 @@ p.entry-meta {
       background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.53) 17%, rgba(0, 0, 0, 0.46) 35%, rgba(0, 0, 0, 0.35) 62%, rgba(0, 0, 0, 0.2) 100%);
       background-attachment: fixed;
       padding: 8em 0; }
+  .sectioned-page-wrapper .section.white-box-body .section-body {
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+    background-color: #FFF;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 2em;
+    padding: 20px;
+    margin-top: 1em; }
+  .sectioned-page-wrapper .section.gray-box-body .section-body {
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+    background-color: #CCC;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 2em;
+    padding: 20px;
+    margin-top: 1em; }
+  .sectioned-page-wrapper .section.white-box-col1 .section-body .column-holder .column-1 {
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+    background-color: #FFF;
+    padding: 20px; }
+  .sectioned-page-wrapper .section.white-box-col2 .section-body .column-holder .column-2 {
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+    background-color: #FFF;
+    padding: 20px; }
+  .sectioned-page-wrapper .section.white-box-col3 .section-body .column-holder .column-3 {
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+    background-color: #FFF;
+    padding: 20px; }
+  .sectioned-page-wrapper .section.white-box-col4 .section-body .column-holder .column-4 {
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+    background-color: #FFF;
+    padding: 20px; }
+  .sectioned-page-wrapper .section.gray-box-col1 .section-body .column-holder .column-1 {
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+    background-color: #CCC;
+    padding: 20px; }
+  .sectioned-page-wrapper .section.gray-box-col2 .section-body .column-holder .column-2 {
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+    background-color: #CCC;
+    padding: 20px; }
+  .sectioned-page-wrapper .section.gray-box-col3 .section-body .column-holder .column-3 {
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+    background-color: #CCC;
+    padding: 20px; }
+  .sectioned-page-wrapper .section.gray-box-col4 .section-body .column-holder .column-4 {
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+    background-color: #CCC;
+    padding: 20px; }
   .sectioned-page-wrapper .section.bkg-dkgrey {
     background-color: #666; }
   .sectioned-page-wrapper .section.bkg-ltgrey {
