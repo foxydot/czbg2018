@@ -61,6 +61,8 @@ add_theme_support( 'genesis-structural-wraps', array(
     'footer',
 ) );
 
+add_thickbox();
+
 /***Tools Plugin**/
 //instantiate sub packages
 if(class_exists('MSDLab_Theme_Tweaks')){

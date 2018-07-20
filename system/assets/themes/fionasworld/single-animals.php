@@ -113,9 +113,12 @@ function animal_adopt_and_featured_image(){
     if(has_post_thumbnail()){
         global $animal_info;
         $animal_info->the_meta();
+        $large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'large');
         print '<div class="featured-image">';
+        print '<a class="thickbox" href="' . $large_image_url[0] . '" title="' . the_title_attribute('echo=0') . '" >';
         print get_the_post_thumbnail();
         print '<div class="caption">'.$animal_info->get_the_value('caption').'</div>';
+        print '</a>';
         print '</div>';
     }
 }
