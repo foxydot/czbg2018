@@ -1419,12 +1419,13 @@ p.entry-meta {
   .footer-widgets .footer-widget-area.footer-widgets-2 {
     background-color: #FFF;
     color: #666;
-    padding: 2em 0; }
+    padding: 4em 0; }
     .footer-widgets .footer-widget-area.footer-widgets-2 .container {
       display: flex; }
     .footer-widgets .footer-widget-area.footer-widgets-2 .widget img {
       max-height: 85px;
-      max-width: 80%; }
+      max-width: 80% !important;
+      width: auto; }
   .footer-widgets .footer-widget-area .widget {
     text-align: center; }
   .footer-widgets .footer-widget-area h3.widget-title {
