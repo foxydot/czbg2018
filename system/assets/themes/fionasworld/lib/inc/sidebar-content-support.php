@@ -76,7 +76,7 @@ if (!class_exists('MSDLab_Sidebar_Content_Support')) {
 
         function has_sidebar_content(){
             $ret = false;
-            if(is_cpt('animal')){
+            if(is_cpt('animals')){
                 return true;
             }
             if(is_page()){
