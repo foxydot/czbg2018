@@ -137,7 +137,7 @@ add_filter( 'genesis_post_info', 'msdlab_post_info_filter' );
 
 //remove_action('genesis_entry_header','genesis_do_post_title'); //move the title out of the content area
 //add_action('msdlab_title_area','msdlab_do_section_title');
-add_action('genesis_header', 'genesis_do_breadcrumbs', 11); //to outside of the loop area
+add_action('genesis_after_header', 'genesis_do_breadcrumbs', 11); //to outside of the loop area
 //add_action('genesis_after_header',array('MSDLab_Fixed_Header_Support','do_header_buffer')); //fixed header nixed re:michelle
 add_action('genesis_after_header','msdlab_do_title_area');
 
