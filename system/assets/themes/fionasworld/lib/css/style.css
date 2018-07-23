@@ -1421,7 +1421,8 @@ p.entry-meta {
     color: #666;
     padding: 4em 0; }
     .footer-widgets .footer-widget-area.footer-widgets-2 .container {
-      display: flex; }
+      display: flex;
+      align-items: center; }
     .footer-widgets .footer-widget-area.footer-widgets-2 .widget img {
       max-height: 85px;
       max-width: 80% !important;
