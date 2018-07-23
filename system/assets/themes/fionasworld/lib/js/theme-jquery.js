@@ -7,8 +7,8 @@ jQuery(document).ready(function($) {
     $('.section.overlay').wrapInner('<div class="overlay"></div>');
 
 
-    var numwidgets = $('#footer-widgets div.widget').length;
-	$('#footer-widgets').addClass('cols-'+numwidgets);
+    var numwidgets = $('.footer-widgets-2 div.widget').length;
+	$('.footer-widgets-2').addClass('cols-'+numwidgets);
 	$.each(['show', 'hide'], function (i, ev) {
         var el = $.fn[ev];
         $.fn[ev] = function () {
