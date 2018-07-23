@@ -10,9 +10,14 @@
     &.footer-widgets-2 {
       background-color: $white;
       color: $dkgrey;
+      padding: 2em 0;
+      .container{
+        display: flex;
+      }
       .widget{
         img {
           max-height: 85px;
+          max-width: 80%;
         }
       }
     }

@@ -1418,9 +1418,13 @@ p.entry-meta {
     color: #f9f2dc; }
   .footer-widgets .footer-widget-area.footer-widgets-2 {
     background-color: #FFF;
-    color: #666; }
+    color: #666;
+    padding: 2em 0; }
+    .footer-widgets .footer-widget-area.footer-widgets-2 .container {
+      display: flex; }
     .footer-widgets .footer-widget-area.footer-widgets-2 .widget img {
-      max-height: 85px; }
+      max-height: 85px;
+      max-width: 80%; }
   .footer-widgets .footer-widget-area .widget {
     text-align: center; }
   .footer-widgets .footer-widget-area h3.widget-title {
