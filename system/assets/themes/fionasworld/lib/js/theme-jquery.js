@@ -8,7 +8,20 @@ jQuery(document).ready(function($) {
 
 
     var numwidgets = $('.footer-widgets-2 section.widget').length;
-	$('.footer-widgets-2').addClass('cols-'+numwidgets);
+    switch(numwidgets) {
+        case 6:
+            $('.footer-widgets-2 section.widget').addClass('col-md-2').addClass('col-sm-6').addClass('col-xs-12');
+            break;
+        case 4:
+            $('.footer-widgets-2 section.widget').addClass('col-md-3').addClass('col-sm-6').addClass('col-xs-12');
+            break;
+        case 3:
+            $('.footer-widgets-2 section.widget').addClass('col-md-4').addClass('col-sm-4').addClass('col-xs-12');
+            break;
+        case 2:
+            $('.footer-widgets-2 section.widget').addClass('col-md-6').addClass('col-sm-6').addClass('col-xs-12');
+            break;
+        }
 	$.each(['show', 'hide'], function (i, ev) {
         var el = $.fn[ev];
         $.fn[ev] = function () {
