@@ -199,28 +199,33 @@ hr.padded{
 }
 
 //gallery style
-.gallery{
-  .gallery-item{
-    vertical-align: bottom;
-    padding: 3%;
-    .gallery-icon{
-      a{
-        display: block;
-        max-height: 100%;
-        svg{
-          max-width: 60%;
-        }
-        &:hover{
-          svg{
-            .st0,.st1,.st2{
+.site-inner {
+  .gallery {
+    .gallery-item {
+      vertical-align: bottom;
+      padding: 3%;
+      .gallery-icon {
+        a {
+          display: block;
+          max-height: 100%;
+          svg {
+            max-width: 60%;
+            .st0, .st1, .st2 {
               stroke: $link_hvr !important;
+            }
+          }
+          &:hover {
+            svg {
+              .st0, .st2 {
+                fill: tint($link, 90%) !important;
+              }
             }
           }
         }
       }
-    }
-    .wp-caption-text,.gallery-caption{
-      text-transform: uppercase;
+      .wp-caption-text, .gallery-caption {
+        text-transform: uppercase;
+      }
     }
   }
 }

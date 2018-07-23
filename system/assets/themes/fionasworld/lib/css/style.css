@@ -1862,17 +1862,19 @@ hr.padded {
   .single-animals .sidebar .quick-facts .range_map {
     margin-top: 2em; }
 
-.gallery .gallery-item {
+.site-inner .gallery .gallery-item {
   vertical-align: bottom;
   padding: 3%; }
-  .gallery .gallery-item .gallery-icon a {
+  .site-inner .gallery .gallery-item .gallery-icon a {
     display: block;
     max-height: 100%; }
-    .gallery .gallery-item .gallery-icon a svg {
+    .site-inner .gallery .gallery-item .gallery-icon a svg {
       max-width: 60%; }
-    .gallery .gallery-item .gallery-icon a:hover svg .st0, .gallery .gallery-item .gallery-icon a:hover svg .st1, .gallery .gallery-item .gallery-icon a:hover svg .st2 {
-      stroke: #99cc00 !important; }
-  .gallery .gallery-item .wp-caption-text, .gallery .gallery-item .gallery-caption {
+      .site-inner .gallery .gallery-item .gallery-icon a svg .st0, .site-inner .gallery .gallery-item .gallery-icon a svg .st1, .site-inner .gallery .gallery-item .gallery-icon a svg .st2 {
+        stroke: #99cc00 !important; }
+    .site-inner .gallery .gallery-item .gallery-icon a:hover svg .st0, .site-inner .gallery .gallery-item .gallery-icon a:hover svg .st2 {
+      fill: #f5fae6 !important; }
+  .site-inner .gallery .gallery-item .wp-caption-text, .site-inner .gallery .gallery-item .gallery-caption {
     text-transform: uppercase; }
 
 .rbp-container .rbp-content .rbp-entry {
