@@ -220,7 +220,7 @@ function _msdlab_menu_shortcode_handler($atts){
             $args['meta_query'] = array(
         array(
             'key'     => 'event_start_date',
-            'value'   => date('m/01/Y'),
+            'value'   => date('m/d/Y'),
             'compare' => '>=',
             'meta_type'    => 'DATE'
         ),
