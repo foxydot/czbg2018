@@ -74,7 +74,7 @@ if(!class_exists('MSDLab_Animal_Support')){
         {
             if (is_admin()) return $query;
             if(!$query->is_main_query() && !$query->is_archive()) return $query;
-            if($query->query['post_type'] != 'animals') return $query;
+            if($query->query['post_type'] != 'animals' && !isset($query->query['class']) && !isset($query->query['exhibit'])) return $query;
 
             $query->set('orderby','post_title');
             $query->set('order','ASC');
@@ -85,7 +85,7 @@ if(!class_exists('MSDLab_Animal_Support')){
             if (is_admin()) return;
             $term = get_queried_object();
             $kiddos = get_term_children( $term->term_id, 'class' );
-            if(count($kiddos) > 8){
+            if(count($kiddos) > 999){ //set high to no longer use.
                 //remove loop items
                 remove_action('genesis_loop','genesis_do_loop');
                 //loop the children
