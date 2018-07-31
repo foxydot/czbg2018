@@ -218,12 +218,19 @@ function _msdlab_menu_shortcode_handler($atts){
             $args['orderby'] = 'meta_value';
             $args['order'] = 'ASC';
             $args['meta_query'] = array(
-        array(
-            'key'     => 'event_end_date',
-            'value'   => date('m/d/Y',strtotime('+1 day')),
-            'compare' => '>=',
-            'meta_type'    => 'DATE'
-        ),
+                'relation' => 'OR',
+                array(
+                    'key'     => 'event_end_date',
+                    'value'   => date('m/d/Y',strtotime('+1 day')),
+                    'compare' => '>=',
+                    'meta_type'    => 'DATE'
+                ),
+                array(
+                    'key'     => 'event_start_date',
+                    'value'   => date('m/d/Y',strtotime('+1 day')),
+                    'compare' => '>=',
+                    'meta_type'    => 'DATE'
+                ),
     );
             break;
         default:
