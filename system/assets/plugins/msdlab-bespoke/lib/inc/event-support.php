@@ -12,6 +12,9 @@ if (!class_exists('MSDEventSupport')) {
             //add cols to manage panel
             add_filter( 'manage_edit-'.$this->cpt.'_columns', array(&$this,'my_edit_columns' ));
             add_action( 'manage_'.$this->cpt.'_posts_custom_column', array(&$this,'my_manage_columns'), 10, 2 );
+
+            add_filter( 'wp_post_revision_meta_keys', array(&$this,'add_meta_keys_to_revision') );
+
         }
 
         function add_admin_scripts(){
@@ -76,5 +79,12 @@ if (!class_exists('MSDEventSupport')) {
             }
         }
 
+        function add_meta_keys_to_revision( $keys ) {
+            $keys[] = 'event_start_date';
+            $keys[] = 'event_end_date';
+            $keys[] = '_event_information_fields';
+            return $keys;
+        }
     }
+
 }

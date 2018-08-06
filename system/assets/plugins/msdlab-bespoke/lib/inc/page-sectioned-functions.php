@@ -26,7 +26,9 @@ class MSDSectionedPage{
        add_action('wp_enqueue_scripts', array(&$this,'enqueue_scripts'));
        add_action('genesis_after_content_sidebar_wrap',array(&$this,'sectioned_page_output'),30);
        add_action('wp_print_footer_scripts',array(&$this,'sectioned_page_footer_js'));
-        }
+       add_filter( 'wp_post_revision_meta_keys', array(&$this,'add_meta_keys_to_revision') );
+
+   }
         
     function add_metaboxes(){
         global $post,$sectioned_page_metabox,$wpalchemy_media_access;
@@ -284,4 +286,10 @@ class MSDSectionedPage{
                 wp_enqueue_style('spectrum',plugin_dir_url(__DIR__). 'css/spectrum.css');
                 wp_enqueue_style('sectioned-admin',plugin_dir_url(__DIR__). 'css/sectioned.css');
         }
+
+    function add_meta_keys_to_revision( $keys ) {
+        $keys[] = '_msdlab_sections';
+        $keys[] = '_sectioned_page_fields';
+        return $keys;
+    }
 }

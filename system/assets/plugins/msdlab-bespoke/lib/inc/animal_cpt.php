@@ -26,6 +26,7 @@ if (!class_exists('AnimalCPT')) {
             add_action('admin_print_footer_scripts',array(&$this,'print_footer_scripts'),99);
 
             //Filters
+            add_filter( 'wp_post_revision_meta_keys', array(&$this,'add_meta_keys_to_revision') );
 
             //Shortcodes
             add_shortcode('animals',array(&$this,'animals_shortcode_handler'));
@@ -448,6 +449,15 @@ if (!class_exists('AnimalCPT')) {
                     //display for aggregate here
                 }
             }
+        }
+
+        function add_meta_keys_to_revision( $keys ) {
+            $noprefix_keys = array('latin_name','common_name','where','pronunciation','length','height','weight','wingspan','ecological','venomous','lifespan','habitat','diet','risk_status','caption','range');
+            foreach($noprefix_keys AS $k){
+                $keys[] = '_animal_'.$k;
+            }
+            $keys[] = '_animal_information_fields';
+            return $keys;
         }
     } //End Class
 } //End if class exists statement

@@ -31,8 +31,10 @@ if (!class_exists('MSDNewsCPT')) {
 			//Filters
 			//add_filter( 'pre_get_posts', array(&$this,'custom_query') );
 			add_filter( 'enter_title_here', array(&$this,'change_default_title') );
+            add_filter( 'wp_post_revision_meta_keys', array(&$this,'add_meta_keys_to_revision') );
 
-			//Shortcodes
+
+            //Shortcodes
             add_shortcode('news', array(&$this,'news_shortcode_handler'));
             add_shortcode('msdlab_recent_posts', array(&$this,'recent_posts_shortcode_handler'));
 
@@ -583,6 +585,13 @@ if (!class_exists('MSDNewsCPT')) {
             global $post;
             $attr['class'] .= ' col-xs-12 col-sm-6 col-md-4';
             return $attr;
+        }
+
+
+        function add_meta_keys_to_revision( $keys ) {
+            $keys[] = '_news_alttitle';
+            $keys[] = '_news_information_fields';
+            return $keys;
         }
   } //End Class
 } //End if class exists statement
