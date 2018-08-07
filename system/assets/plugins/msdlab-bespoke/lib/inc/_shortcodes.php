@@ -227,7 +227,7 @@ function _msdlab_menu_shortcode_handler($atts){
                 ),
                 array(
                     'key'     => 'event_start_date',
-                    'value'   => date('m/d/Y',strtotime('+1 day')),
+                    'value'   => date('m/d/Y'),
                     'compare' => '>=',
                     'meta_type'    => 'DATE'
                 ),
@@ -248,6 +248,7 @@ function _msdlab_menu_shortcode_handler($atts){
         $args['post__in'] = array_unique($inc);
     }
     $cpquery = new WP_Query($args);
+    //ts_data($cpquery);
     if($cpquery->have_posts()){
         if($isevent){$old_month = date("F Y");}
         $ret = array();
