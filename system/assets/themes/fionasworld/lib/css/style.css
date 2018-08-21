@@ -2039,6 +2039,10 @@ hr.padded {
   /* # Site Footer
   ---------------------------------------------------------------------------------------------------- */ }
 
+@media only screen and (max-width: 767px) {
+  .gallery-columns-3 .gallery-item, .gallery-columns-4 .gallery-item {
+    width: 100%; } }
+
 /* Welcome to Compass. Use this file to define print styles.
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" /> */
