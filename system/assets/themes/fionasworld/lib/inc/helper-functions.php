@@ -392,3 +392,9 @@ function sk_excerpts_search_page() {
 function sk_show_excerpts() {
     return 'excerpts';
 }
+
+function czbg_maybe_remove_info(){
+    if(!is_single() || !is_cpt('news')) {
+        remove_action('genesis_entry_header', 'genesis_post_info', 12); //remove the info (date, posted by,etc.)
+    }
+}

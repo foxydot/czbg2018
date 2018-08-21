@@ -213,7 +213,9 @@ function _msdlab_menu_shortcode_handler($atts){
     switch($orderby){
         case 'date':
         case 'event-date':
-            $isevent = true;
+        date_default_timezone_set('America/New_York');
+
+        $isevent = true;
             $args['meta_key'] = 'event_start_date';
             $args['orderby'] = 'meta_value';
             $args['order'] = 'ASC';
