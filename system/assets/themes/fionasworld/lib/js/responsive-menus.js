@@ -191,8 +191,8 @@ var genesisMenuParams      = typeof genesis_responsive_menu === 'undefined' ? ''
 	 * @params buttons
 	 */
 	function _combineMenus( buttons ){
-		
-		// Exit early if there are no menus to combine.
+
+        // Exit early if there are no menus to combine.
 		if ( menusToCombine == null ) {
 			return;
 		}
@@ -200,13 +200,13 @@ var genesisMenuParams      = typeof genesis_responsive_menu === 'undefined' ? ''
 		// Split up the menus to combine based on order of appearance in the array.
 		var primaryMenu   = menusToCombine[0],
 			combinedMenus = $( menusToCombine ).filter( function(index) { if ( index > 0 ) { return index; } });
-		
 		// If the responsive menu is active, append items in 'combinedMenus' object to the 'primaryMenu' object.
 		if ( 'none' !== _getDisplayValue( buttons ) ) {
 
 			$.each( combinedMenus, function( key, value ) {
-				$(value).find( '.menu > li' ).addClass( 'moved-item-' + value.replace( '.','' ) ).appendTo( primaryMenu + ' ul.genesis-nav-menu' );
-			});
+				$(value).find( '.menu > li.menu-item' ).addClass( 'moved-item-' + value.replace( '.','' ) ).prependTo( primaryMenu + ' ul.genesis-nav-menu' );
+                $(value).find( '.menu > li.search' ).addClass( 'moved-item-' + value.replace( '.','' ) ).appendTo( primaryMenu + ' ul.genesis-nav-menu' );
+            });
 			$( _getMenuSelectorString( combinedMenus ) ).hide();
 
 		} else {

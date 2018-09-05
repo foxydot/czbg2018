@@ -1,1 +1,1 @@
-jQuery(document).ready(function($){$(".section-zoo-news .section-title h3").html(function(){var s=$(this).html().trim(),n=s.split(" ");return console.log(n),'<span class="lg">'+n[0]+'</span><span class="sm">'+n[1]+"</span>"})});
+jQuery(document).ready(function($){$(".section-zoo-news .section-title h3").html(function(){var s=$(this).html().trim(),n=s.split(" ");return'<span class="lg">'+n[0]+'</span><span class="sm">'+n[1]+"</span>"})});
