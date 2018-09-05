@@ -235,6 +235,10 @@ function _msdlab_menu_shortcode_handler($atts){
                 ),
     );
             break;
+        case 'page-order':
+            $args['orderby'] = 'menu_order';
+            $args['order'] = 'ASC';
+            break;
         default:
             $args['orderby'] = 'title';
             $args['order'] = 'ASC';
