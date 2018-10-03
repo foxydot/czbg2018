@@ -32,7 +32,7 @@
     </p>
 <script>
     jQuery(document).ready(function($) {
-        $('.datepicker').datepicker();
+        $('.datepicker').datepicker({ dateFormat: 'yy-mm-dd' });
         $('.trigger').each(function(){
             if($(this).prop("checked")) {
                 $('.toggle').show();

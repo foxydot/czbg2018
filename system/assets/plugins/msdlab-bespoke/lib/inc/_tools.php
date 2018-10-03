@@ -11,6 +11,7 @@ if(!class_exists('MSDLab_Conversion_Tools')){
             add_action('admin_menu', array(&$this,'settings_page'));
             add_action( 'wp_ajax_move_animal_meta', array(&$this,'move_animal_meta') );
             add_action( 'wp_ajax_move_foursquare_meta', array(&$this,'move_foursquare_meta') );
+            add_action( 'wp_ajax_convert_date_format', array(&$this,'convert_date_format') );
         }
         //methods
         function move_animal_meta(){
@@ -136,15 +137,27 @@ if(!class_exists('MSDLab_Conversion_Tools')){
             wp_reset_postdata();
         }
 
+        function convert_date_format(){
+            global $wpdb;
+            //select * from post_meta where meta key = event_start, event_end, or event_recurrs_end
+            $sql = "SELECT * FROM {$wpdb->prefix}postmeta WHERE meta_key = 'event_start_date' OR meta_key = 'event_end_date' OR meta_key = 'event_recurs_end';";
+            $metas = $wpdb->get_results($sql);
+            foreach ($metas AS $meta){
+                if(strtotime($meta->meta_value) > 0) {
+                    $newdate = date('Y-m-d', strtotime($meta->meta_value));
+                    print $newdate . '<br>';
+                    $update_sql = "UPDATE {$wpdb->prefix}postmeta SET meta_value = '$newdate' WHERE meta_id = $meta->meta_id;";
+                    if($wpdb->get_results($update_sql)){
+                      print $meta->meta_id .' updated to '. $newdate .'<br>';
+                    }
+                }
+            }
+        }
+
         //utility
         function settings_page()
         {
-            if ( count($_POST) > 0 && isset($_POST['csf_settings']) )
-            {
-                //do post stuff if needed.
-
-            }
-            add_submenu_page('tools.php',__('Convert Old Data'),__('Convert Old Data'), 'administrator', 'convert-options', array(&$this,'settings_page_content'));
+            add_submenu_page('tools.php',__('Convert Data'),__('Convert Data'), 'administrator', 'convert-options', array(&$this,'settings_page_content'));
         }
         function settings_page_content()
         {
@@ -192,17 +205,23 @@ if(!class_exists('MSDLab_Conversion_Tools')){
                             console.log(response);
                         });
                     });
+                    $('.convert_date_format').click(function(){
+                        var data = {
+                            action: 'convert_date_format',
+                        }
+                        jQuery.post(ajaxurl, data, function(response) {
+                            $('.response1').html(response);
+                            console.log(response);
+                        });
+                    });
                 });
             </script>
             <div class="wrap">
                 <h2>Data Conversion Tools</h2>
                 <dl>
-                    <dt>Move animal meta:</dt>
-                    <dd><button class="move_animal_meta">Go</button></dd>
-                </dl>
-                <dl>
-                    <dt>Move foursquare meta:</dt>
-                    <dd><button class="move_foursquare_meta">Go</button></dd>
+                    <dd><button class="move_animal_meta">Move animal meta</button></dd>
+                    <dd><button class="move_foursquare_meta">Move Foursquare meta</button></dd>
+                    <dd><button class="convert_date_format">convert_date_format</button></dd>
                 </dl>
                 <div class="response1"></div>
             </div>

@@ -223,13 +223,13 @@ function _msdlab_menu_shortcode_handler($atts){
                 'relation' => 'OR',
                 array(
                     'key'     => 'event_end_date',
-                    'value'   => date('m/d/Y',strtotime('+1 day')),
+                    'value'   => date('Y-m-d',strtotime('+1 day')),
                     'compare' => '>=',
                     'meta_type'    => 'DATE'
                 ),
                 array(
                     'key'     => 'event_start_date',
-                    'value'   => date('m/d/Y'),
+                    'value'   => date('Y-m-d'),
                     'compare' => '>=',
                     'meta_type'    => 'DATE'
                 ),
@@ -258,8 +258,7 @@ function _msdlab_menu_shortcode_handler($atts){
         $ret = array();
         $ret[] = '<div class="menu-gallery">';
         if($isevent) {
-            $old_month = date("F Y");
-
+            //ts_data($cpquery);
             while ($cpquery->have_posts()) {
                 $cpquery->the_post();
                 $start = strtotime(get_post_meta($post->ID, 'event_start_date', true));
@@ -267,7 +266,7 @@ function _msdlab_menu_shortcode_handler($atts){
                 $blurb = get_post_meta($post->ID, 'event_blurb',true);
                 $recurring = get_post_meta($post->ID, 'event_recurs_boolean', true);
                 //populate array
-                $events[date('F', $start)][date('d', $start)][] = array('post' => $post, 'start' => $start, 'end' => $end, 'blurb' => $blurb);
+                $events[date('Y',$start)][date('F', $start)][date('d', $start)][] = array('post' => $post, 'start' => $start, 'end' => $end, 'blurb' => $blurb);
                 if ($recurring > 0) {
                     $event_recurs_frequency = get_post_meta($post->ID, 'event_recurs_frequency', true);
                     $event_recurs_period = get_post_meta($post->ID, 'event_recurs_period', true);
@@ -275,17 +274,18 @@ function _msdlab_menu_shortcode_handler($atts){
                     while (strtotime('+ ' . $event_recurs_frequency . ' ' . $event_recurs_period . '', $start) <= strtotime($event_recurs_end)) {
                         $start = strtotime('+ ' . $event_recurs_frequency . ' ' . $event_recurs_period . '', $start);
                         $end = strtotime('+ ' . $event_recurs_frequency . ' ' . $event_recurs_period . '', $end);
-                        $events[date('F', $start)][date('d', $start)][] = array('post' => $post, 'start' => $start, 'end' => $end, 'blurb' => $blurb);
+                        $events[date('Y',$start)][date('F', $start)][date('d', $start)][] = array('post' => $post, 'start' => $start, 'end' => $end, 'blurb' => $blurb);
                     }
                 }
             }
             //loop through NEW post array.
-            foreach ($events AS $month => $month_events) {
-                $ret[] = '<div class="month-header">'.$month.'</div>';
-                foreach($month_events AS $day => $day_events) {
-                    foreach($day_events AS $e) {
-                        $p = $e['post'];
-                        $ret[] = '<article class="entry col-xs-12 col-sm-6 col-md-4" itemscope="" itemtype="https://schema.org/CreativeWork">
+            foreach($events AS $year => $year_events) {
+                foreach ($year_events AS $month => $month_events) {
+                    $ret[] = '<div class="month-header">' . $month . ' ' . $year . '</div>';
+                    foreach ($month_events AS $day => $day_events) {
+                        foreach ($day_events AS $e) {
+                            $p = $e['post'];
+                            $ret[] = '<article class="entry col-xs-12 col-sm-6 col-md-4" itemscope="" itemtype="https://schema.org/CreativeWork">
     <header class="entry-header">
     <h2 class="entry-title" style="background-image:url(' . get_the_post_thumbnail_url($p->ID) . ')" itemprop="headline">
     <a class="entry-title-link" rel="bookmark" href="' . get_the_permalink($p->ID) . '"></a>
@@ -298,10 +298,11 @@ function _msdlab_menu_shortcode_handler($atts){
                                 $ret[] = ' – ' . date("F j", $e['end']);
                             }
                             $ret[] = '</div>';
-                            if(strlen($e['blurb']) > 0){
-                                $ret[] = '<div class="event-blurb">'.$e['blurb'].'</div>';
+                            if (strlen($e['blurb']) > 0) {
+                                $ret[] = '<div class="event-blurb">' . $e['blurb'] . '</div>';
                             }
-                        $ret[] = '</footer></article>';
+                            $ret[] = '</footer></article>';
+                        }
                     }
                 }
             }
