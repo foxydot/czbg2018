@@ -82,6 +82,10 @@ if (!class_exists('MSDEventSupport')) {
         function add_meta_keys_to_revision( $keys ) {
             $keys[] = 'event_start_date';
             $keys[] = 'event_end_date';
+            $keys[] = 'event_recurs_boolean';
+            $keys[] = 'event_recurs_frequency';
+            $keys[] = 'event_recurs_period';
+            $keys[] = 'event_recurs_end';
             $keys[] = '_event_information_fields';
             return $keys;
         }

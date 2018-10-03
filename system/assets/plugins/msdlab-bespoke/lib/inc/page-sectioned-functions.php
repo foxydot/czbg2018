@@ -219,9 +219,11 @@ class MSDSectionedPage{
                 }
                 $i++;
             }//close while
-            print '<div class="sectioned-page-wrapper czbg">';
-            print implode("\n",$sections);
-            print '</div>';
+            if(is_array($sections)) {
+                print '<div class="sectioned-page-wrapper czbg">';
+                print implode("\n", $sections);
+                print '</div>';
+            } //close if
         }//clsoe if
     }
 

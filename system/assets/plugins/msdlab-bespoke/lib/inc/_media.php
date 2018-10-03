@@ -25,3 +25,5 @@ if(!function_exists('get_attachment_id_from_src')){
         return $id;
     }
 }
+
+add_filter('max_srcset_image_width', create_function('', 'return 1;'));

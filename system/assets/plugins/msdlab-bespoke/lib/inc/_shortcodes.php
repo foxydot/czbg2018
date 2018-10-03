@@ -254,40 +254,67 @@ function _msdlab_menu_shortcode_handler($atts){
         $args['post__in'] = array_unique($inc);
     }
     $cpquery = new WP_Query($args);
-    //ts_data($cpquery);
     if($cpquery->have_posts()){
-        if($isevent){$old_month = date("F Y");}
         $ret = array();
         $ret[] = '<div class="menu-gallery">';
-        $ret[] = '<div class="month-header">'.$old_month.'</div>';
-        while($cpquery->have_posts()){
-        $cpquery->the_post();
-        if($isevent){
-            $month = date("F Y",strtotime(get_post_meta($post->ID,'event_start_date',true)));
-            //error_log('old month: '.$old_month.' | month: '.$month);
-            if($old_month != $month){
+        if($isevent) {
+            $old_month = date("F Y");
+
+            while ($cpquery->have_posts()) {
+                $cpquery->the_post();
+                $start = strtotime(get_post_meta($post->ID, 'event_start_date', true));
+                $end = strtotime(get_post_meta($post->ID, 'event_end_date', true));
+                $recurring = get_post_meta($post->ID, 'event_recurs_boolean', true);
+                //populate array
+                $events[date('F', $start)][date('d', $start)][] = array('post' => $post, 'start' => $start, 'end' => $end);
+                if ($recurring > 0) {
+                    $event_recurs_frequency = get_post_meta($post->ID, 'event_recurs_frequency', true);
+                    $event_recurs_period = get_post_meta($post->ID, 'event_recurs_period', true);
+                    $event_recurs_end = get_post_meta($post->ID, 'event_recurs_end', true);
+                    while (strtotime('+ ' . $event_recurs_frequency . ' ' . $event_recurs_period . '', $start) <= strtotime($event_recurs_end)) {
+                        $start = strtotime('+ ' . $event_recurs_frequency . ' ' . $event_recurs_period . '', $start);
+                        $end = strtotime('+ ' . $event_recurs_frequency . ' ' . $event_recurs_period . '', $end);
+                        $events[date('F', $start)][date('d', $start)][] = array('post' => $post, 'start' => $start, 'end' => $end);
+                    }
+                }
+            }
+            //loop through NEW post array.
+            foreach ($events AS $month => $month_events) {
                 $ret[] = '<div class="month-header">'.$month.'</div>';
-                $old_month = $month;
+                foreach($month_events AS $day => $day_events) {
+                    foreach($day_events AS $e) {
+                        $p = $e['post'];
+                        $ret[] = '<article class="entry col-xs-12 col-sm-6 col-md-4" itemscope="" itemtype="https://schema.org/CreativeWork">
+    <header class="entry-header">
+    <h2 class="entry-title" style="background-image:url(' . get_the_post_thumbnail_url($p->ID) . ')" itemprop="headline">
+    <a class="entry-title-link" rel="bookmark" href="' . get_the_permalink($p->ID) . '"></a>
+    </h2>
+    </header><div class="entry-content" itemprop="text"></div>
+    <footer class="entry-footer"><a class="entry-title-link" rel="bookmark" href="' . get_the_permalink($p->ID) . '"><span>' . get_the_title($p->ID) . '</span></a>';
+                        if ($isevent) {
+                            $ret[] = '<div class="event-date">';
+                            $ret[] = date("F j", $e['start']);
+                            if ($e['end'] > $e['start']) {
+                                $ret[] = ' – ' . date("F j", $e['end']);
+                            }
+                            $ret[] = '</div>';
+                        }
+                        $ret[] = '</footer></article>';
+                    }
+                }
             }
-        }
-            $ret[] = '<article class="entry col-xs-12 col-sm-6 col-md-4" itemscope="" itemtype="https://schema.org/CreativeWork">
-<header class="entry-header">
-<h2 class="entry-title" style="background-image:url(' . get_the_post_thumbnail_url() . ')" itemprop="headline">
-<a class="entry-title-link" rel="bookmark" href="' . get_the_permalink() . '"></a>
-</h2>
-</header><div class="entry-content" itemprop="text"></div>
-<footer class="entry-footer"><a class="entry-title-link" rel="bookmark" href="' . get_the_permalink() . '"><span>' . get_the_title() . '</span></a>';
-        if($isevent){
-            $start = get_post_meta($post->ID,'event_start_date',true);
-            $end = get_post_meta($post->ID,'event_end_date',true);
-            $ret[] = '<div class="event-date">';
-            $ret[] = date("F j",strtotime($start));
-            if(strtotime($end) > strtotime($start)){
-                $ret[] = ' – '. date("F j",strtotime($end));
+        } else {
+            while($cpquery->have_posts()){
+            $cpquery->the_post();
+                $ret[] = '<article class="entry col-xs-12 col-sm-6 col-md-4" itemscope="" itemtype="https://schema.org/CreativeWork">
+    <header class="entry-header">
+    <h2 class="entry-title" style="background-image:url(' . get_the_post_thumbnail_url() . ')" itemprop="headline">
+    <a class="entry-title-link" rel="bookmark" href="' . get_the_permalink() . '"></a>
+    </h2>
+    </header><div class="entry-content" itemprop="text"></div>
+    <footer class="entry-footer"><a class="entry-title-link" rel="bookmark" href="' . get_the_permalink() . '"><span>' . get_the_title() . '</span></a>';
+    $ret[] = '</footer></article>';
             }
-            $ret[] = '</div>';
-        }
-$ret[] = '</footer></article>';
         }
         $ret[] = '</div>';
     }
