@@ -1889,6 +1889,13 @@ hr.padded {
     display: block;
     font-size: 0.8em; }
 
+.event-blurb {
+  font-family: 'Lato', sans-serif;
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+  font-weight: 400;
+  font-size: 0.8em; }
+
 @media only screen and (min-width: 768px) {
   /* Accessible Menu
   --------------------------------------------- */

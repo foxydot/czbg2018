@@ -5,7 +5,12 @@
     <?php $mb->the_field('event_end_date'); ?>
     <label for="<?php $mb->the_name(); ?>">End Date</label>
     <p><input class="large-text datepicker" type="text" name="<?php $mb->the_name(); ?>" value="<?php $mb->the_value(); ?>" placeholder="" /></p>
-    <?php $mb->the_field('event_recurs_boolean'); ?>
+<?php $mb->the_field('event_blurb'); ?>
+<label for="<?php $mb->the_name(); ?>">Event Blurb</label>
+<p><textarea maxlength="100" style="width: 100%;" name="<?php $mb->the_name(); ?>" value="<?php $mb->the_value(); ?>" placeholder=""></textarea></p>
+
+
+<?php $mb->the_field('event_recurs_boolean'); ?>
     <p><input class="trigger" type="checkbox" name="<?php $mb->the_name(); ?>" value="1"<?php $mb->the_checkbox_state('1'); ?>/> Event recurrs
     <div class="toggle">
         <p>

@@ -264,9 +264,10 @@ function _msdlab_menu_shortcode_handler($atts){
                 $cpquery->the_post();
                 $start = strtotime(get_post_meta($post->ID, 'event_start_date', true));
                 $end = strtotime(get_post_meta($post->ID, 'event_end_date', true));
+                $blurb = get_post_meta($post->ID, 'event_blurb',true);
                 $recurring = get_post_meta($post->ID, 'event_recurs_boolean', true);
                 //populate array
-                $events[date('F', $start)][date('d', $start)][] = array('post' => $post, 'start' => $start, 'end' => $end);
+                $events[date('F', $start)][date('d', $start)][] = array('post' => $post, 'start' => $start, 'end' => $end, 'blurb' => $blurb);
                 if ($recurring > 0) {
                     $event_recurs_frequency = get_post_meta($post->ID, 'event_recurs_frequency', true);
                     $event_recurs_period = get_post_meta($post->ID, 'event_recurs_period', true);
@@ -274,7 +275,7 @@ function _msdlab_menu_shortcode_handler($atts){
                     while (strtotime('+ ' . $event_recurs_frequency . ' ' . $event_recurs_period . '', $start) <= strtotime($event_recurs_end)) {
                         $start = strtotime('+ ' . $event_recurs_frequency . ' ' . $event_recurs_period . '', $start);
                         $end = strtotime('+ ' . $event_recurs_frequency . ' ' . $event_recurs_period . '', $end);
-                        $events[date('F', $start)][date('d', $start)][] = array('post' => $post, 'start' => $start, 'end' => $end);
+                        $events[date('F', $start)][date('d', $start)][] = array('post' => $post, 'start' => $start, 'end' => $end, 'blurb' => $blurb);
                     }
                 }
             }
@@ -291,14 +292,15 @@ function _msdlab_menu_shortcode_handler($atts){
     </h2>
     </header><div class="entry-content" itemprop="text"></div>
     <footer class="entry-footer"><a class="entry-title-link" rel="bookmark" href="' . get_the_permalink($p->ID) . '"><span>' . get_the_title($p->ID) . '</span></a>';
-                        if ($isevent) {
                             $ret[] = '<div class="event-date">';
                             $ret[] = date("F j", $e['start']);
                             if ($e['end'] > $e['start']) {
                                 $ret[] = ' – ' . date("F j", $e['end']);
                             }
                             $ret[] = '</div>';
-                        }
+                            if(strlen($e['blurb']) > 0){
+                                $ret[] = '<div class="event-blurb">'.$e['blurb'].'</div>';
+                            }
                         $ret[] = '</footer></article>';
                     }
                 }

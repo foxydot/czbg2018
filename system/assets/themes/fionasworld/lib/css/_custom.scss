@@ -241,3 +241,7 @@ hr.padded{
     }
   }
 }
+
+.event-blurb{
+  @include sansserif(0.8);
+}
