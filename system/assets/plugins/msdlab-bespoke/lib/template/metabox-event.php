@@ -7,7 +7,7 @@
     <p><input class="large-text datepicker" type="text" name="<?php $mb->the_name(); ?>" value="<?php $mb->the_value(); ?>" placeholder="" /></p>
 <?php $mb->the_field('event_blurb'); ?>
 <label for="<?php $mb->the_name(); ?>">Event Blurb</label>
-<p><textarea maxlength="100" style="width: 100%;" name="<?php $mb->the_name(); ?>" value="<?php $mb->the_value(); ?>" placeholder=""></textarea></p>
+<p><textarea maxlength="100" style="width: 100%;" name="<?php $mb->the_name(); ?>"><?php $mb->the_value(); ?></textarea></p>
 
 
 <?php $mb->the_field('event_recurs_boolean'); ?>
