@@ -26,4 +26,20 @@ if(!function_exists('get_attachment_id_from_src')){
     }
 }
 
-add_filter('max_srcset_image_width', create_function('', 'return 1;'));
+if(!function_exists('return_1')){
+    function return_1(){
+        return 1;
+    }
+}
+
+add_filter('max_srcset_image_width', 'return_1');
+
+if(!function_exists('make_thickboxed')){
+    function make_thickboxed(){
+        wp_enqueue_script('thickbox',null,array('jquery'));
+        wp_enqueue_script('thickboxed',plugin_dir_url(dirname(__FILE__)).'/js/thicken.js',array('jquery','thickbox'));
+        wp_enqueue_style('thickbox.css', '/'.WPINC.'/js/thickbox/thickbox.css', null, '1.0');
+    }
+}
+
+add_action('wp_enqueue_scripts','make_thickboxed');
