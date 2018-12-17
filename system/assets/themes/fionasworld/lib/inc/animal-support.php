@@ -151,6 +151,7 @@ if(!class_exists('MSDLab_Animal_Support')){
             $args['paged'] = esc_attr( $_POST['page'] );
             $args['orderby'] = 'post_title';
             $args['order'] = 'ASC';
+            $args['post_status'] = array('publish');
             $args['posts_per_page'] = 15;
             $args['ajax'] = true;
             ob_start();
