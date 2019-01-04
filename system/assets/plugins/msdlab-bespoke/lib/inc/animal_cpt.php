@@ -389,7 +389,7 @@ if (!class_exists('AnimalCPT')) {
                 case 'habitat':
                 $terms = get_terms( array(
                     'taxonomy' => 'exhibit',
-                    'hide_empty' => false,
+                    'hide_empty' => true,
                     'parent'   => 0,
                 ) );
                 foreach ($terms AS $t){
