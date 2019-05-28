@@ -194,6 +194,7 @@ class MSDSectionedPage{
     }
 
     function sectioned_page_output(){
+       if(is_search()){return;}
         wp_enqueue_script('sticky',WP_PLUGIN_URL.'/'.plugin_dir_path('msd-specialty-pages/msd-specialty-pages.php'). '/lib/js/jquery.sticky.js',array('jquery'),FALSE,TRUE);
         global $post,$subtitle_metabox,$sectioned_page_metabox,$nav_ids;
         $i = 0;
